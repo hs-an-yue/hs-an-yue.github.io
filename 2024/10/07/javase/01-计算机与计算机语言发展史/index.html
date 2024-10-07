@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="123456作者: 夜泊1990企鹅: 1611756908Q 群: 948233848邮箱: hd1611756908@163.com博客: https:&#x2F;&#x2F;hs-an-yue.github.io&#x2F;B 站: https:&#x2F;&#x2F;space.bilibili.com&#x2F;514155929&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="01-计算机与计算机语言发展史">
+<meta property="og:url" content="http://example.com/2024/10/07/javase/01-%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80%E5%8F%91%E5%B1%95%E5%8F%B2/index.html">
+<meta property="og:site_name" content="夜泊1990">
+<meta property="og:description" content="123456作者: 夜泊1990企鹅: 1611756908Q 群: 948233848邮箱: hd1611756908@163.com博客: https:&#x2F;&#x2F;hs-an-yue.github.io&#x2F;B 站: https:&#x2F;&#x2F;space.bilibili.com&#x2F;514155929&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB5e4128876dac71e82c1bf3ebee091bcb?method=download&shareKey=7899e80dbc4bff718c4585b994fc698f">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB66298a4d562db158746decc3fba7a980?method=download&shareKey=eceffa2e63f922322601a6b53783be2f">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB5c1554cb2e69fc5952646f38203f6b29?method=download&shareKey=ef1fdc70c433d89deb9e418901fc03e7">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBde6e482308d8b5c51226a94a6288280c?method=download&shareKey=26ad1ae0b18564b814455fb600d6c1d4">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBb3c24bb53627907b9cb315bcea8ba95e?method=download&shareKey=10025b5f906bb7f67178f6d37d558ef5">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBad7d9ec4d4a2866dff2ec755d4ea7200?method=download&shareKey=e2085af4c8982ebd6c9177d64d58de8c">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB3f0bb5000bb4bf2da8ebabb4d5b8c852?method=download&shareKey=9b86be36c1ba71b6217bd3777a252ce5">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB590e32479ffa18bef3057437ef8c31a2?method=download&shareKey=bfad204aafae0f46bdede78d501a1c49">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB6fb5493333dc0eaa4d67fb22f8620358?method=download&shareKey=1014df5b60a60d2d20ad6de1fcd20aac">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB3846e11b09cb734fdda34be8c1561c02?method=download&shareKey=663a42b503f0257d8605732ce4ee2117">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB0810cac1236ced55ee7ba3c37caf41a3?method=download&shareKey=cccaf6d8bc38a03fa7e7bc9a62e95267">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB26cbe0ada19525c7bbd878ac1352fc16?method=download&shareKey=5dab08289aebc8fcc0d1aee318ccd1f4">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBe913b3fd5fda592f164af463032102e9?method=download&shareKey=7bf8c74ce6002f05cf53e51e5d37a0a4">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB27b9d7c3af9d2b134d74f410e52e16c1?method=download&shareKey=3531d67b0646cc0a8b2fa26b67fc4c56">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBa5581a57b11fe318e091fa9939dc8b5f?method=download&shareKey=493c5a5ad068f0d8222cc7a192bdcbcd">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBb090bff810c83d1e422d1431a9345680?method=download&shareKey=f931fab2f92fd80bedd40ca2205234e5">
+<meta property="article:published_time" content="2024-10-07T11:34:09.592Z">
+<meta property="article:modified_time" content="2024-10-07T12:47:49.769Z">
+<meta property="article:author" content="新换了一个网名">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="计算机语言">
+<meta property="article:tag" content="语言">
+<meta property="article:tag" content="存储">
+<meta property="article:tag" content="历史">
+<meta property="article:tag" content="数学家">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/WEB5e4128876dac71e82c1bf3ebee091bcb?method=download&shareKey=7899e80dbc4bff718c4585b994fc698f">
+
+
+<link rel="canonical" href="http://example.com/2024/10/07/javase/01-%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80%E5%8F%91%E5%B1%95%E5%8F%B2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/10/07/javase/01-%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80%E5%8F%91%E5%B1%95%E5%8F%B2/","path":"2024/10/07/javase/01-计算机与计算机语言发展史/","title":"01-计算机与计算机语言发展史"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>01-计算机与计算机语言发展史 | 夜泊1990</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+	<a target="_blank" rel="noopener" href="https://gitee.com/ukoko" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">夜泊1990</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">每走一步,都是进步</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AE%80%E8%BF%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="nav-number">1.</span> <span class="nav-text">第一章 简述计算机发展史</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC1%E8%8A%82-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">第1节 计算机的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC2%E8%8A%82-%E7%94%B5%E5%AD%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90"><span class="nav-number">1.2.</span> <span class="nav-text">第2节 电子计算机组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC3%E8%8A%82-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="nav-number">1.3.</span> <span class="nav-text">第3节 计算机的发展史</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%AE%80%E8%BF%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="nav-number">2.</span> <span class="nav-text">第二章 简述计算机语言发展史</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC1%E8%8A%82-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%92%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80"><span class="nav-number">2.1.</span> <span class="nav-text">第1节 自然语言和计算机语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC2%E8%8A%82-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80%E7%94%B1%E6%9D%A5"><span class="nav-number">2.2.</span> <span class="nav-text">第2节 计算机语言由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC3%E8%8A%82-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%98%E5%82%A8%E5%99%A8%E5%8F%91%E5%B1%95"><span class="nav-number">2.3.</span> <span class="nav-text">第3节 计算机存储器发展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC4%E8%8A%82-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80%E5%8F%91%E5%B1%95"><span class="nav-number">2.4.</span> <span class="nav-text">第4节 计算机语言发展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E7%AC%AC%E4%B8%80%E4%BB%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.1 第一代计算机语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E7%AC%AC%E4%BA%8C%E4%BB%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.2 第二代计算机语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-%E7%AC%AC%E4%B8%89%E4%BB%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80"><span class="nav-number">2.4.3.</span> <span class="nav-text">4.3 第三代计算机语言</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC5%E8%8A%82-%E8%BF%9B%E5%88%B6-%E4%BA%86%E8%A7%A3"><span class="nav-number">2.5.</span> <span class="nav-text">第5节 进制(了解)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-%E4%BA%BA%E7%B1%BB%E8%AE%A1%E6%95%B0%E6%96%B9%E5%BC%8F"><span class="nav-number">2.5.1.</span> <span class="nav-text">5.1 人类计数方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AE%A1%E6%95%B0%E6%96%B9%E5%BC%8F"><span class="nav-number">2.5.2.</span> <span class="nav-text">5.2 计算机计数方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-%E8%BF%9B%E5%88%B6%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.5.3.</span> <span class="nav-text">5.3 进制的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-1-%E5%B8%B8%E8%A7%81%E8%BF%9B%E5%88%B6%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.5.3.1.</span> <span class="nav-text">5.3.1 常见进制介绍</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-2-%E5%B8%B8%E8%A7%81%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.5.3.2.</span> <span class="nav-text">5.3.2 常见进制转换</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%AE%80%E8%BF%B0%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="nav-number">3.</span> <span class="nav-text">第三章 简述操作系统发展史</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC1%E8%8A%82-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D"><span class="nav-number">3.1.</span> <span class="nav-text">第1节 操作系统介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC2%E8%8A%82-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%91%E5%B1%95"><span class="nav-number">3.2.</span> <span class="nav-text">第2节 操作系统发展</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-DOS%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.</span> <span class="nav-text">第四章 DOS操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC1%E8%8A%82-DOS%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D"><span class="nav-number">4.1.</span> <span class="nav-text">第1节 DOS操作系统介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC2%E8%8A%82-DOS%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">第2节 DOS操作系统的启动方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC3%E8%8A%82-DOS%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">4.3.</span> <span class="nav-text">第3节 DOS操作系统的常用命令</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="新换了一个网名"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">新换了一个网名</p>
+  <div class="site-description" itemprop="description">须之少年凌云志,曾许人间第一流</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/ukoko" title="码云 → https:&#x2F;&#x2F;gitee.com&#x2F;ukoko" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>码云</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hd1611756908@163.com" title="邮箱 → mailto:hd1611756908@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>邮箱</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/07/javase/01-%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80%E5%8F%91%E5%B1%95%E5%8F%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="新换了一个网名">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夜泊1990">
+      <meta itemprop="description" content="须之少年凌云志,曾许人间第一流">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="01-计算机与计算机语言发展史 | 夜泊1990">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          01-计算机与计算机语言发展史
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-10-07 19:34:09 / 修改时间：20:47:49" itemprop="dateCreated datePublished" datetime="2024-10-07T19:34:09+08:00">2024-10-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/javase/" itemprop="url" rel="index"><span itemprop="name">javase</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<span id="more"></span>
+
+<h2 id="第一章-简述计算机发展史"><a href="#第一章-简述计算机发展史" class="headerlink" title="第一章 简述计算机发展史"></a>第一章 简述计算机发展史</h2><h3 id="第1节-计算机的概念"><a href="#第1节-计算机的概念" class="headerlink" title="第1节 计算机的概念"></a>第1节 计算机的概念</h3><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">广义概念: 可以帮助我们人类完成计算的机器统称为计算机。例如: 算盘</span></span><br><span class="line"></span><br><span class="line"><span class="section">狭义概念: 当前我们所谓的计算机一般特指电子计算机(电脑) </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="第2节-电子计算机组成"><a href="#第2节-电子计算机组成" class="headerlink" title="第2节 电子计算机组成"></a>第2节 电子计算机组成</h3><figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">计算机组成</span><span class="punctuation">:</span></span><br><span class="line">  <span class="attribute">硬件</span><span class="punctuation">:</span> <span class="string">主板、硬盘、CPU、显卡、显示器、鼠标、键盘...</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">软件</span><span class="punctuation">:</span></span><br><span class="line">    <span class="attribute">系统软件</span><span class="punctuation">:</span> <span class="string">Windows、Linux、Mac、Android、ios...</span></span><br><span class="line">    <span class="attribute">应用软件</span><span class="punctuation">:</span> <span class="string">QQ 微信 王者荣耀 英雄联盟(LOL) 开心消消乐 ...</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="第3节-计算机的发展史"><a href="#第3节-计算机的发展史" class="headerlink" title="第3节 计算机的发展史"></a>第3节 计算机的发展史</h3><figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">... 很久以前 ...</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">1. 算盘(机械/手动) </span></span><br><span class="line"><span class="attribute">	</span></span><br><span class="line"><span class="attribute">	1.1 作者</span><span class="punctuation">    :</span> <span class="string">不详</span></span><br><span class="line">	<span class="attribute">1.2 出生年代</span><span class="punctuation">:</span> <span class="string">不详</span></span><br><span class="line">	<span class="attribute">1.3 备注</span><span class="punctuation">:</span> <span class="string">我国第一颗原子弹的很多数据是采用算盘计算出来的,据说当初的草稿可以铺满整个罗布泊.在这里致敬老一辈科学家</span></span><br><span class="line">	</span><br><span class="line"><span class="attribute">2. 步进计算器(机械/手动)</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">	2.1 作者</span><span class="punctuation">    :</span> <span class="string">德国数学家[戈特弗里德·布莱尼茨]</span></span><br><span class="line">	<span class="attribute">2.2 出生年代</span><span class="punctuation">:</span> <span class="string">1694年</span></span><br><span class="line">	<span class="attribute">2.3 备注</span><span class="punctuation">:</span> <span class="string">当前模型存在于德意志博物馆中</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">3. 差分机(机械/手动)</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">	3.1 作者</span><span class="punctuation">    :</span> <span class="string">英国数学家[查尔斯·巴贝奇]</span></span><br><span class="line">	<span class="attribute">3.2 出生年代</span><span class="punctuation">:</span> <span class="string">1822年</span></span><br><span class="line">	<span class="attribute">3.3 备注</span><span class="punctuation">:</span> <span class="string">历时10年从设计到加工都是由巴贝奇一个人完成,计算精度达到6位小数</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">4. 分析机(机械/自动[蒸汽机])</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">	4.1 作者</span><span class="punctuation">    :</span> <span class="string">英国数学家[查尔斯·巴贝奇]</span></span><br><span class="line">	<span class="attribute">4.2 出生年代</span><span class="punctuation">:</span> <span class="string">1830年</span></span><br><span class="line">	<span class="attribute">4.3 备注</span><span class="punctuation">:</span> <span class="string">可以进行相当复杂的运算,精确到小数点后31位,采用蒸汽机驱动,打孔卡带(存储器的前身)编程,算是世界上第一台真正意义上的计算机(巴贝奇被后人称之为计算机之父)</span></span><br><span class="line">			  <span class="attribute">由于设计太超前没有被大多数人认可.但是当时有一位英国数学家 奥古斯塔·阿达·金(勒芙蕾丝伯爵夫人) 对分析机特别感兴趣,并为其写了一个算法(第一位给计算机写程序的人). </span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">5. 打孔计数器(机械/电动)</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">	5.1 作者</span><span class="punctuation">    :</span> <span class="string">美国人[赫尔曼·霍尔瑞斯]</span></span><br><span class="line">	<span class="attribute">5.2 出生年代</span><span class="punctuation">:</span> <span class="string">1880-1890年</span></span><br><span class="line">	<span class="attribute">5.3 备注</span><span class="punctuation">:</span> <span class="string">最早用于1890年的美国人口普查,1890年以前美国人口普查人数统计采用纯手动,1890之后进入电器自动化时代,原理就是将人的信息通过打孔的方式记录到纸卡上,通过打孔卡计数器读取.</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">6. 阿塔纳索夫-贝瑞计算机(ABC计算机[电子管])</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">	6.1 作者</span><span class="punctuation">    :</span> <span class="string">美国科学家[阿塔纳索夫] 和 克利福德·贝里[当时正在物理系读研究生]</span></span><br><span class="line">	<span class="attribute">6.2 出生年代</span><span class="punctuation">:</span> <span class="string">1939年(样机问世)1942年(测试成功)</span></span><br><span class="line">	<span class="attribute">6.3 备注</span><span class="punctuation">:</span> <span class="string">爱荷华州立大学 物理系任副教授,在给学生上课时需要给学生讲授如何求解 线性偏微分方程组 他觉得比较浪费时间还枯燥,所以用了两年时间搞了这台机器</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">7. 电子数字积分计算机(ENIAC[电子管])</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">	7.1 作者</span><span class="punctuation">    :</span> <span class="string">团队[约翰·冯·诺依曼和&quot;莫尔小组&quot;的工程师 埃克特、莫希利、戈尔斯坦 以及华人科学家 朱传榘[jǔ] 组成]</span></span><br><span class="line">	<span class="attribute">7.2 出生年代</span><span class="punctuation">:</span> <span class="string">1946年</span></span><br><span class="line">	<span class="attribute">7.3 备注</span><span class="punctuation">:</span> <span class="string">研发背景: 二战时期</span></span><br><span class="line">			  <span class="attribute">研发原因</span><span class="punctuation">:</span> <span class="string">二战时期主要战力飞机和大炮,所以研发新型大炮和导弹十分重要,为此美国陆军军械部设立了弹道研究室,美国军方要求该实验室每天为陆军炮弹部队提供6张射表.</span></span><br><span class="line">			  <span class="attribute">当时的射表数据是纯人工计算,效率低下,数据不准确,几百个人加班加点两个多月才能算出一张射表(每张射表计算几百个弹道数据).</span></span><br><span class="line"><span class="attribute">			  研发时间</span><span class="punctuation">:</span> <span class="string">宾夕法尼亚大学莫尔电机工程学院的莫希利于1942年提出了试制第一台电子计算机的初始设想(这台计算机的设想来源于阿塔纳索夫-贝瑞计算机)</span></span><br><span class="line">			  <span class="attribute">计算速度</span><span class="punctuation">:</span> <span class="string">每秒能进行5000次加法运算,每秒400次乘法运算,它还能进行平方和立方运算，计算正弦和余弦等三角函数的值及其它一些更复杂的运算</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">8. 电子计算机(集成电路)</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">	8.1 作者</span><span class="punctuation">    :</span> <span class="string">当代科学家</span></span><br><span class="line">	<span class="attribute">8.2 出生年代</span><span class="punctuation">:</span> <span class="string">当代</span></span><br><span class="line"></span><br><span class="line">... 以后 ...</span><br></pre></td></tr></table></figure>
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB5e4128876dac71e82c1bf3ebee091bcb?method=download&shareKey=7899e80dbc4bff718c4585b994fc698f">
+
+<h2 id="第二章-简述计算机语言发展史"><a href="#第二章-简述计算机语言发展史" class="headerlink" title="第二章 简述计算机语言发展史"></a>第二章 简述计算机语言发展史</h2><h3 id="第1节-自然语言和计算机语言"><a href="#第1节-自然语言和计算机语言" class="headerlink" title="第1节 自然语言和计算机语言"></a>第1节 自然语言和计算机语言</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">自然语言  : 人与人沟通的语言叫做自然语言; 比如: 汉语、英语、韩语...</span><br><span class="line">计算机语言: 人与计算机沟通的语言叫做计算机语言; 比如: C/C++、Java、Python...</span><br><span class="line"></span><br><span class="line">计算机语言也叫做语言,被人类划分到语言的行列说明它和我们人类的自然语言有很多相似之处.</span><br><span class="line"></span><br><span class="line">自然语言和计算机语言学习步骤:</span><br><span class="line">	自然语言(英语)  : 单词         -- 语法 -- 与外国人交流</span><br><span class="line">	计算机语言(Java): 关键字(单词)  -- 语法 -- 与计算机交流</span><br><span class="line"></span><br><span class="line">计算机语言学习起来更简单,因为计算机语言没有英语那么多单词,只需要记住常见的几十个,常用的十几二十个即可.</span><br></pre></td></tr></table></figure>
+
+<h3 id="第2节-计算机语言由来"><a href="#第2节-计算机语言由来" class="headerlink" title="第2节 计算机语言由来"></a>第2节 计算机语言由来</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">计算机语言不是随着计算机的发展而发展的,其实计算机语言最早的应用不是在计算机上而是在织布机上,你没看错就是那个男耕女织的织布机上.</span><br><span class="line"></span><br><span class="line"><span class="number">1800</span>到<span class="number">1804</span>年法国人 约瑟夫·玛丽·雅卡尔 在改进前人提花机(能织出带图案的织布机)的基础之上,发明了采用穿孔卡带的方式,来记录提花机提花的过程,可以达到让提花机可以重复提花的目的.</span><br><span class="line"></span><br><span class="line">这里的穿孔卡带(纸卡): 可以看成是最早期的计算机存储</span><br><span class="line">纸卡上的孔: 最早期的与机器交流的语言(早期计算机语言),有孔的地方为<span class="number">1</span> 无孔的地方为<span class="number">0</span></span><br><span class="line"></span><br><span class="line">提花机根据读取带孔的纸卡来控制顶针的抬起或者是放下而进行提花.</span><br></pre></td></tr></table></figure>
+
+<table>
+    <tr>
+        <td style="text-align:center;"><img style="width:50%;" src="https://note.youdao.com/yws/api/personal/file/WEB66298a4d562db158746decc3fba7a980?method=download&shareKey=eceffa2e63f922322601a6b53783be2f"></td>
+        <td style="width:50%;"><iframe src="//player.bilibili.com/player.html?aid=969922335&bvid=BV1hp4y1Y7y5&cid=246572512&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></td>
+    </tr>
+</table>
+
+
+<h3 id="第3节-计算机存储器发展"><a href="#第3节-计算机存储器发展" class="headerlink" title="第3节 计算机存储器发展"></a>第3节 计算机存储器发展</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在学习计算机语言之前首先我们需要先聊一聊存储器(类似于计算机的硬盘,或者U盘这一类存储设备),因为计算机软件都安装在电脑硬盘上,</span><br><span class="line">计算机软件是由计算机语言编写的,计算机语言编写的软件最终要保存在电脑的硬盘上,以便于计算机进行读取和运行.</span><br></pre></td></tr></table></figure>
+
+<table>
+    <tbody>
+        <tr>
+            <td style="word-wrap:break-word;width:50%;">
+                <strong>穿孔卡带</strong>
+                <pre style="font-size:12px;">
+1830年最早应用在巴贝尔的分析机上.
+这是最早的计算机软硬件结合.
+这个纸卡就是最早期的计算机存储器.
+纸卡上的孔就是最早期的计算机编程语言(0/1)
+计算机读取这个卡,其实就是读取卡上的孔,获取要完成的任务信息.
+这样带孔的卡不仅可以做计算机存储,还可以做其他存储(例如太阳卡,做学生饭卡)
+                </pre>
+            </td>
+            <td style="width:50%;">
+                <img src="https://note.youdao.com/yws/api/personal/file/WEB5c1554cb2e69fc5952646f38203f6b29?method=download&shareKey=ef1fdc70c433d89deb9e418901fc03e7">
+            </td>
+        </tr>
+        <tr>
+            <td style="word-wrap:break-word;width:50%;">
+                <strong>电子管存储</strong>
+                <pre style="font-size:12px;">
+世界上第一台计算机[ABC计算机],就是采用电子管存储
+相比于纸带,电子管存储造价昂贵,故障率高,但是可以反复擦除
+                </pre>
+            </td>
+            <td style="width:50%;">
+                <img src="https://note.youdao.com/yws/api/personal/file/WEBde6e482308d8b5c51226a94a6288280c?method=download&shareKey=26ad1ae0b18564b814455fb600d6c1d4">
+            </td>
+        </tr>
+        <tr>
+            <td style="word-wrap:break-word;width:50%;">
+                <strong>磁带</strong>
+                <pre style="font-size:12px;">
+1950年IBM最早把盘式磁带用在数据存储上.
+一卷磁带可以代替1万张打孔纸卡,既便宜还能减少卡带体积
+成为直到80年代最为普及的计算机存储设备
+                </pre>
+            </td>
+            <td style="width:50%;">
+                <img src="https://note.youdao.com/yws/api/personal/file/WEBb3c24bb53627907b9cb315bcea8ba95e?method=download&shareKey=10025b5f906bb7f67178f6d37d558ef5">
+            </td>
+        </tr>
+        <tr>
+            <td style="word-wrap:break-word;width:50%;">
+                <strong>磁鼓</strong>
+                <pre style="font-size:12px;">
+1953年,第一台磁鼓应用于IBM701
+磁鼓是利用铝鼓筒表面涂覆的磁性材料来存储数据的
+鼓筒旋转速度很高,因此存取速度快
+                </pre>
+            </td>
+            <td style="width:50%;">
+                <img src="https://note.youdao.com/yws/api/personal/file/WEBad7d9ec4d4a2866dff2ec755d4ea7200?method=download&shareKey=e2085af4c8982ebd6c9177d64d58de8c">
+            </td>
+        </tr>
+        <tr>
+            <td style="word-wrap:break-word;width:50%;">
+                <strong>软盘</strong>
+                <pre style="font-size:12px;">
+1969年第一张软盘诞生,当时是一张8英寸的大家伙,可以保存80K的只读数据
+1973年的时候比他小一号但是容量为256k的软盘诞生,并且是可读写的
+直到90年代末,那时候可以找到3.5英寸250MB的的软盘
+                </pre>
+            </td>
+            <td style="width:50%;">
+                <img src="https://note.youdao.com/yws/api/personal/file/WEB3f0bb5000bb4bf2da8ebabb4d5b8c852?method=download&shareKey=9b86be36c1ba71b6217bd3777a252ce5">
+            </td>
+        </tr>
+        <tr>
+            <td style="word-wrap:break-word;width:50%;">
+                <strong>硬盘</strong>
+                <pre style="font-size:12px;">
+1956年9月13日,IBM发布了305 RAMAC硬盘机
+在当时的存储容量可以达到惊人的4.4MB
+当时一个硬盘机的重量高达600公斤以上
+                </pre>
+            </td>
+            <td style="width:50%;">
+                <img src="https://note.youdao.com/yws/api/personal/file/WEB590e32479ffa18bef3057437ef8c31a2?method=download&shareKey=bfad204aafae0f46bdede78d501a1c49">
+            </td>
+        </tr>
+        <tr>
+            <td style="word-wrap:break-word;width:50%;">
+                <strong>光盘</strong>
+                <pre style="font-size:12px;">
+1958年开始发明光盘技术到1972年第一张光盘问世
+1978年才在市场上售卖,在当时光盘是只读的不能写
+                </pre>
+            </td>
+            <td style="width:50%;">
+                <img src="https://note.youdao.com/yws/api/personal/file/WEB6fb5493333dc0eaa4d67fb22f8620358?method=download&shareKey=1014df5b60a60d2d20ad6de1fcd20aac">
+            </td>
+        </tr>
+        <tr>
+            <td style="word-wrap:break-word;width:50%;">
+                <strong>固态硬盘</strong>
+                <pre style="font-size:12px;">
+1989年世界上第一款固态硬盘由IBM推出
+                </pre>
+            </td>
+            <td style="width:50%;">
+                <img src="https://note.youdao.com/yws/api/personal/file/WEB3846e11b09cb734fdda34be8c1561c02?method=download&shareKey=663a42b503f0257d8605732ce4ee2117">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3 id="第4节-计算机语言发展"><a href="#第4节-计算机语言发展" class="headerlink" title="第4节 计算机语言发展"></a>第4节 计算机语言发展</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第一代计算机语言(机器语言) -- 第二代计算机语言(汇编语言) -- 第三代计算机语言(C/C++、Java、Python...)</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-1-第一代计算机语言"><a href="#4-1-第一代计算机语言" class="headerlink" title="4.1 第一代计算机语言"></a>4.1 第一代计算机语言</h4><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">第一代计算机语言我们称它为机器语言,直接与机器交互,控制机器行为</span><br><span class="line"></span><br><span class="line">比如提花机,使用穿孔纸卡保存花样,控制提花机的顶针</span><br><span class="line"></span><br><span class="line">百合花  --  对应一卷纸</span><br><span class="line">玫瑰花  --  对应一卷纸</span><br><span class="line">牡丹花  --  对应一卷纸</span><br><span class="line"></span><br><span class="line">在纸上记录花样使用孔洞来记录,如果有孔顶针穿过,没有孔顶针穿不过,这时候纸带上只有两种状态 <span class="number">0</span>/<span class="number">1</span> </span><br><span class="line"></span><br><span class="line">机器语言(第一代计算机语言)使用钻孔编程,或者是使用<span class="number">0</span>和<span class="number">1</span>进行编程,有孔表示<span class="number">1</span>没有孔表示<span class="number">0</span></span><br><span class="line"></span><br><span class="line">早期计算机都是使用穿孔卡带进行存储的穿孔卡带可以存花样,也可以存算法,数据等.计算机通过读纸带然后执行纸带中记录的功能.</span><br><span class="line"></span><br><span class="line">雅卡尔提花机工作原理:</span><br><span class="line">https://v.qq.<span class="keyword">com</span>/x/page/x0553c41d57.html</span><br></pre></td></tr></table></figure>
+
+<table>
+    <tbody>
+        <tr>
+            <td style="width:50%;" > <img src="https://note.youdao.com/yws/api/personal/file/WEB0810cac1236ced55ee7ba3c37caf41a3?method=download&shareKey=cccaf6d8bc38a03fa7e7bc9a62e95267"> </td>
+            <td style="width:50%;" > <iframe style="width:100%;"  frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=x0553c41d57" allowFullScreen="true"></iframe> </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h4 id="4-2-第二代计算机语言"><a href="#4-2-第二代计算机语言" class="headerlink" title="4.2 第二代计算机语言"></a>4.2 第二代计算机语言</h4><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">随着计算机的发展,随着存储的发展,我们需要计算机做的事情越来越复杂,这时候使用机器语言(类似于打孔,给机器输入<span class="number">0</span>/<span class="number">1</span>)编程越来越复杂.</span><br><span class="line">这是就催生出了计算机语言的发展,咱们下面举一个例子</span><br><span class="line"></span><br><span class="line">让计算机帮助我们计算 <span class="number">1</span>+<span class="number">1</span> </span><br><span class="line">如果打孔的话，下面随便举的一个例子 <span class="number">0</span>代表纸带没有孔,<span class="number">1</span>代表纸带有孔</span><br><span class="line"><span class="symbol">00000001 </span> -- <span class="number">1</span></span><br><span class="line"><span class="symbol">10101010 </span> -- +   ADD (使用我们熟悉的字符序列代替了一串<span class="number">0</span>和<span class="number">1</span>)</span><br><span class="line"><span class="symbol">00000001 </span> -- <span class="number">1</span></span><br><span class="line"><span class="symbol">00000010 </span> -- <span class="number">2</span></span><br><span class="line"></span><br><span class="line">除了<span class="number">0</span>就是<span class="number">1</span>一个功能由很多<span class="number">0</span>和<span class="number">1</span>组成,这样的功能代码很不容易记忆,所以就有人提出想法,能不能有什么办法使用我们熟悉的字符代替<span class="number">0</span>和<span class="number">1</span>,所以汇编语言出现了</span><br></pre></td></tr></table></figure>
+
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <strong>汇编语言</strong>
+                <pre>
+使用简单的英文符号,代替了大量的0/1机器码
+相比于机器语言,汇编语言编写代码更容易.
+                </pre>
+            </td>
+            <td> <img src="https://note.youdao.com/yws/api/personal/file/WEB26cbe0ada19525c7bbd878ac1352fc16?method=download&shareKey=5dab08289aebc8fcc0d1aee318ccd1f4"> </td>
+        </tr>
+    </tbody>
+</table>
+<table>
+    <tr>
+        <img src="https://note.youdao.com/yws/api/personal/file/WEBe913b3fd5fda592f164af463032102e9?method=download&shareKey=7bf8c74ce6002f05cf53e51e5d37a0a4">
+    </tr>
+</table>
+
+
+<h4 id="4-3-第三代计算机语言"><a href="#4-3-第三代计算机语言" class="headerlink" title="4.3 第三代计算机语言"></a>4.3 第三代计算机语言</h4><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">第三代计算机语言我们管它叫高级语言,是因为语言发展到现阶段,语言中增加和修改了很多字符序列,在汇编语言中加法运算还需要使用ADD,在高级语言(C语言)中,加法运算就和我们数学中的运算差不多使用+(加号),第三代的计算机语言的很多字符比较贴近于我们的日常.</span><br><span class="line"></span><br><span class="line">虽然语言表层是我们熟悉的字符序列,但是底层计算机在运行的时候还是解析成<span class="number">0</span>/<span class="number">1</span>(因为计算机底层原理不会变),这时就需要计算机对语言进行转换.将高级语言转成机器语言</span><br><span class="line"></span><br><span class="line">催生了各种语言编译器的发展(这里不做详细讲解).</span><br></pre></td></tr></table></figure>
+
+<table>
+    <tr>
+        <td> <img src="https://note.youdao.com/yws/api/personal/file/WEB27b9d7c3af9d2b134d74f410e52e16c1?method=download&shareKey=3531d67b0646cc0a8b2fa26b67fc4c56"> </td>
+    </tr>
+</table>
+
+
+<h3 id="第5节-进制-了解"><a href="#第5节-进制-了解" class="headerlink" title="第5节 进制(了解)"></a>第5节 进制(了解)</h3><h4 id="5-1-人类计数方式"><a href="#5-1-人类计数方式" class="headerlink" title="5.1 人类计数方式"></a>5.1 人类计数方式</h4><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们人类在日常生活中进行计数的方式采用的是(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,...,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>....) 逢十进一,这种累计计数的方式称之为 十进制 计数</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-2-计算机计数方式"><a href="#5-2-计算机计数方式" class="headerlink" title="5.2 计算机计数方式"></a>5.2 计算机计数方式</h4><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">计算机的计数方式和人类的计数方式是完全不一样的,因为其底层只有类似于低电平和高电平的开关量,只能用开关量进行计数(高电平(<span class="keyword">ON</span>)为<span class="number">1</span>/低电平(<span class="keyword">OFF</span>)为<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">在单位的长度的位数时,人类的计数方式可以记录更大的数</span><br><span class="line"></span><br><span class="line">例如: 以三位为例 人类可以存放数字范围为: <span class="number">0</span>-<span class="number">999</span>  而计算机在正常情况下三位最多存储<span class="number">111</span>,变成十进制就是 <span class="number">0</span>-<span class="number">7</span> </span><br></pre></td></tr></table></figure>
+
+<table>
+    <tr>
+        <td>
+            <img src="https://note.youdao.com/yws/api/personal/file/WEBa5581a57b11fe318e091fa9939dc8b5f?method=download&shareKey=493c5a5ad068f0d8222cc7a192bdcbcd">
+        </td>
+    </tr>
+</table>
+
+
+<h4 id="5-3-进制的转换"><a href="#5-3-进制的转换" class="headerlink" title="5.3 进制的转换"></a>5.3 进制的转换</h4><h5 id="5-3-1-常见进制介绍"><a href="#5-3-1-常见进制介绍" class="headerlink" title="5.3.1 常见进制介绍"></a>5.3.1 常见进制介绍</h5><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">常见进制介绍</span><br><span class="line"><span class="number">1</span>. (十进制)人类日常计算进制</span><br><span class="line"><span class="number">2</span>. (二进制)计算机底层计算进制</span><br><span class="line"><span class="number">3</span>. (八进制/十六进制)主要配合二进制使用,二进制位数太多不好记录(用来进行存储记忆)</span><br><span class="line"></span><br><span class="line">注意:虽然计算机底层是以二进制的形式存在,但是它是以补码的方式存储数据,这里不做介绍.</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-3-2-常见进制转换"><a href="#5-3-2-常见进制转换" class="headerlink" title="5.3.2 常见进制转换"></a>5.3.2 常见进制转换</h5><table>
+    <tr>
+        <td>
+            <img src="https://note.youdao.com/yws/api/personal/file/WEBb090bff810c83d1e422d1431a9345680?method=download&shareKey=f931fab2f92fd80bedd40ca2205234e5">
+        </td>
+    </tr>
+</table>
+
+
+<h2 id="第三章-简述操作系统发展史"><a href="#第三章-简述操作系统发展史" class="headerlink" title="第三章 简述操作系统发展史"></a>第三章 简述操作系统发展史</h2><h3 id="第1节-操作系统介绍"><a href="#第1节-操作系统介绍" class="headerlink" title="第1节 操作系统介绍"></a>第1节 操作系统介绍</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. 操作系统概念: </span><br><span class="line">	操作系统（operating <span class="keyword">system</span>，简称OS）是管理计算机硬件与软件资源的计算机程序.也是一个使用计算机语言编写的软件.</span><br><span class="line">	</span><br><span class="line"><span class="number">2</span>. 操作系统的功能</span><br><span class="line">	<span class="number">2.1</span> 是整个计算机硬件和软件资源的超级大管家,管理着当前计算机的软硬件资源</span><br><span class="line">	<span class="number">2.2</span> 硬件管理主要包括 </span><br><span class="line">		① CPU和内存资源的合理分配</span><br><span class="line">		② 任务优先级的控制</span><br><span class="line">		③ 其他输入输出设备的管理(网络,usb,显示器等)...</span><br><span class="line">	<span class="number">2.3</span> 软件管理</span><br><span class="line">		① 多软件应用的运行</span><br><span class="line">		② 软硬件资源合理化分配(例如打开QQ软件需要内存怎么分配)等...</span><br></pre></td></tr></table></figure>
+
+<h3 id="第2节-操作系统发展"><a href="#第2节-操作系统发展" class="headerlink" title="第2节 操作系统发展"></a>第2节 操作系统发展</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">无操作系统 -- ... -- DOS -- windows/unix/Linux</span><br><span class="line"></span><br><span class="line">无操作系统时代: 计算机控制的硬件资源比较少,没有复杂的任务调度问题.</span><br><span class="line"></span><br><span class="line">	算盘             -- 人脑就是CPU,珠子就是存储器     -- 算盘是主力人脑辅助  -- 半人脑，半工具</span><br><span class="line">	步进计算器/差分机  -- 解放人脑(里面有自己的计算方式)  -- 手动运行,机器运算  -- 解放人脑,没有解放双手</span><br><span class="line"></span><br><span class="line">有操作系统时代: 当一台计算机需要干的工作越来越多并且逻辑越来越复杂的时候,这时候就需要一个管理者来管理这些任务,并且合理分配计算机硬件资源.</span><br><span class="line">	分析机           -- 蒸汽机运行,机器运算,读卡       -- 解放人脑,解放双手</span><br><span class="line">	打孔计数器        -- 电动运行,机器运算,读卡        -- 比分析机更先进</span><br><span class="line">	电子计算机        -- 当前大规模集成电路            -- 超高的运算速度</span><br><span class="line">	</span><br><span class="line">注意: 这里可以将穿孔卡片看成最古老的操作系统(也可以把其单纯的看成一个软件),控制着计算机运行.</span><br></pre></td></tr></table></figure>
+
+<h2 id="第四章-DOS操作系统"><a href="#第四章-DOS操作系统" class="headerlink" title="第四章 DOS操作系统"></a>第四章 DOS操作系统</h2><h3 id="第1节-DOS操作系统介绍"><a href="#第1节-DOS操作系统介绍" class="headerlink" title="第1节 DOS操作系统介绍"></a>第1节 DOS操作系统介绍</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. 磁盘操作系统(Disk Operating <span class="keyword">System</span>)是早期个人计算机上的一类操作系统</span><br><span class="line"><span class="number">2</span>. DOS系统没有图形化操作界面,要想使用需要学习dos命令</span><br><span class="line"><span class="number">3</span>. 直到windows/mac等带有图形化操作界面的系统出现,dos才慢慢的退出历史舞台</span><br><span class="line"><span class="number">4</span>. 但是DOS操作系统没有被取消掉,而是以一个应用软件的方式与其它操作系统共存(例如 在windows下作为windows下的应用软件与windows系统共存)</span><br></pre></td></tr></table></figure>
+
+<h3 id="第2节-DOS操作系统的启动方式"><a href="#第2节-DOS操作系统的启动方式" class="headerlink" title="第2节 DOS操作系统的启动方式"></a>第2节 DOS操作系统的启动方式</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在windows下的启动方式:</span><br><span class="line">	方式一: 快捷键 [开始+r],开启一个黑色的命令行窗口,说明DOS启动成功</span><br><span class="line">	方式二: win10 可以使用搜索框直接输入cmd然后回车唤出黑色的命令行窗口</span><br><span class="line"></span><br><span class="line">注意: 我们把DOS常常叫做命令行窗口,所以后面我说DOS或者命令行属于一个意思.</span><br></pre></td></tr></table></figure>
+
+<h3 id="第3节-DOS操作系统的常用命令"><a href="#第3节-DOS操作系统的常用命令" class="headerlink" title="第3节 DOS操作系统的常用命令"></a>第3节 DOS操作系统的常用命令</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dir : 列出当前目录下的文件或文件夹</span><br><span class="line">md  : 创建目录</span><br><span class="line">rd  : 删除目录</span><br><span class="line">cd  : 进入到指定目录</span><br><span class="line">cd..: 返回上一级目录</span><br><span class="line">cd / : 切换到根目录</span><br><span class="line">del : 删除文件</span><br><span class="line">exit: 退出DOS命令行</span><br><span class="line"><span class="keyword">cls</span> : 清屏</span><br><span class="line"></span><br><span class="line">以上是DOS操作系统下的简单命令操作.后续一些其它命令在介绍.</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+	
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">--------------------------已经到底啦！<i class="fa fa-paw"></i>--------------------------</div>
+    
+</div>
+	  
+	</div>
+
+	
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    我愿意资助原创
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="新换了一个网名 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="新换了一个网名 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"># 计算机</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80/" rel="tag"># 计算机语言</a>
+              <a href="/tags/%E8%AF%AD%E8%A8%80/" rel="tag"># 语言</a>
+              <a href="/tags/%E5%AD%98%E5%82%A8/" rel="tag"># 存储</a>
+              <a href="/tags/%E5%8E%86%E5%8F%B2/" rel="tag"># 历史</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%AE%B6/" rel="tag"># 数学家</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/09/20/SpringSecurity%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" rel="prev" title="SpringSecurity快速入门">
+                  <i class="fa fa-angle-left"></i> SpringSecurity快速入门
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">新换了一个网名</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">75k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:09</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+<!-- <br /> -->
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<!-- <span id="times">载入时分秒...</span> -->
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("11/17/2022 8:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); 
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        // var times = document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "+hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
