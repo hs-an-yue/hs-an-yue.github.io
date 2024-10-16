@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Centos操作系统不维护的解决方案</title>
+    <url>/2024/10/14/Centos%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8D%E7%BB%B4%E6%8A%A4%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<span id="more"></span>
+
+<h2 id="第一章-Centos介绍"><a href="#第一章-Centos介绍" class="headerlink" title="第一章 Centos介绍"></a>第一章 Centos介绍</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">1</span>. CentOS 是Linux发行版之一，是免费的、开源的、可以重新分发的开源操作系统</span><br><span class="line"><span class="attribute">2</span>. 目前最新版为 Centos8.x 国内市场使用最多的为Centos7.x和Centos6.x </span><br><span class="line"><span class="attribute">3</span>. CentOS7在<span class="number">2024</span>年<span class="number">6</span>月<span class="number">30</span>日停止维护,仓库基本不能在使用,很多命令也不能在使用</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二章-Centos官方不维护解决方案"><a href="#第二章-Centos官方不维护解决方案" class="headerlink" title="第二章 Centos官方不维护解决方案"></a>第二章 Centos官方不维护解决方案</h2><figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">首先就是yum库的问题,由于Centos系统不在维护,yum命令不能使用,所以需要切换yum命令的源</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">使用一个安装命令测试yum库是否可用</span></span><br><span class="line"><span class="attribute">yum install -y vim     安装vim编辑器命令结果报错如下</span><span class="punctuation">:</span> <span class="string">找不到对应的地址,由于Centos不在维护整个yum源都停止使用了</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">官方yum源不能使用,怎么替换官方yum源呢?步骤如下</span><span class="punctuation">:</span></span><br></pre></td></tr></table></figure>
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB806dd0f8a4871f1c230a131dd72bfbe0?method=download&shareKey=49d7fda391f079da526558ca3a1cbd02">
+
+<h3 id="第1步-查看默认仓库的位置"><a href="#第1步-查看默认仓库的位置" class="headerlink" title="第1步 查看默认仓库的位置"></a>第1步 查看默认仓库的位置</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">默认仓库的地址: /etc/yum.repos.d  里面有一个 CentOS-<span class="keyword">Base</span>.repo 文件就是默认仓库文件 </span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB600bf0a41841ac20a1096e0f8ab0e5a7?method=download&shareKey=c12bca14c2186da0a4b8532507166aca">
+
+ 
+
+<h3 id="第2步-默认仓库备份"><a href="#第2步-默认仓库备份" class="headerlink" title="第2步 默认仓库备份"></a>第2步 默认仓库备份</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">使用mv命令将原仓库 CentOS-<span class="keyword">Base</span>.repo 备份,防止后面操作失败会滚不回去.</span><br><span class="line"></span><br><span class="line">命令: mv /etc/yum.repos.d/CentOS-<span class="keyword">Base</span>.repo /etc/yum.repos.d/CentOS-<span class="keyword">Base</span>.repo.bak</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB503ec65799d36459b9aac0a30f24c8c5?method=download&shareKey=2c79b13b51ff7c554c2e38be99f831f8">
+
+<h3 id="第3步-下载阿里云仓库"><a href="#第3步-下载阿里云仓库" class="headerlink" title="第3步 下载阿里云仓库"></a>第3步 下载阿里云仓库</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">下载阿里云镜像仓库命令如下: Centos7系统</span><br><span class="line">命令: curl -o /etc/yum.repos.d/CentOS-<span class="keyword">Base</span>.repo http://mirrors.aliyun.<span class="keyword">com</span>/repo/Centos-<span class="number">7</span>.repo</span><br></pre></td></tr></table></figure>
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEBb13eb5bb05bc027a08353b9ab2498808?method=download&shareKey=aa50284b5a821dd1909ce43d52f883de">
+
+<h3 id="第4步-清除缓存-生成缓存"><a href="#第4步-清除缓存-生成缓存" class="headerlink" title="第4步 清除缓存&amp;生成缓存"></a>第4步 清除缓存&amp;生成缓存</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">yum clean <span class="keyword">all</span></span><br><span class="line">yum makecache</span><br><span class="line"></span><br><span class="line">通过以上步骤,将原有的默认源配置成了阿里云的国内源. 通过一个安装命令测试一下源是否成功</span><br><span class="line"></span><br><span class="line">安装<span class="keyword">vim</span>编辑器</span><br><span class="line">命令为: yum install <span class="keyword">vim</span></span><br><span class="line">如果安装成功说明阿里云镜像源配置成功</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三章-替代产品"><a href="#第三章-替代产品" class="headerlink" title="第三章 替代产品"></a>第三章 替代产品</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">由于Centos的停止更新，很多习惯使用Centos的用户来说特别的不方便,可以寻找一个替代Centos的Linux的发行版 AlmaLinux(阿尔玛),基本上继承了Centos的全部特性,使用上和Centos基本相同,可以作为Centos的替代产品,开源免费的社区版.具体可以自己去查询资料这里了不做详细介绍</span><br><span class="line"></span><br><span class="line">如果还是喜欢使用Centos系统,也可以像上面那样,做一个源修改,还是可以使用的.</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux(运维)</category>
+      </categories>
+      <tags>
+        <tag>Centos</tag>
+        <tag>AlmaLinux</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Centos安装Docker容器以及Dockerhub不能访问的解决方案</title>
     <url>/2024/10/14/Centos%E4%B8%8A%E5%AE%89%E8%A3%85Docker%E5%AE%B9%E5%99%A8%E4%BB%A5%E5%8F%8ADockerhub%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
@@ -87,161 +133,6 @@
         <tag>命令</tag>
         <tag>Shell</tag>
         <tag>控制面板</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Centos操作系统不维护的解决方案</title>
-    <url>/2024/10/14/Centos%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8D%E7%BB%B4%E6%8A%A4%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<span id="more"></span>
-
-<h2 id="第一章-Centos介绍"><a href="#第一章-Centos介绍" class="headerlink" title="第一章 Centos介绍"></a>第一章 Centos介绍</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">1</span>. CentOS 是Linux发行版之一，是免费的、开源的、可以重新分发的开源操作系统</span><br><span class="line"><span class="attribute">2</span>. 目前最新版为 Centos8.x 国内市场使用最多的为Centos7.x和Centos6.x </span><br><span class="line"><span class="attribute">3</span>. CentOS7在<span class="number">2024</span>年<span class="number">6</span>月<span class="number">30</span>日停止维护,仓库基本不能在使用,很多命令也不能在使用</span><br></pre></td></tr></table></figure>
-
-<h2 id="第二章-Centos官方不维护解决方案"><a href="#第二章-Centos官方不维护解决方案" class="headerlink" title="第二章 Centos官方不维护解决方案"></a>第二章 Centos官方不维护解决方案</h2><figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">首先就是yum库的问题,由于Centos系统不在维护,yum命令不能使用,所以需要切换yum命令的源</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">使用一个安装命令测试yum库是否可用</span></span><br><span class="line"><span class="attribute">yum install -y vim     安装vim编辑器命令结果报错如下</span><span class="punctuation">:</span> <span class="string">找不到对应的地址,由于Centos不在维护整个yum源都停止使用了</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">官方yum源不能使用,怎么替换官方yum源呢?步骤如下</span><span class="punctuation">:</span></span><br></pre></td></tr></table></figure>
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB806dd0f8a4871f1c230a131dd72bfbe0?method=download&shareKey=49d7fda391f079da526558ca3a1cbd02">
-
-<h3 id="第1步-查看默认仓库的位置"><a href="#第1步-查看默认仓库的位置" class="headerlink" title="第1步 查看默认仓库的位置"></a>第1步 查看默认仓库的位置</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">默认仓库的地址: /etc/yum.repos.d  里面有一个 CentOS-<span class="keyword">Base</span>.repo 文件就是默认仓库文件 </span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB600bf0a41841ac20a1096e0f8ab0e5a7?method=download&shareKey=c12bca14c2186da0a4b8532507166aca">
-
- 
-
-<h3 id="第2步-默认仓库备份"><a href="#第2步-默认仓库备份" class="headerlink" title="第2步 默认仓库备份"></a>第2步 默认仓库备份</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">使用mv命令将原仓库 CentOS-<span class="keyword">Base</span>.repo 备份,防止后面操作失败会滚不回去.</span><br><span class="line"></span><br><span class="line">命令: mv /etc/yum.repos.d/CentOS-<span class="keyword">Base</span>.repo /etc/yum.repos.d/CentOS-<span class="keyword">Base</span>.repo.bak</span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB503ec65799d36459b9aac0a30f24c8c5?method=download&shareKey=2c79b13b51ff7c554c2e38be99f831f8">
-
-<h3 id="第3步-下载阿里云仓库"><a href="#第3步-下载阿里云仓库" class="headerlink" title="第3步 下载阿里云仓库"></a>第3步 下载阿里云仓库</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">下载阿里云镜像仓库命令如下: Centos7系统</span><br><span class="line">命令: curl -o /etc/yum.repos.d/CentOS-<span class="keyword">Base</span>.repo http://mirrors.aliyun.<span class="keyword">com</span>/repo/Centos-<span class="number">7</span>.repo</span><br></pre></td></tr></table></figure>
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEBb13eb5bb05bc027a08353b9ab2498808?method=download&shareKey=aa50284b5a821dd1909ce43d52f883de">
-
-<h3 id="第4步-清除缓存-生成缓存"><a href="#第4步-清除缓存-生成缓存" class="headerlink" title="第4步 清除缓存&amp;生成缓存"></a>第4步 清除缓存&amp;生成缓存</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">yum clean <span class="keyword">all</span></span><br><span class="line">yum makecache</span><br><span class="line"></span><br><span class="line">通过以上步骤,将原有的默认源配置成了阿里云的国内源. 通过一个安装命令测试一下源是否成功</span><br><span class="line"></span><br><span class="line">安装<span class="keyword">vim</span>编辑器</span><br><span class="line">命令为: yum install <span class="keyword">vim</span></span><br><span class="line">如果安装成功说明阿里云镜像源配置成功</span><br></pre></td></tr></table></figure>
-
-<h2 id="第三章-替代产品"><a href="#第三章-替代产品" class="headerlink" title="第三章 替代产品"></a>第三章 替代产品</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">由于Centos的停止更新，很多习惯使用Centos的用户来说特别的不方便,可以寻找一个替代Centos的Linux的发行版 AlmaLinux(阿尔玛),基本上继承了Centos的全部特性,使用上和Centos基本相同,可以作为Centos的替代产品,开源免费的社区版.具体可以自己去查询资料这里了不做详细介绍</span><br><span class="line"></span><br><span class="line">如果还是喜欢使用Centos系统,也可以像上面那样,做一个源修改,还是可以使用的.</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Linux(运维)</category>
-      </categories>
-      <tags>
-        <tag>Centos</tag>
-        <tag>Linux</tag>
-        <tag>AlmaLinux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>IntelliJ IDEA集成Dockerfile连接远程Docker平台一键发布</title>
-    <url>/2024/10/14/IntelliJ%20IDEA%E9%9B%86%E6%88%90Dockerfile%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8BDocker%E5%B9%B3%E5%8F%B0%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83/</url>
-    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<span id="more"></span>
-
-<h2 id="第一章-一键发布介绍"><a href="#第一章-一键发布介绍" class="headerlink" title="第一章 一键发布介绍"></a>第一章 一键发布介绍</h2><h3 id="第1节-看图"><a href="#第1节-看图" class="headerlink" title="第1节 看图"></a>第1节 看图</h3><img src="https://note.youdao.com/yws/api/personal/file/WEB03bada513268ed8464b560de4f2d8405?method=download&shareKey=848a6e665ac67061b0416fa7095df260">
-
-
-
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">1. IDEA 提供了Docker一键发布的功能</span><br><span class="line">2. 上图中是通过Dockerfile加上IDEA自带的Docker插件功能可以实现一键将本地的项目发布到远程的Docker平台</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">注意: 本地要安装 IntelliJ IDEA 开发工具,远程服务器使用Docker平台进行应用发布和管理</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="第二章-IntelliJ-IDEA配置"><a href="#第二章-IntelliJ-IDEA配置" class="headerlink" title="第二章 IntelliJ IDEA配置"></a>第二章 IntelliJ IDEA配置</h2><h3 id="第一步-打开IDEA开发工具-安装Docker插件"><a href="#第一步-打开IDEA开发工具-安装Docker插件" class="headerlink" title="第一步: 打开IDEA开发工具,安装Docker插件"></a>第一步: 打开IDEA开发工具,安装Docker插件</h3><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">我使用的开发工具为 IntelliJ IDEA <span class="number">2023.2</span> (Ultimate Edition) 下面以此软件作为演示</span><br><span class="line"></span><br><span class="line">下面看安装Docker插件的步骤</span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEBf9f41963a35b9f0af777ea230f417fc7?method=download&shareKey=b291b289ab63e1204856b31053a7542a">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEBc71d01b3e1eca12d1ae2ffa4e733503a?method=download&shareKey=1f9166861195361202b813e2b9a40972">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB5a149693be36820999589920e69f0ccd?method=download&shareKey=a54617626018a2da088fbc022c438285">
-
-
-
-<h3 id="第二步-找一个需要发布到Docker平台的项目-创建Dockerfile文件"><a href="#第二步-找一个需要发布到Docker平台的项目-创建Dockerfile文件" class="headerlink" title="第二步: 找一个需要发布到Docker平台的项目,创建Dockerfile文件"></a>第二步: 找一个需要发布到Docker平台的项目,创建Dockerfile文件</h3><figure class="highlight erlang"><table><tr><td class="code"><pre><span class="line">我这里以一个Java项目为例,在项目的根目录创建一个Dockerfile文件,在Dockerfile文件中编写命令,写哪些命令,请自行脑补.</span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB944e61d7e0578b781f31bc22103289f0?method=download&shareKey=22c2e5995edaba5779f3aa6b3c7dd692">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB32b013e2cdc8e0f2ab7eb3c32b5a0f23?method=download&shareKey=132bfa2825cf9c232b5a526644f5fca0">
-
-
-
-<h3 id="第三步-配置IDEA中的Docker"><a href="#第三步-配置IDEA中的Docker" class="headerlink" title="第三步: 配置IDEA中的Docker"></a>第三步: 配置IDEA中的Docker</h3><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">配置步骤如下:</span></span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB659109d0df56368c589b21222467136a?method=download&shareKey=c6c81d7982835ed287bcbb5d2ee4c251">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB7f52eb90d8e9dc31a2f4f2168cfda18f?method=download&shareKey=f85e6d01185df035f1346a0d15c1c5d1">
-
-
-
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">IDEA连接远程的Docker服务器会出现失败的情况,原因是远程Docker服务器没有开放<span class="number">2375</span>端口号的连接,所以去Docker服务器端进行配置</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">配置步骤:</span><br><span class="line"></span><br><span class="line">第一步: 找到配置文件</span><br><span class="line">	<span class="number">1</span>. 配置文件在Linux服务器的位置 <span class="regexp">/usr/</span>lib<span class="regexp">/systemd/</span>system/docker.service</span><br><span class="line">	<span class="number">2</span>. 通过 vim <span class="regexp">/usr/</span>lib<span class="regexp">/systemd/</span>system/docker.service  编辑文件</span><br><span class="line">	<span class="number">3</span>. 在docker.service文件中找到 以 ExecStart=<span class="regexp">/usr/</span>bin<span class="regexp">/dockerd开头的行,在后面添加 -H tcp:/</span>/<span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">2375</span> 修改之后如下,可能因为版本不同,此行内容略有区别,但是差距不大</span><br><span class="line">	<span class="number">4</span>. 修改后: ExecStart=<span class="regexp">/usr/</span>bin<span class="regexp">/dockerd -H tcp:/</span><span class="regexp">/0.0.0.0:2375  -H fd:/</span><span class="regexp">/ --containerd=/</span>run<span class="regexp">/containerd/</span>containerd.sock</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">文件演示如下:</span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEBbaf20009679c42ea3751679eff76b605?method=download&shareKey=db02979b18ab1cd4aa754c25e659bdab">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB3bb6417c017af2144c2a088285659497?method=download&shareKey=1257735099862fc6b48ce8ad831d235a">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB5a41a6728bae4c196ea935e38bb75a00?method=download&shareKey=4acff9493c53c479833def3be311e9d1">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEBe715862817b374f457e803baafce5225?method=download&shareKey=9c567066fb955f3d0ef38e2d6833123e">
-
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">下方有日志,可以通过日志查看是否发布成功</span><br></pre></td></tr></table></figure>
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB21666a2058a31f3bf845da9ee535623f?method=download&shareKey=5dcb9caab51559ce0822393afe9822cb">
-
-<h2 id="第三章-控制面板使用"><a href="#第三章-控制面板使用" class="headerlink" title="第三章 控制面板使用"></a>第三章 控制面板使用</h2><figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line">上图中IDEA左下角有一个操作容器和镜像的控制面板<span class="punctuation">,</span>这个控制面板可以控制远程的Docker平台的镜像和容器</span><br><span class="line"></span><br><span class="line">当然也有第三方的控制面板使用</span><br><span class="line"></span><br><span class="line">在前面的博客中  https://hs-an-yue.github.io/<span class="number">2024</span>/<span class="number">08</span>/<span class="number">03</span>/Docker<span class="variable">%E7</span><span class="variable">%9</span>A<span class="variable">%84</span><span class="variable">%E5</span><span class="variable">%B8</span><span class="variable">%B8</span><span class="variable">%E7</span><span class="variable">%94</span><span class="variable">%A8</span><span class="variable">%E5</span><span class="variable">%91</span><span class="variable">%BD</span><span class="variable">%E4</span><span class="variable">%BB</span><span class="variable">%A4</span><span class="variable">%E4</span><span class="variable">%BB</span><span class="variable">%A5</span><span class="variable">%E5</span><span class="variable">%8</span>F<span class="variable">%8</span>A<span class="variable">%E4</span><span class="variable">%BD</span><span class="variable">%BF</span><span class="variable">%E7</span><span class="variable">%94</span><span class="variable">%A8</span>/#<span class="variable">%E7</span><span class="variable">%AC</span><span class="variable">%AC4</span><span class="variable">%E8</span><span class="variable">%8</span>A<span class="variable">%82</span>-Docker<span class="variable">%E6</span><span class="variable">%8</span>E<span class="variable">%A7</span><span class="variable">%E5</span><span class="variable">%88</span><span class="variable">%B6</span><span class="variable">%E9</span><span class="variable">%9</span>D<span class="variable">%A2</span><span class="variable">%E6</span><span class="variable">%9</span>D<span class="variable">%BF</span><span class="variable">%E5</span><span class="variable">%AE</span><span class="variable">%89</span><span class="variable">%E8</span><span class="variable">%A3</span><span class="variable">%85</span></span><br><span class="line"></span><br><span class="line">也介绍了一个控制面板<span class="punctuation">,</span>大家可以自行去看一下</span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB1e2badb7b02cd7b8535cc3db899eb3dc?method=download&shareKey=d4a36245255d7933cef34081bfa7c0a3">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB63b349cb3e08fd2f0c54690f434b2781?method=download&shareKey=44732a5eeb2d6890ab9e1340937e10a0">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEBc8bf5e6a97793ff8155981b58223a398?method=download&shareKey=0d0a44297fe237908e47586737f87ed4">
-
-
-
-<hr>
-]]></content>
-      <categories>
-        <category>Linux(运维)</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-        <tag>镜像</tag>
-        <tag>控制面板</tag>
-        <tag>IntelliJ IDEA</tag>
-        <tag>Dockerfile</tag>
-        <tag>运维</tag>
-        <tag>一键发布</tag>
       </tags>
   </entry>
   <entry>
@@ -561,235 +452,112 @@
       </tags>
   </entry>
   <entry>
-    <title>01-计算机与计算机语言发展史</title>
-    <url>/2024/10/14/javase/01-%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80%E5%8F%91%E5%B1%95%E5%8F%B2/</url>
+    <title>IntelliJ IDEA集成Dockerfile连接远程Docker平台一键发布</title>
+    <url>/2024/10/14/IntelliJ%20IDEA%E9%9B%86%E6%88%90Dockerfile%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8BDocker%E5%B9%B3%E5%8F%B0%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83/</url>
     <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
 
 <hr>
 <span id="more"></span>
 
-<h2 id="第一章-简述计算机发展史"><a href="#第一章-简述计算机发展史" class="headerlink" title="第一章 简述计算机发展史"></a>第一章 简述计算机发展史</h2><h3 id="第1节-计算机的概念"><a href="#第1节-计算机的概念" class="headerlink" title="第1节 计算机的概念"></a>第1节 计算机的概念</h3><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">广义概念: 可以帮助我们人类完成计算的机器统称为计算机。例如: 算盘</span></span><br><span class="line"></span><br><span class="line"><span class="section">狭义概念: 当前我们所谓的计算机一般特指电子计算机(电脑) </span></span><br></pre></td></tr></table></figure>
-
-<h3 id="第2节-电子计算机组成"><a href="#第2节-电子计算机组成" class="headerlink" title="第2节 电子计算机组成"></a>第2节 电子计算机组成</h3><figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">计算机组成</span><span class="punctuation">:</span></span><br><span class="line">  <span class="attribute">硬件</span><span class="punctuation">:</span> <span class="string">主板、硬盘、CPU、显卡、显示器、鼠标、键盘...</span></span><br><span class="line"></span><br><span class="line">  <span class="attribute">软件</span><span class="punctuation">:</span></span><br><span class="line">    <span class="attribute">系统软件</span><span class="punctuation">:</span> <span class="string">Windows、Linux、Mac、Android、ios...</span></span><br><span class="line">    <span class="attribute">应用软件</span><span class="punctuation">:</span> <span class="string">QQ 微信 王者荣耀 英雄联盟(LOL) 开心消消乐 ...</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="第3节-计算机的发展史"><a href="#第3节-计算机的发展史" class="headerlink" title="第3节 计算机的发展史"></a>第3节 计算机的发展史</h3><figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">... 很久以前 ...</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">1. 算盘(机械/手动) </span></span><br><span class="line"><span class="attribute">	</span></span><br><span class="line"><span class="attribute">	1.1 作者</span><span class="punctuation">    :</span> <span class="string">不详</span></span><br><span class="line">	<span class="attribute">1.2 出生年代</span><span class="punctuation">:</span> <span class="string">不详</span></span><br><span class="line">	<span class="attribute">1.3 备注</span><span class="punctuation">:</span> <span class="string">我国第一颗原子弹的很多数据是采用算盘计算出来的,据说当初的草稿可以铺满整个罗布泊.在这里致敬老一辈科学家</span></span><br><span class="line">	</span><br><span class="line"><span class="attribute">2. 步进计算器(机械/手动)</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">	2.1 作者</span><span class="punctuation">    :</span> <span class="string">德国数学家[戈特弗里德·布莱尼茨]</span></span><br><span class="line">	<span class="attribute">2.2 出生年代</span><span class="punctuation">:</span> <span class="string">1694年</span></span><br><span class="line">	<span class="attribute">2.3 备注</span><span class="punctuation">:</span> <span class="string">当前模型存在于德意志博物馆中</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">3. 差分机(机械/手动)</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">	3.1 作者</span><span class="punctuation">    :</span> <span class="string">英国数学家[查尔斯·巴贝奇]</span></span><br><span class="line">	<span class="attribute">3.2 出生年代</span><span class="punctuation">:</span> <span class="string">1822年</span></span><br><span class="line">	<span class="attribute">3.3 备注</span><span class="punctuation">:</span> <span class="string">历时10年从设计到加工都是由巴贝奇一个人完成,计算精度达到6位小数</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">4. 分析机(机械/自动[蒸汽机])</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">	4.1 作者</span><span class="punctuation">    :</span> <span class="string">英国数学家[查尔斯·巴贝奇]</span></span><br><span class="line">	<span class="attribute">4.2 出生年代</span><span class="punctuation">:</span> <span class="string">1830年</span></span><br><span class="line">	<span class="attribute">4.3 备注</span><span class="punctuation">:</span> <span class="string">可以进行相当复杂的运算,精确到小数点后31位,采用蒸汽机驱动,打孔卡带(存储器的前身)编程,算是世界上第一台真正意义上的计算机(巴贝奇被后人称之为计算机之父)</span></span><br><span class="line">			  <span class="attribute">由于设计太超前没有被大多数人认可.但是当时有一位英国数学家 奥古斯塔·阿达·金(勒芙蕾丝伯爵夫人) 对分析机特别感兴趣,并为其写了一个算法(第一位给计算机写程序的人). </span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">5. 打孔计数器(机械/电动)</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">	5.1 作者</span><span class="punctuation">    :</span> <span class="string">美国人[赫尔曼·霍尔瑞斯]</span></span><br><span class="line">	<span class="attribute">5.2 出生年代</span><span class="punctuation">:</span> <span class="string">1880-1890年</span></span><br><span class="line">	<span class="attribute">5.3 备注</span><span class="punctuation">:</span> <span class="string">最早用于1890年的美国人口普查,1890年以前美国人口普查人数统计采用纯手动,1890之后进入电器自动化时代,原理就是将人的信息通过打孔的方式记录到纸卡上,通过打孔卡计数器读取.</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">6. 阿塔纳索夫-贝瑞计算机(ABC计算机[电子管])</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">	6.1 作者</span><span class="punctuation">    :</span> <span class="string">美国科学家[阿塔纳索夫] 和 克利福德·贝里[当时正在物理系读研究生]</span></span><br><span class="line">	<span class="attribute">6.2 出生年代</span><span class="punctuation">:</span> <span class="string">1939年(样机问世)1942年(测试成功)</span></span><br><span class="line">	<span class="attribute">6.3 备注</span><span class="punctuation">:</span> <span class="string">爱荷华州立大学 物理系任副教授,在给学生上课时需要给学生讲授如何求解 线性偏微分方程组 他觉得比较浪费时间还枯燥,所以用了两年时间搞了这台机器</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">7. 电子数字积分计算机(ENIAC[电子管])</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">	7.1 作者</span><span class="punctuation">    :</span> <span class="string">团队[约翰·冯·诺依曼和&quot;莫尔小组&quot;的工程师 埃克特、莫希利、戈尔斯坦 以及华人科学家 朱传榘[jǔ] 组成]</span></span><br><span class="line">	<span class="attribute">7.2 出生年代</span><span class="punctuation">:</span> <span class="string">1946年</span></span><br><span class="line">	<span class="attribute">7.3 备注</span><span class="punctuation">:</span> <span class="string">研发背景: 二战时期</span></span><br><span class="line">			  <span class="attribute">研发原因</span><span class="punctuation">:</span> <span class="string">二战时期主要战力飞机和大炮,所以研发新型大炮和导弹十分重要,为此美国陆军军械部设立了弹道研究室,美国军方要求该实验室每天为陆军炮弹部队提供6张射表.</span></span><br><span class="line">			  <span class="attribute">当时的射表数据是纯人工计算,效率低下,数据不准确,几百个人加班加点两个多月才能算出一张射表(每张射表计算几百个弹道数据).</span></span><br><span class="line"><span class="attribute">			  研发时间</span><span class="punctuation">:</span> <span class="string">宾夕法尼亚大学莫尔电机工程学院的莫希利于1942年提出了试制第一台电子计算机的初始设想(这台计算机的设想来源于阿塔纳索夫-贝瑞计算机)</span></span><br><span class="line">			  <span class="attribute">计算速度</span><span class="punctuation">:</span> <span class="string">每秒能进行5000次加法运算,每秒400次乘法运算,它还能进行平方和立方运算，计算正弦和余弦等三角函数的值及其它一些更复杂的运算</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">8. 电子计算机(集成电路)</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">	8.1 作者</span><span class="punctuation">    :</span> <span class="string">当代科学家</span></span><br><span class="line">	<span class="attribute">8.2 出生年代</span><span class="punctuation">:</span> <span class="string">当代</span></span><br><span class="line"></span><br><span class="line">... 以后 ...</span><br></pre></td></tr></table></figure>
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB5e4128876dac71e82c1bf3ebee091bcb?method=download&shareKey=7899e80dbc4bff718c4585b994fc698f">
-
-<h2 id="第二章-简述计算机语言发展史"><a href="#第二章-简述计算机语言发展史" class="headerlink" title="第二章 简述计算机语言发展史"></a>第二章 简述计算机语言发展史</h2><h3 id="第1节-自然语言和计算机语言"><a href="#第1节-自然语言和计算机语言" class="headerlink" title="第1节 自然语言和计算机语言"></a>第1节 自然语言和计算机语言</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">自然语言  : 人与人沟通的语言叫做自然语言; 比如: 汉语、英语、韩语...</span><br><span class="line">计算机语言: 人与计算机沟通的语言叫做计算机语言; 比如: C/C++、Java、Python...</span><br><span class="line"></span><br><span class="line">计算机语言也叫做语言,被人类划分到语言的行列说明它和我们人类的自然语言有很多相似之处.</span><br><span class="line"></span><br><span class="line">自然语言和计算机语言学习步骤:</span><br><span class="line">	自然语言(英语)  : 单词         -- 语法 -- 与外国人交流</span><br><span class="line">	计算机语言(Java): 关键字(单词)  -- 语法 -- 与计算机交流</span><br><span class="line"></span><br><span class="line">计算机语言学习起来更简单,因为计算机语言没有英语那么多单词,只需要记住常见的几十个,常用的十几二十个即可.</span><br></pre></td></tr></table></figure>
-
-<h3 id="第2节-计算机语言由来"><a href="#第2节-计算机语言由来" class="headerlink" title="第2节 计算机语言由来"></a>第2节 计算机语言由来</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">计算机语言不是随着计算机的发展而发展的,其实计算机语言最早的应用不是在计算机上而是在织布机上,你没看错就是那个男耕女织的织布机上.</span><br><span class="line"></span><br><span class="line"><span class="number">1800</span>到<span class="number">1804</span>年法国人 约瑟夫·玛丽·雅卡尔 在改进前人提花机(能织出带图案的织布机)的基础之上,发明了采用穿孔卡带的方式,来记录提花机提花的过程,可以达到让提花机可以重复提花的目的.</span><br><span class="line"></span><br><span class="line">这里的穿孔卡带(纸卡): 可以看成是最早期的计算机存储</span><br><span class="line">纸卡上的孔: 最早期的与机器交流的语言(早期计算机语言),有孔的地方为<span class="number">1</span> 无孔的地方为<span class="number">0</span></span><br><span class="line"></span><br><span class="line">提花机根据读取带孔的纸卡来控制顶针的抬起或者是放下而进行提花.</span><br></pre></td></tr></table></figure>
-
-<table>
-    <tr>
-        <td style="text-align:center;"><img style="width:50%;" src="https://note.youdao.com/yws/api/personal/file/WEB66298a4d562db158746decc3fba7a980?method=download&shareKey=eceffa2e63f922322601a6b53783be2f"></td>
-        <td style="width:50%;"><iframe src="//player.bilibili.com/player.html?aid=969922335&bvid=BV1hp4y1Y7y5&cid=246572512&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></td>
-    </tr>
-</table>
+<h2 id="第一章-一键发布介绍"><a href="#第一章-一键发布介绍" class="headerlink" title="第一章 一键发布介绍"></a>第一章 一键发布介绍</h2><h3 id="第1节-看图"><a href="#第1节-看图" class="headerlink" title="第1节 看图"></a>第1节 看图</h3><img src="https://note.youdao.com/yws/api/personal/file/WEB03bada513268ed8464b560de4f2d8405?method=download&shareKey=848a6e665ac67061b0416fa7095df260">
 
 
-<h3 id="第3节-计算机存储器发展"><a href="#第3节-计算机存储器发展" class="headerlink" title="第3节 计算机存储器发展"></a>第3节 计算机存储器发展</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">在学习计算机语言之前首先我们需要先聊一聊存储器(类似于计算机的硬盘,或者U盘这一类存储设备),因为计算机软件都安装在电脑硬盘上,</span><br><span class="line">计算机软件是由计算机语言编写的,计算机语言编写的软件最终要保存在电脑的硬盘上,以便于计算机进行读取和运行.</span><br></pre></td></tr></table></figure>
 
-<table>
-    <tbody>
-        <tr>
-            <td style="word-wrap:break-word;width:50%;">
-                <strong>穿孔卡带</strong>
-                <pre style="font-size:12px;">
-1830年最早应用在巴贝尔的分析机上.
-这是最早的计算机软硬件结合.
-这个纸卡就是最早期的计算机存储器.
-纸卡上的孔就是最早期的计算机编程语言(0/1)
-计算机读取这个卡,其实就是读取卡上的孔,获取要完成的任务信息.
-这样带孔的卡不仅可以做计算机存储,还可以做其他存储(例如太阳卡,做学生饭卡)
-                </pre>
-            </td>
-            <td style="width:50%;">
-                <img src="https://note.youdao.com/yws/api/personal/file/WEB5c1554cb2e69fc5952646f38203f6b29?method=download&shareKey=ef1fdc70c433d89deb9e418901fc03e7">
-            </td>
-        </tr>
-        <tr>
-            <td style="word-wrap:break-word;width:50%;">
-                <strong>电子管存储</strong>
-                <pre style="font-size:12px;">
-世界上第一台计算机[ABC计算机],就是采用电子管存储
-相比于纸带,电子管存储造价昂贵,故障率高,但是可以反复擦除
-                </pre>
-            </td>
-            <td style="width:50%;">
-                <img src="https://note.youdao.com/yws/api/personal/file/WEBde6e482308d8b5c51226a94a6288280c?method=download&shareKey=26ad1ae0b18564b814455fb600d6c1d4">
-            </td>
-        </tr>
-        <tr>
-            <td style="word-wrap:break-word;width:50%;">
-                <strong>磁带</strong>
-                <pre style="font-size:12px;">
-1950年IBM最早把盘式磁带用在数据存储上.
-一卷磁带可以代替1万张打孔纸卡,既便宜还能减少卡带体积
-成为直到80年代最为普及的计算机存储设备
-                </pre>
-            </td>
-            <td style="width:50%;">
-                <img src="https://note.youdao.com/yws/api/personal/file/WEBb3c24bb53627907b9cb315bcea8ba95e?method=download&shareKey=10025b5f906bb7f67178f6d37d558ef5">
-            </td>
-        </tr>
-        <tr>
-            <td style="word-wrap:break-word;width:50%;">
-                <strong>磁鼓</strong>
-                <pre style="font-size:12px;">
-1953年,第一台磁鼓应用于IBM701
-磁鼓是利用铝鼓筒表面涂覆的磁性材料来存储数据的
-鼓筒旋转速度很高,因此存取速度快
-                </pre>
-            </td>
-            <td style="width:50%;">
-                <img src="https://note.youdao.com/yws/api/personal/file/WEBad7d9ec4d4a2866dff2ec755d4ea7200?method=download&shareKey=e2085af4c8982ebd6c9177d64d58de8c">
-            </td>
-        </tr>
-        <tr>
-            <td style="word-wrap:break-word;width:50%;">
-                <strong>软盘</strong>
-                <pre style="font-size:12px;">
-1969年第一张软盘诞生,当时是一张8英寸的大家伙,可以保存80K的只读数据
-1973年的时候比他小一号但是容量为256k的软盘诞生,并且是可读写的
-直到90年代末,那时候可以找到3.5英寸250MB的的软盘
-                </pre>
-            </td>
-            <td style="width:50%;">
-                <img src="https://note.youdao.com/yws/api/personal/file/WEB3f0bb5000bb4bf2da8ebabb4d5b8c852?method=download&shareKey=9b86be36c1ba71b6217bd3777a252ce5">
-            </td>
-        </tr>
-        <tr>
-            <td style="word-wrap:break-word;width:50%;">
-                <strong>硬盘</strong>
-                <pre style="font-size:12px;">
-1956年9月13日,IBM发布了305 RAMAC硬盘机
-在当时的存储容量可以达到惊人的4.4MB
-当时一个硬盘机的重量高达600公斤以上
-                </pre>
-            </td>
-            <td style="width:50%;">
-                <img src="https://note.youdao.com/yws/api/personal/file/WEB590e32479ffa18bef3057437ef8c31a2?method=download&shareKey=bfad204aafae0f46bdede78d501a1c49">
-            </td>
-        </tr>
-        <tr>
-            <td style="word-wrap:break-word;width:50%;">
-                <strong>光盘</strong>
-                <pre style="font-size:12px;">
-1958年开始发明光盘技术到1972年第一张光盘问世
-1978年才在市场上售卖,在当时光盘是只读的不能写
-                </pre>
-            </td>
-            <td style="width:50%;">
-                <img src="https://note.youdao.com/yws/api/personal/file/WEB6fb5493333dc0eaa4d67fb22f8620358?method=download&shareKey=1014df5b60a60d2d20ad6de1fcd20aac">
-            </td>
-        </tr>
-        <tr>
-            <td style="word-wrap:break-word;width:50%;">
-                <strong>固态硬盘</strong>
-                <pre style="font-size:12px;">
-1989年世界上第一款固态硬盘由IBM推出
-                </pre>
-            </td>
-            <td style="width:50%;">
-                <img src="https://note.youdao.com/yws/api/personal/file/WEB3846e11b09cb734fdda34be8c1561c02?method=download&shareKey=663a42b503f0257d8605732ce4ee2117">
-            </td>
-        </tr>
-    </tbody>
-</table>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">1. IDEA 提供了Docker一键发布的功能</span><br><span class="line">2. 上图中是通过Dockerfile加上IDEA自带的Docker插件功能可以实现一键将本地的项目发布到远程的Docker平台</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">注意: 本地要安装 IntelliJ IDEA 开发工具,远程服务器使用Docker平台进行应用发布和管理</span><br></pre></td></tr></table></figure>
 
 
-<h3 id="第4节-计算机语言发展"><a href="#第4节-计算机语言发展" class="headerlink" title="第4节 计算机语言发展"></a>第4节 计算机语言发展</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">第一代计算机语言(机器语言) -- 第二代计算机语言(汇编语言) -- 第三代计算机语言(C/C++、Java、Python...)</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-1-第一代计算机语言"><a href="#4-1-第一代计算机语言" class="headerlink" title="4.1 第一代计算机语言"></a>4.1 第一代计算机语言</h4><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">第一代计算机语言我们称它为机器语言,直接与机器交互,控制机器行为</span><br><span class="line"></span><br><span class="line">比如提花机,使用穿孔纸卡保存花样,控制提花机的顶针</span><br><span class="line"></span><br><span class="line">百合花  --  对应一卷纸</span><br><span class="line">玫瑰花  --  对应一卷纸</span><br><span class="line">牡丹花  --  对应一卷纸</span><br><span class="line"></span><br><span class="line">在纸上记录花样使用孔洞来记录,如果有孔顶针穿过,没有孔顶针穿不过,这时候纸带上只有两种状态 <span class="number">0</span>/<span class="number">1</span> </span><br><span class="line"></span><br><span class="line">机器语言(第一代计算机语言)使用钻孔编程,或者是使用<span class="number">0</span>和<span class="number">1</span>进行编程,有孔表示<span class="number">1</span>没有孔表示<span class="number">0</span></span><br><span class="line"></span><br><span class="line">早期计算机都是使用穿孔卡带进行存储的穿孔卡带可以存花样,也可以存算法,数据等.计算机通过读纸带然后执行纸带中记录的功能.</span><br><span class="line"></span><br><span class="line">雅卡尔提花机工作原理:</span><br><span class="line">https://v.qq.<span class="keyword">com</span>/x/page/x0553c41d57.html</span><br></pre></td></tr></table></figure>
-
-<table>
-    <tbody>
-        <tr>
-            <td style="width:50%;" > <img src="https://note.youdao.com/yws/api/personal/file/WEB0810cac1236ced55ee7ba3c37caf41a3?method=download&shareKey=cccaf6d8bc38a03fa7e7bc9a62e95267"> </td>
-            <td style="width:50%;" > <iframe style="width:100%;"  frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=x0553c41d57" allowFullScreen="true"></iframe> </td>
-        </tr>
-    </tbody>
-</table>
+<h2 id="第二章-IntelliJ-IDEA配置"><a href="#第二章-IntelliJ-IDEA配置" class="headerlink" title="第二章 IntelliJ IDEA配置"></a>第二章 IntelliJ IDEA配置</h2><h3 id="第一步-打开IDEA开发工具-安装Docker插件"><a href="#第一步-打开IDEA开发工具-安装Docker插件" class="headerlink" title="第一步: 打开IDEA开发工具,安装Docker插件"></a>第一步: 打开IDEA开发工具,安装Docker插件</h3><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">我使用的开发工具为 IntelliJ IDEA <span class="number">2023.2</span> (Ultimate Edition) 下面以此软件作为演示</span><br><span class="line"></span><br><span class="line">下面看安装Docker插件的步骤</span><br></pre></td></tr></table></figure>
 
 
-<h4 id="4-2-第二代计算机语言"><a href="#4-2-第二代计算机语言" class="headerlink" title="4.2 第二代计算机语言"></a>4.2 第二代计算机语言</h4><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">随着计算机的发展,随着存储的发展,我们需要计算机做的事情越来越复杂,这时候使用机器语言(类似于打孔,给机器输入<span class="number">0</span>/<span class="number">1</span>)编程越来越复杂.</span><br><span class="line">这是就催生出了计算机语言的发展,咱们下面举一个例子</span><br><span class="line"></span><br><span class="line">让计算机帮助我们计算 <span class="number">1</span>+<span class="number">1</span> </span><br><span class="line">如果打孔的话，下面随便举的一个例子 <span class="number">0</span>代表纸带没有孔,<span class="number">1</span>代表纸带有孔</span><br><span class="line"><span class="symbol">00000001 </span> -- <span class="number">1</span></span><br><span class="line"><span class="symbol">10101010 </span> -- +   ADD (使用我们熟悉的字符序列代替了一串<span class="number">0</span>和<span class="number">1</span>)</span><br><span class="line"><span class="symbol">00000001 </span> -- <span class="number">1</span></span><br><span class="line"><span class="symbol">00000010 </span> -- <span class="number">2</span></span><br><span class="line"></span><br><span class="line">除了<span class="number">0</span>就是<span class="number">1</span>一个功能由很多<span class="number">0</span>和<span class="number">1</span>组成,这样的功能代码很不容易记忆,所以就有人提出想法,能不能有什么办法使用我们熟悉的字符代替<span class="number">0</span>和<span class="number">1</span>,所以汇编语言出现了</span><br></pre></td></tr></table></figure>
 
-<table>
-    <tbody>
-        <tr>
-            <td>
-                <strong>汇编语言</strong>
-                <pre>
-使用简单的英文符号,代替了大量的0/1机器码
-相比于机器语言,汇编语言编写代码更容易.
-                </pre>
-            </td>
-            <td> <img src="https://note.youdao.com/yws/api/personal/file/WEB26cbe0ada19525c7bbd878ac1352fc16?method=download&shareKey=5dab08289aebc8fcc0d1aee318ccd1f4"> </td>
-        </tr>
-    </tbody>
-</table>
-<table>
-    <tr>
-        <img src="https://note.youdao.com/yws/api/personal/file/WEBe913b3fd5fda592f164af463032102e9?method=download&shareKey=7bf8c74ce6002f05cf53e51e5d37a0a4">
-    </tr>
-</table>
+<img src="https://note.youdao.com/yws/api/personal/file/WEBf9f41963a35b9f0af777ea230f417fc7?method=download&shareKey=b291b289ab63e1204856b31053a7542a">
 
 
-<h4 id="4-3-第三代计算机语言"><a href="#4-3-第三代计算机语言" class="headerlink" title="4.3 第三代计算机语言"></a>4.3 第三代计算机语言</h4><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">第三代计算机语言我们管它叫高级语言,是因为语言发展到现阶段,语言中增加和修改了很多字符序列,在汇编语言中加法运算还需要使用ADD,在高级语言(C语言)中,加法运算就和我们数学中的运算差不多使用+(加号),第三代的计算机语言的很多字符比较贴近于我们的日常.</span><br><span class="line"></span><br><span class="line">虽然语言表层是我们熟悉的字符序列,但是底层计算机在运行的时候还是解析成<span class="number">0</span>/<span class="number">1</span>(因为计算机底层原理不会变),这时就需要计算机对语言进行转换.将高级语言转成机器语言</span><br><span class="line"></span><br><span class="line">催生了各种语言编译器的发展(这里不做详细讲解).</span><br></pre></td></tr></table></figure>
 
-<table>
-    <tr>
-        <td> <img src="https://note.youdao.com/yws/api/personal/file/WEB27b9d7c3af9d2b134d74f410e52e16c1?method=download&shareKey=3531d67b0646cc0a8b2fa26b67fc4c56"> </td>
-    </tr>
-</table>
+<img src="https://note.youdao.com/yws/api/personal/file/WEBc71d01b3e1eca12d1ae2ffa4e733503a?method=download&shareKey=1f9166861195361202b813e2b9a40972">
 
 
-<h3 id="第5节-进制-了解"><a href="#第5节-进制-了解" class="headerlink" title="第5节 进制(了解)"></a>第5节 进制(了解)</h3><h4 id="5-1-人类计数方式"><a href="#5-1-人类计数方式" class="headerlink" title="5.1 人类计数方式"></a>5.1 人类计数方式</h4><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">我们人类在日常生活中进行计数的方式采用的是(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,...,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>....) 逢十进一,这种累计计数的方式称之为 十进制 计数</span><br></pre></td></tr></table></figure>
 
-<h4 id="5-2-计算机计数方式"><a href="#5-2-计算机计数方式" class="headerlink" title="5.2 计算机计数方式"></a>5.2 计算机计数方式</h4><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">计算机的计数方式和人类的计数方式是完全不一样的,因为其底层只有类似于低电平和高电平的开关量,只能用开关量进行计数(高电平(<span class="keyword">ON</span>)为<span class="number">1</span>/低电平(<span class="keyword">OFF</span>)为<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">在单位的长度的位数时,人类的计数方式可以记录更大的数</span><br><span class="line"></span><br><span class="line">例如: 以三位为例 人类可以存放数字范围为: <span class="number">0</span>-<span class="number">999</span>  而计算机在正常情况下三位最多存储<span class="number">111</span>,变成十进制就是 <span class="number">0</span>-<span class="number">7</span> </span><br></pre></td></tr></table></figure>
-
-<table>
-    <tr>
-        <td>
-            <img src="https://note.youdao.com/yws/api/personal/file/WEBa5581a57b11fe318e091fa9939dc8b5f?method=download&shareKey=493c5a5ad068f0d8222cc7a192bdcbcd">
-        </td>
-    </tr>
-</table>
+<img src="https://note.youdao.com/yws/api/personal/file/WEB5a149693be36820999589920e69f0ccd?method=download&shareKey=a54617626018a2da088fbc022c438285">
 
 
-<h4 id="5-3-进制的转换"><a href="#5-3-进制的转换" class="headerlink" title="5.3 进制的转换"></a>5.3 进制的转换</h4><h5 id="5-3-1-常见进制介绍"><a href="#5-3-1-常见进制介绍" class="headerlink" title="5.3.1 常见进制介绍"></a>5.3.1 常见进制介绍</h5><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">常见进制介绍</span><br><span class="line"><span class="number">1</span>. (十进制)人类日常计算进制</span><br><span class="line"><span class="number">2</span>. (二进制)计算机底层计算进制</span><br><span class="line"><span class="number">3</span>. (八进制/十六进制)主要配合二进制使用,二进制位数太多不好记录(用来进行存储记忆)</span><br><span class="line"></span><br><span class="line">注意:虽然计算机底层是以二进制的形式存在,但是它是以补码的方式存储数据,这里不做介绍.</span><br></pre></td></tr></table></figure>
 
-<h5 id="5-3-2-常见进制转换"><a href="#5-3-2-常见进制转换" class="headerlink" title="5.3.2 常见进制转换"></a>5.3.2 常见进制转换</h5><table>
-    <tr>
-        <td>
-            <img src="https://note.youdao.com/yws/api/personal/file/WEBb090bff810c83d1e422d1431a9345680?method=download&shareKey=f931fab2f92fd80bedd40ca2205234e5">
-        </td>
-    </tr>
-</table>
+<h3 id="第二步-找一个需要发布到Docker平台的项目-创建Dockerfile文件"><a href="#第二步-找一个需要发布到Docker平台的项目-创建Dockerfile文件" class="headerlink" title="第二步: 找一个需要发布到Docker平台的项目,创建Dockerfile文件"></a>第二步: 找一个需要发布到Docker平台的项目,创建Dockerfile文件</h3><figure class="highlight erlang"><table><tr><td class="code"><pre><span class="line">我这里以一个Java项目为例,在项目的根目录创建一个Dockerfile文件,在Dockerfile文件中编写命令,写哪些命令,请自行脑补.</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="第三章-简述操作系统发展史"><a href="#第三章-简述操作系统发展史" class="headerlink" title="第三章 简述操作系统发展史"></a>第三章 简述操作系统发展史</h2><h3 id="第1节-操作系统介绍"><a href="#第1节-操作系统介绍" class="headerlink" title="第1节 操作系统介绍"></a>第1节 操作系统介绍</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>. 操作系统概念: </span><br><span class="line">	操作系统（operating <span class="keyword">system</span>，简称OS）是管理计算机硬件与软件资源的计算机程序.也是一个使用计算机语言编写的软件.</span><br><span class="line">	</span><br><span class="line"><span class="number">2</span>. 操作系统的功能</span><br><span class="line">	<span class="number">2.1</span> 是整个计算机硬件和软件资源的超级大管家,管理着当前计算机的软硬件资源</span><br><span class="line">	<span class="number">2.2</span> 硬件管理主要包括 </span><br><span class="line">		① CPU和内存资源的合理分配</span><br><span class="line">		② 任务优先级的控制</span><br><span class="line">		③ 其他输入输出设备的管理(网络,usb,显示器等)...</span><br><span class="line">	<span class="number">2.3</span> 软件管理</span><br><span class="line">		① 多软件应用的运行</span><br><span class="line">		② 软硬件资源合理化分配(例如打开QQ软件需要内存怎么分配)等...</span><br></pre></td></tr></table></figure>
 
-<h3 id="第2节-操作系统发展"><a href="#第2节-操作系统发展" class="headerlink" title="第2节 操作系统发展"></a>第2节 操作系统发展</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">无操作系统 -- ... -- DOS -- windows/unix/Linux</span><br><span class="line"></span><br><span class="line">无操作系统时代: 计算机控制的硬件资源比较少,没有复杂的任务调度问题.</span><br><span class="line"></span><br><span class="line">	算盘             -- 人脑就是CPU,珠子就是存储器     -- 算盘是主力人脑辅助  -- 半人脑，半工具</span><br><span class="line">	步进计算器/差分机  -- 解放人脑(里面有自己的计算方式)  -- 手动运行,机器运算  -- 解放人脑,没有解放双手</span><br><span class="line"></span><br><span class="line">有操作系统时代: 当一台计算机需要干的工作越来越多并且逻辑越来越复杂的时候,这时候就需要一个管理者来管理这些任务,并且合理分配计算机硬件资源.</span><br><span class="line">	分析机           -- 蒸汽机运行,机器运算,读卡       -- 解放人脑,解放双手</span><br><span class="line">	打孔计数器        -- 电动运行,机器运算,读卡        -- 比分析机更先进</span><br><span class="line">	电子计算机        -- 当前大规模集成电路            -- 超高的运算速度</span><br><span class="line">	</span><br><span class="line">注意: 这里可以将穿孔卡片看成最古老的操作系统(也可以把其单纯的看成一个软件),控制着计算机运行.</span><br></pre></td></tr></table></figure>
+<img src="https://note.youdao.com/yws/api/personal/file/WEB944e61d7e0578b781f31bc22103289f0?method=download&shareKey=22c2e5995edaba5779f3aa6b3c7dd692">
 
-<h2 id="第四章-DOS操作系统"><a href="#第四章-DOS操作系统" class="headerlink" title="第四章 DOS操作系统"></a>第四章 DOS操作系统</h2><h3 id="第1节-DOS操作系统介绍"><a href="#第1节-DOS操作系统介绍" class="headerlink" title="第1节 DOS操作系统介绍"></a>第1节 DOS操作系统介绍</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>. 磁盘操作系统(Disk Operating <span class="keyword">System</span>)是早期个人计算机上的一类操作系统</span><br><span class="line"><span class="number">2</span>. DOS系统没有图形化操作界面,要想使用需要学习dos命令</span><br><span class="line"><span class="number">3</span>. 直到windows/mac等带有图形化操作界面的系统出现,dos才慢慢的退出历史舞台</span><br><span class="line"><span class="number">4</span>. 但是DOS操作系统没有被取消掉,而是以一个应用软件的方式与其它操作系统共存(例如 在windows下作为windows下的应用软件与windows系统共存)</span><br></pre></td></tr></table></figure>
 
-<h3 id="第2节-DOS操作系统的启动方式"><a href="#第2节-DOS操作系统的启动方式" class="headerlink" title="第2节 DOS操作系统的启动方式"></a>第2节 DOS操作系统的启动方式</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">在windows下的启动方式:</span><br><span class="line">	方式一: 快捷键 [开始+r],开启一个黑色的命令行窗口,说明DOS启动成功</span><br><span class="line">	方式二: win10 可以使用搜索框直接输入cmd然后回车唤出黑色的命令行窗口</span><br><span class="line"></span><br><span class="line">注意: 我们把DOS常常叫做命令行窗口,所以后面我说DOS或者命令行属于一个意思.</span><br></pre></td></tr></table></figure>
 
-<h3 id="第3节-DOS操作系统的常用命令"><a href="#第3节-DOS操作系统的常用命令" class="headerlink" title="第3节 DOS操作系统的常用命令"></a>第3节 DOS操作系统的常用命令</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">dir : 列出当前目录下的文件或文件夹</span><br><span class="line">md  : 创建目录</span><br><span class="line">rd  : 删除目录</span><br><span class="line">cd  : 进入到指定目录</span><br><span class="line">cd..: 返回上一级目录</span><br><span class="line">cd / : 切换到根目录</span><br><span class="line">del : 删除文件</span><br><span class="line">exit: 退出DOS命令行</span><br><span class="line"><span class="keyword">cls</span> : 清屏</span><br><span class="line"></span><br><span class="line">以上是DOS操作系统下的简单命令操作.后续一些其它命令在介绍.</span><br></pre></td></tr></table></figure>
+<img src="https://note.youdao.com/yws/api/personal/file/WEB32b013e2cdc8e0f2ab7eb3c32b5a0f23?method=download&shareKey=132bfa2825cf9c232b5a526644f5fca0">
 
+
+
+<h3 id="第三步-配置IDEA中的Docker"><a href="#第三步-配置IDEA中的Docker" class="headerlink" title="第三步: 配置IDEA中的Docker"></a>第三步: 配置IDEA中的Docker</h3><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">配置步骤如下:</span></span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB659109d0df56368c589b21222467136a?method=download&shareKey=c6c81d7982835ed287bcbb5d2ee4c251">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB7f52eb90d8e9dc31a2f4f2168cfda18f?method=download&shareKey=f85e6d01185df035f1346a0d15c1c5d1">
+
+
+
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">IDEA连接远程的Docker服务器会出现失败的情况,原因是远程Docker服务器没有开放<span class="number">2375</span>端口号的连接,所以去Docker服务器端进行配置</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">配置步骤:</span><br><span class="line"></span><br><span class="line">第一步: 找到配置文件</span><br><span class="line">	<span class="number">1</span>. 配置文件在Linux服务器的位置 <span class="regexp">/usr/</span>lib<span class="regexp">/systemd/</span>system/docker.service</span><br><span class="line">	<span class="number">2</span>. 通过 vim <span class="regexp">/usr/</span>lib<span class="regexp">/systemd/</span>system/docker.service  编辑文件</span><br><span class="line">	<span class="number">3</span>. 在docker.service文件中找到 以 ExecStart=<span class="regexp">/usr/</span>bin<span class="regexp">/dockerd开头的行,在后面添加 -H tcp:/</span>/<span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">2375</span> 修改之后如下,可能因为版本不同,此行内容略有区别,但是差距不大</span><br><span class="line">	<span class="number">4</span>. 修改后: ExecStart=<span class="regexp">/usr/</span>bin<span class="regexp">/dockerd -H tcp:/</span><span class="regexp">/0.0.0.0:2375  -H fd:/</span><span class="regexp">/ --containerd=/</span>run<span class="regexp">/containerd/</span>containerd.sock</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">文件演示如下:</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEBbaf20009679c42ea3751679eff76b605?method=download&shareKey=db02979b18ab1cd4aa754c25e659bdab">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB3bb6417c017af2144c2a088285659497?method=download&shareKey=1257735099862fc6b48ce8ad831d235a">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB5a41a6728bae4c196ea935e38bb75a00?method=download&shareKey=4acff9493c53c479833def3be311e9d1">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEBe715862817b374f457e803baafce5225?method=download&shareKey=9c567066fb955f3d0ef38e2d6833123e">
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">下方有日志,可以通过日志查看是否发布成功</span><br></pre></td></tr></table></figure>
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB21666a2058a31f3bf845da9ee535623f?method=download&shareKey=5dcb9caab51559ce0822393afe9822cb">
+
+<h2 id="第三章-控制面板使用"><a href="#第三章-控制面板使用" class="headerlink" title="第三章 控制面板使用"></a>第三章 控制面板使用</h2><figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line">上图中IDEA左下角有一个操作容器和镜像的控制面板<span class="punctuation">,</span>这个控制面板可以控制远程的Docker平台的镜像和容器</span><br><span class="line"></span><br><span class="line">当然也有第三方的控制面板使用</span><br><span class="line"></span><br><span class="line">在前面的博客中  https://hs-an-yue.github.io/<span class="number">2024</span>/<span class="number">08</span>/<span class="number">03</span>/Docker<span class="variable">%E7</span><span class="variable">%9</span>A<span class="variable">%84</span><span class="variable">%E5</span><span class="variable">%B8</span><span class="variable">%B8</span><span class="variable">%E7</span><span class="variable">%94</span><span class="variable">%A8</span><span class="variable">%E5</span><span class="variable">%91</span><span class="variable">%BD</span><span class="variable">%E4</span><span class="variable">%BB</span><span class="variable">%A4</span><span class="variable">%E4</span><span class="variable">%BB</span><span class="variable">%A5</span><span class="variable">%E5</span><span class="variable">%8</span>F<span class="variable">%8</span>A<span class="variable">%E4</span><span class="variable">%BD</span><span class="variable">%BF</span><span class="variable">%E7</span><span class="variable">%94</span><span class="variable">%A8</span>/#<span class="variable">%E7</span><span class="variable">%AC</span><span class="variable">%AC4</span><span class="variable">%E8</span><span class="variable">%8</span>A<span class="variable">%82</span>-Docker<span class="variable">%E6</span><span class="variable">%8</span>E<span class="variable">%A7</span><span class="variable">%E5</span><span class="variable">%88</span><span class="variable">%B6</span><span class="variable">%E9</span><span class="variable">%9</span>D<span class="variable">%A2</span><span class="variable">%E6</span><span class="variable">%9</span>D<span class="variable">%BF</span><span class="variable">%E5</span><span class="variable">%AE</span><span class="variable">%89</span><span class="variable">%E8</span><span class="variable">%A3</span><span class="variable">%85</span></span><br><span class="line"></span><br><span class="line">也介绍了一个控制面板<span class="punctuation">,</span>大家可以自行去看一下</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB1e2badb7b02cd7b8535cc3db899eb3dc?method=download&shareKey=d4a36245255d7933cef34081bfa7c0a3">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB63b349cb3e08fd2f0c54690f434b2781?method=download&shareKey=44732a5eeb2d6890ab9e1340937e10a0">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEBc8bf5e6a97793ff8155981b58223a398?method=download&shareKey=0d0a44297fe237908e47586737f87ed4">
+
+
+
+<hr>
 ]]></content>
       <categories>
-        <category>javase</category>
+        <category>Linux(运维)</category>
       </categories>
       <tags>
-        <tag>计算机</tag>
-        <tag>计算机语言</tag>
-        <tag>语言</tag>
-        <tag>存储</tag>
-        <tag>历史</tag>
-        <tag>数学家</tag>
+        <tag>Docker</tag>
+        <tag>镜像</tag>
+        <tag>控制面板</tag>
+        <tag>IntelliJ IDEA</tag>
+        <tag>Dockerfile</tag>
+        <tag>运维</tag>
+        <tag>一键发布</tag>
       </tags>
   </entry>
   <entry>
@@ -860,53 +628,6 @@
         <tag>日志</tag>
         <tag>异常</tag>
         <tag>链路追踪</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>02-Java语言概述</title>
-    <url>/2024/10/14/javase/02-Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<span id="more"></span>
-
-<h2 id="第一章-Java语言发展史"><a href="#第一章-Java语言发展史" class="headerlink" title="第一章 Java语言发展史"></a>第一章 Java语言发展史</h2><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">硬件的发展 -- 廉价的单片式微控制器 -- 用于智能化家居</span><br><span class="line"></span><br><span class="line"><span class="number">1991</span>年成立Green小组(詹姆斯·高斯林任组长),专攻计算机在家电领域的嵌入式应用</span><br><span class="line"><span class="number">1992</span>年夏Oak开发成功(根据C++语言改造),Oak开发成功之后需要硬件厂家支持,但是硬件厂家没同意(因为Oak没人用,硬件厂商怕支持了没人买)Oak直接凉了</span><br><span class="line"><span class="number">1995</span>年互联网蓬勃发展,那时候需要一种语言可以在网络上传输,并且给页面增加动态效果,Green小组成员发现Oak可以完成这样的要求,并且当初设计的时候这门语言也比较小适合在网络上传输,所以对Oak语言一顿修改,重命名为Java,并且在Sun World大会上亮相被认可(IBM,微软,HP..)</span><br><span class="line"><span class="number">1996</span>年<span class="number">1</span>月 Sun公司发布了Java的第一个开发工具包（JDK1.<span class="number">0</span>）</span><br><span class="line"><span class="number">1997</span>年<span class="number">2</span>月 JDK1.<span class="number">1</span></span><br><span class="line"><span class="number">1999</span>年<span class="number">6</span>月 JDK1.<span class="number">2</span></span><br><span class="line">	J2ME（Java2 Micro Edition Java2平台的微型版）应用于嵌入式、无线领域</span><br><span class="line">	J2SE（Java2 Standard Edition Java2平台的标准版）应用于桌面环境,现在已经被Android应用和IOS应用取代</span><br><span class="line">	J2EE（Java2 Enterprise Edition Java2平台的企业版）应用于基于Java的应用服务器,以后的学习方向</span><br><span class="line"><span class="number">2000</span>年<span class="number">5</span>月 JDK1.<span class="number">3</span>、JDK1.<span class="number">4</span></span><br><span class="line"><span class="number">2004</span>年<span class="number">9</span>月 JDK5(从原来的<span class="number">1</span>.x版本修改成x版本) 里程碑版本,增加了很多实用功能</span><br><span class="line"><span class="number">2005</span>年<span class="number">6</span>月 JDK6</span><br><span class="line"><span class="number">2009</span>年    甲骨文(Oracle)公司宣布收购Sun</span><br><span class="line"><span class="number">2011</span>年    JDK7</span><br><span class="line"><span class="number">2014</span>年    JDK8(JDK8版本开始部分收费 JDK8u211及以上版本开始收费,以下版本依然免费) 当前国内使用的版本</span><br><span class="line"><span class="number">2017</span>年<span class="number">9</span>月 JDK9 收费</span><br><span class="line"><span class="number">2018</span>年<span class="number">3</span>月 JDK10 收费</span><br><span class="line">...</span><br><span class="line"><span class="number">2021</span>年    JDK16 收费</span><br><span class="line"><span class="number">2021</span>年<span class="number">9</span>月 JDK17 免费    LTS</span><br><span class="line">...</span><br><span class="line">          JDK19 免费</span><br><span class="line"><span class="number">2023</span>年<span class="number">3</span>月  JDK20 免费</span><br><span class="line"><span class="number">2023</span>年<span class="number">9</span>月  JDK21 免费   LTS</span><br><span class="line"><span class="number">2024</span>年<span class="number">3</span>月  JDK22 免费  非LTS</span><br><span class="line"><span class="number">2024</span>年<span class="number">9</span>月  JDK23 免费  非LTS</span><br><span class="line">...    </span><br></pre></td></tr></table></figure>
-
-<h2 id="第二章-Java语言优势"><a href="#第二章-Java语言优势" class="headerlink" title="第二章 Java语言优势"></a>第二章 Java语言优势</h2><h3 id="第1节-Java语言应用方向"><a href="#第1节-Java语言应用方向" class="headerlink" title="第1节 Java语言应用方向"></a>第1节 Java语言应用方向</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">Java语言的职业方向</span><br><span class="line"><span class="number">1</span>. 很多大数据相关框架都是使用Java语言开发的,比如hadoop，Hbase，Elasticsearch等</span><br><span class="line"><span class="number">2</span>. 在应用领域很多软件的后台服务都是基于Java开发</span><br><span class="line">	<span class="number">2.1</span> 电商领域(淘宝、京东...)</span><br><span class="line">	<span class="number">2.2</span> 金融领域(支付宝、银行...)</span><br><span class="line">	<span class="number">2.3</span> 软件工具(Eclipse...)</span><br><span class="line">	<span class="number">2.4</span> 国内的各个领域(政府、金融、保险、医疗、教育...)Java占着举足轻重的地位</span><br><span class="line"><span class="number">3</span>. Java语言曾经是Android应用的首选语言,但是当下有替代语言Kotlin，并且移动端百花齐放，所以选择极多。</span><br><span class="line"></span><br><span class="line">打开我们的手机,里面的APP软件大部分后台都是Java语言编写的. </span><br></pre></td></tr></table></figure>
-
-<h3 id="第2节-Java语言特点"><a href="#第2节-Java语言特点" class="headerlink" title="第2节 Java语言特点"></a>第2节 Java语言特点</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>. 简单性</span><br><span class="line"><span class="number">2</span>. 面向对象</span><br><span class="line"><span class="number">3</span>. 分布性</span><br><span class="line"><span class="number">4</span>. 健壮性</span><br><span class="line"><span class="number">5</span>. 安全性</span><br><span class="line"><span class="number">6</span>. 跨平台</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h2 id="第三章-Java语言的环境搭建"><a href="#第三章-Java语言的环境搭建" class="headerlink" title="第三章 Java语言的环境搭建"></a>第三章 Java语言的环境搭建</h2><h3 id="第1节-官网地址"><a href="#第1节-官网地址" class="headerlink" title="第1节 官网地址"></a>第1节 官网地址</h3><figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">https:<span class="regexp">//</span>www.oracle.com/cn/</span><br></pre></td></tr></table></figure>
-
-<h3 id="第2节-JDK介绍"><a href="#第2节-JDK介绍" class="headerlink" title="第2节 JDK介绍"></a>第2节 JDK介绍</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JDK(Java Development Kit)Java开发工具包,工具包中包含了开发Java语言的各种工具(包含语言编译工具)以及运行Java软件的环境等</span><br></pre></td></tr></table></figure>
-
-<h3 id="第3节-安装和环境配置"><a href="#第3节-安装和环境配置" class="headerlink" title="第3节 安装和环境配置"></a>第3节 安装和环境配置</h3><ul>
-<li>安装</li>
-</ul>
-<figure class="highlight pascal"><table><tr><td class="code"><pre><span class="line">傻瓜式安装</span><br><span class="line">注意: 安装路径不能有中文,不能有空格,不需要额外安装jre(Java运行时环境)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>安装目录介绍</li>
-<li>环境变量配置</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span> 设置变量 JAVA_HOME=JDK安装路径,精确到bin目录的上一级</span><br><span class="line"><span class="number">2.</span> 将JAVA_HOME添加到Path路径下 %JAVA_HOME%\bin;</span><br><span class="line"></span><br><span class="line">注意:</span><br><span class="line"><span class="number">1.</span> JAVA_HOME 必须全部大写</span><br><span class="line"><span class="number">2.</span> JAVA_HOME 两个单词中间是下划线而非减号</span><br><span class="line"><span class="number">3.</span> %XXX% 百分号是windows系统中取变量值的一种语法 </span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>测试</li>
-</ul>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line">在DOS命令行窗口中执行 java -version 命令. 如果打印出jdk的版本,说明安装成功.</span><br></pre></td></tr></table></figure>
-
-<h2 id="第四章-第一个Java软件编写"><a href="#第四章-第一个Java软件编写" class="headerlink" title="第四章 第一个Java软件编写"></a>第四章 第一个Java软件编写</h2><h3 id="第1节-开发工具介绍"><a href="#第1节-开发工具介绍" class="headerlink" title="第1节 开发工具介绍"></a>第1节 开发工具介绍</h3><h3 id="第2节-Java代码编写步骤"><a href="#第2节-Java代码编写步骤" class="headerlink" title="第2节 Java代码编写步骤"></a>第2节 Java代码编写步骤</h3><h3 id="第3节-代码编写"><a href="#第3节-代码编写" class="headerlink" title="第3节 代码编写"></a>第3节 代码编写</h3><h2 id="第五章-软件的运行流程"><a href="#第五章-软件的运行流程" class="headerlink" title="第五章 软件的运行流程"></a>第五章 软件的运行流程</h2><h2 id="第六章-Java语言注释"><a href="#第六章-Java语言注释" class="headerlink" title="第六章 Java语言注释"></a>第六章 Java语言注释</h2>]]></content>
-      <categories>
-        <category>javase</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>jvm</tag>
-        <tag>跨平台</tag>
-        <tag>x86</tag>
-        <tag>arm</tag>
-        <tag>oracle</tag>
       </tags>
   </entry>
 </search>
