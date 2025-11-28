@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="123456作者: 夜泊1990企鹅: 1611756908Q 群: 948233848邮箱: hd1611756908@163.com博客: https:&#x2F;&#x2F;hs-an-yue.github.io&#x2F;B 站: https:&#x2F;&#x2F;space.bilibili.com&#x2F;514155929&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ya-Admin使用文档">
+<meta property="og:url" content="http://example.com/2025/11/28/Ya-Admin%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3/index.html">
+<meta property="og:site_name" content="夜泊1990">
+<meta property="og:description" content="123456作者: 夜泊1990企鹅: 1611756908Q 群: 948233848邮箱: hd1611756908@163.com博客: https:&#x2F;&#x2F;hs-an-yue.github.io&#x2F;B 站: https:&#x2F;&#x2F;space.bilibili.com&#x2F;514155929&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://share.note.youdao.com/yws/api/personal/file/WEB7ec5656e1fe99870269c2eb320935554?method=download&shareKey=7d8fc62cae3776138c44c9bc84993bf0">
+<meta property="og:image" content="https://share.note.youdao.com/yws/api/personal/file/WEB7c1e0cfb553d5943799731bee14cee15?method=download&shareKey=d01726349b72d9d557b6b4293bc7e145">
+<meta property="og:image" content="https://share.note.youdao.com/yws/api/personal/file/WEB97a4a8911909a5daa66b5f5757dd1d7f?method=download&shareKey=4cb21645ec3198c49130970735e4c619">
+<meta property="og:image" content="https://share.note.youdao.com/yws/api/personal/file/WEBb6a631ce0cd6de8f41207c66ab57b358?method=download&shareKey=ba5ed976ad2a08d0195352fd3a2fb0a1">
+<meta property="og:image" content="https://share.note.youdao.com/yws/api/personal/file/WEB295b88742d5b835fa2aa50825a60e4cf?method=download&shareKey=ac2c2ac76dafeab9044b04649a298096">
+<meta property="og:image" content="https://share.note.youdao.com/yws/api/personal/file/WEB8edd2121528abc86011697670c1b1140?method=download&shareKey=47c247178c49fa70ee53209702d0f3a0">
+<meta property="og:image" content="https://share.note.youdao.com/yws/api/personal/file/WEBb7e2d2fb35093e3ba12958ede658455a?method=download&shareKey=9e97c0ebee74b212c02eaec10f472cad">
+<meta property="og:image" content="https://share.note.youdao.com/yws/api/personal/file/WEB954117e481671352015e56d3c196a8f8?method=download&shareKey=bdfdbca0dec665742c12ce5834893ab5">
+<meta property="og:image" content="https://share.note.youdao.com/yws/api/personal/file/WEB4ac087653646e4dbd43386dd7a6275cd?method=download&shareKey=27d4b54ba7a47576512be6b073a7aba0">
+<meta property="og:image" content="https://share.note.youdao.com/yws/api/personal/file/WEBbb09cfc4ca5836b0c096e0500f292ecf?method=download&shareKey=f6543711610fb2b6ff36000431882514">
+<meta property="og:image" content="https://share.note.youdao.com/yws/api/personal/file/WEB437f86b953fd0d08de80d1405b653ee5?method=download&shareKey=b8d59e20d2d98de78054f90817370aef">
+<meta property="og:image" content="https://share.note.youdao.com/yws/api/personal/file/WEB3fc831eb4e7f383e2bcca0ded3c56d9e?method=download&shareKey=025b23e6a244a0f05e9361dc699583d8">
+<meta property="og:image" content="https://share.note.youdao.com/yws/api/personal/file/WEB14cba3b0b15c6cb4686b2e421db0e062?method=download&shareKey=8c080d0d10e018f9a6fd8e8d5836ddac">
+<meta property="og:image" content="https://share.note.youdao.com/yws/api/personal/file/WEBf4313bca72a394801efe3a732df88364?method=download&shareKey=fb9dfa24ec628a13b9722e75f79577b4">
+<meta property="article:published_time" content="2025-11-28T02:33:48.171Z">
+<meta property="article:modified_time" content="2025-11-28T11:50:43.256Z">
+<meta property="article:author" content="新换了一个网名">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="Layui">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="Ya-Admin">
+<meta property="article:tag" content="后台管理模板">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://share.note.youdao.com/yws/api/personal/file/WEB7ec5656e1fe99870269c2eb320935554?method=download&shareKey=7d8fc62cae3776138c44c9bc84993bf0">
+
+
+<link rel="canonical" href="http://example.com/2025/11/28/Ya-Admin%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/11/28/Ya-Admin%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3/","path":"2025/11/28/Ya-Admin使用文档/","title":"Ya-Admin使用文档"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Ya-Admin使用文档 | 夜泊1990</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="夜泊1990" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+	<a target="_blank" rel="noopener" href="https://gitee.com/ukoko" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">夜泊1990</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">每走一步,都是进步</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-Ya-Admin%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">第一章 Ya-Admin概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC1%E8%8A%82-Ya-Admin%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.</span> <span class="nav-text">第1节 Ya-Admin介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC2%E8%8A%82-Ya-Admin%E7%89%B9%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">第2节 Ya-Admin特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC3%E8%8A%82-Ya-Admin%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88"><span class="nav-number">1.3.</span> <span class="nav-text">第3节 Ya-Admin在线预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC4%E8%8A%82-Ya-Admin%E4%B8%8B%E8%BD%BD%E5%92%8C%E8%BF%90%E8%A1%8C"><span class="nav-number">1.4.</span> <span class="nav-text">第4节 Ya-Admin下载和运行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 下载地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 开发工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-%E8%BF%90%E8%A1%8C"><span class="nav-number">1.4.3.</span> <span class="nav-text">4.3 运行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-Ya-Admin-%E6%A0%B8%E5%BF%83API%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">第二章 Ya-Admin 核心API概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC1%E8%8A%82-Ya-Admin%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD"><span class="nav-number">2.1.</span> <span class="nav-text">第1节 Ya-Admin核心功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E6%A1%86%E6%9E%B6%E4%B8%BB%E4%BD%93%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1 框架主体介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E5%B7%A6%E4%BE%A7%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2 左侧导航菜单介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E9%A1%B6%E9%83%A8%E5%88%87%E6%8D%A2%E6%A0%87%E7%AD%BE%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.1.3.</span> <span class="nav-text">1.3 顶部切换标签介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E5%B7%A6%E4%BE%A7%E8%8F%9C%E5%8D%95%E5%92%8C%E9%A1%B6%E9%83%A8%E6%A0%87%E7%AD%BE%E8%81%94%E5%8A%A8%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.1.4.</span> <span class="nav-text">1.4 左侧菜单和顶部标签联动介绍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC2%E8%8A%82-Ya-Admin%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3"><span class="nav-number">2.2.</span> <span class="nav-text">第2节 Ya-Admin设计思想</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-Ya-Admin%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8"><span class="nav-number">3.</span> <span class="nav-text">第三章 Ya-Admin使用入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC1%E8%8A%82-Ya-Admin-%E7%99%BB%E5%BD%95%E9%A1%B5"><span class="nav-number">3.1.</span> <span class="nav-text">第1节 Ya-Admin-登录页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC2%E8%8A%82-Ya-Admin-%E9%A6%96%E9%A1%B5"><span class="nav-number">3.2.</span> <span class="nav-text">第2节 Ya-Admin-首页</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-LOGO-%E6%A0%87%E9%A2%98%E4%BF%AE%E6%94%B9"><span class="nav-number">3.2.1.</span> <span class="nav-text">2.1 LOGO+标题修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E6%B5%8F%E8%A7%88%E5%99%A8%E9%80%89%E9%A1%B9%E5%8D%A1ICON"><span class="nav-number">3.2.2.</span> <span class="nav-text">2.2 浏览器选项卡ICON</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E4%BB%AA%E8%A1%A8%E7%9B%98-%E5%9B%BA%E5%AE%9A%E8%8F%9C%E5%8D%95-%E9%BB%98%E8%AE%A4%E9%80%89%E9%A1%B9%E5%8D%A1%E4%BF%AE%E6%94%B9"><span class="nav-number">3.2.3.</span> <span class="nav-text">2.3 仪表盘-固定菜单|默认选项卡修改</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-1-%E5%9B%BA%E5%AE%9A%E8%8F%9C%E5%8D%95"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">2.3.1 固定菜单</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-2-%E9%BB%98%E8%AE%A4%E9%80%89%E9%A1%B9%E5%8D%A1"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">2.3.2 默认选项卡</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-%E5%8A%A8%E6%80%81%E8%8F%9C%E5%8D%95%E4%BF%AE%E6%94%B9"><span class="nav-number">3.2.4.</span> <span class="nav-text">2.4 动态菜单修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-%E7%94%A8%E6%88%B7%E8%AE%BE%E7%BD%AE%E4%BF%AE%E6%94%B9"><span class="nav-number">3.2.5.</span> <span class="nav-text">2.5 用户设置修改</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC3%E8%8A%82-Ya-Admin-%E7%94%A8%E6%88%B7%E8%AE%BE%E7%BD%AE%E9%A1%B5"><span class="nav-number">3.3.</span> <span class="nav-text">第3节 Ya-Admin-用户设置页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC4%E8%8A%82-Ya-Admin-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E9%A1%B5"><span class="nav-number">3.4.</span> <span class="nav-text">第4节 Ya-Admin-用户管理页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC5%E8%8A%82-Ya-Admin-%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84%E9%A1%B5"><span class="nav-number">3.5.</span> <span class="nav-text">第5节 Ya-Admin-组织架构页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC6%E8%8A%82-Ya-Admin-%E5%85%B6%E5%AE%83%E9%A1%B5%E9%9D%A2"><span class="nav-number">3.6.</span> <span class="nav-text">第6节 Ya-Admin-其它页面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-Ya-Admin%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">第四章 Ya-Admin总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="新换了一个网名"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">新换了一个网名</p>
+  <div class="site-description" itemprop="description">须知少年凌云志,曾许人间第一流</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/ukoko" title="码云 → https:&#x2F;&#x2F;gitee.com&#x2F;ukoko" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>码云</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hd1611756908@163.com" title="邮箱 → mailto:hd1611756908@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>邮箱</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/28/Ya-Admin%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="新换了一个网名">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夜泊1990">
+      <meta itemprop="description" content="须知少年凌云志,曾许人间第一流">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Ya-Admin使用文档 | 夜泊1990">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ya-Admin使用文档
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-11-28 10:33:48 / 修改时间：19:50:43" itemprop="dateCreated datePublished" datetime="2025-11-28T10:33:48+08:00">2025-11-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<span id="more"></span>
+
+<h2 id="第一章-Ya-Admin概述"><a href="#第一章-Ya-Admin概述" class="headerlink" title="第一章 Ya-Admin概述"></a>第一章 Ya-Admin概述</h2><h3 id="第1节-Ya-Admin介绍"><a href="#第1节-Ya-Admin介绍" class="headerlink" title="第1节 Ya-Admin介绍"></a>第1节 Ya-Admin介绍</h3><p><strong>Ya-Admin </strong> 是一款基于<em>LayUI2.13+</em>创建的后台管理系统模板，他的创建之初是因为作者不经常写前端代码，偶尔在进行前端开发时<em>Vue</em>的那一套知识体系因为距离上次开发时间间隔太久，很多都忘记了，需要重新学。例如：<em>Vue2</em>和<em>Vue3</em>版本差异，造成的生态差异(路由，状态管理器，脚手架)以及选项式组合式语法差异，还有<em>JS&#x2F;TS</em>脚本语言差异，<em>ES</em>版本差异，<em>nodejs</em>依赖库差异，以及各种插件问题等，让作者每次都非常痛苦。作者觉得开发一个PC端的后台管理系统，付出的时间成本实在是太高，有没有只需要了解简单的<em>HTML&#x2F;CSS&#x2F;JS</em>就可以开发出自己想要的后台管理系统呢？于是就发现了<em>LayUI</em>这个只需要会简单的<em>HTML&#x2F;CSS&#x2F;JS</em>就可以干活的前端<em>UI</em>框架。但是市面上针对<em>LayUI</em>的生成的模板实在是太少并且版本非常低，根本就跟不上<em>LayUI</em>官网更新速度，基于作者对<em>LayUI</em>的喜欢，<strong>Ya-Admin</strong>应运而生。最初的想法只是作者个人使用，没想过开源，后面觉得可能有一些和我一样的后端开发，遇到共同的难题，有共同的需求，遂决定开源，为我们这群小众群体，提供一些力所能及的帮助。</p>
+<h3 id="第2节-Ya-Admin特点"><a href="#第2节-Ya-Admin特点" class="headerlink" title="第2节 Ya-Admin特点"></a>第2节 Ya-Admin特点</h3><figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">优点</span></span><br><span class="line"><span class="attribute"> -学习成本低</span><span class="punctuation">:</span> <span class="string">会简单的HTML/CSS/JS就可以干活</span></span><br><span class="line"> <span class="attribute">-基于HTML页面开发</span><span class="punctuation">:</span> <span class="string">简单粗暴</span></span><br><span class="line"> <span class="attribute">-LayUI框架是LTS版本,文档清晰明了，使用简单，组件丰富</span></span><br><span class="line"><span class="attribute">缺点</span></span><br><span class="line"><span class="attribute"> -小众</span><span class="punctuation">:</span> <span class="string">大部分人还是用Vue那一套,用LayUI的人比较少</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="第3节-Ya-Admin在线预览"><a href="#第3节-Ya-Admin在线预览" class="headerlink" title="第3节 Ya-Admin在线预览"></a>第3节 Ya-Admin在线预览</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">预览地址<span class="punctuation">:</span> http<span class="punctuation">:</span><span class="comment">//106.14.27.178</span></span><br><span class="line">因为没有域名，有些系统浏览器不支持</span><br></pre></td></tr></table></figure>
+
+<h3 id="第4节-Ya-Admin下载和运行"><a href="#第4节-Ya-Admin下载和运行" class="headerlink" title="第4节 Ya-Admin下载和运行"></a>第4节 Ya-Admin下载和运行</h3><h4 id="4-1-下载地址"><a href="#4-1-下载地址" class="headerlink" title="4.1 下载地址"></a>4.1 下载地址</h4><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://gitee.com/ukoko/ya-layui-admin.git</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-开发工具"><a href="#4-2-开发工具" class="headerlink" title="4.2 开发工具"></a>4.2 开发工具</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">根据个人喜好而定</span><br><span class="line"><span class="bullet">    1.</span> HBuilder X</span><br><span class="line"><span class="bullet">    2.</span> Visual Studio Code</span><br><span class="line"><span class="bullet">    3.</span> IntelliJ IDEA</span><br><span class="line"><span class="bullet">    4.</span> WebStorm</span><br><span class="line"><span class="code">    ...</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-3-运行"><a href="#4-3-运行" class="headerlink" title="4.3 运行"></a>4.3 运行</h4><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将下载的ya-layui-<span class="keyword">admin</span>导入到开发工具中，运行<span class="keyword">index</span>.html或者<span class="keyword">login</span>.html，在浏览器中访问即可。</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二章-Ya-Admin-核心API概述"><a href="#第二章-Ya-Admin-核心API概述" class="headerlink" title="第二章 Ya-Admin 核心API概述"></a>第二章 Ya-Admin 核心API概述</h2><h3 id="第1节-Ya-Admin核心功能"><a href="#第1节-Ya-Admin核心功能" class="headerlink" title="第1节 Ya-Admin核心功能"></a>第1节 Ya-Admin核心功能</h3><h4 id="1-1-框架主体介绍"><a href="#1-1-框架主体介绍" class="headerlink" title="1.1 框架主体介绍"></a>1.1 框架主体介绍</h4><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEB7ec5656e1fe99870269c2eb320935554?method=download&shareKey=7d8fc62cae3776138c44c9bc84993bf0" alt="主体"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">整体设计为左右两栏</span><br><span class="line">1. 左侧为LOGO和菜单导航</span><br><span class="line">	1.1 顶部LOGO</span><br><span class="line">	1.2 导航菜单</span><br><span class="line">2. 右侧为主体内容区域</span><br><span class="line">	2.1 主体内容区域包括</span><br><span class="line">		2.1.1 顶部工具条部分</span><br><span class="line">		2.1.2 顶部选项卡部分</span><br><span class="line">		2.1.3 底部内容展示部分</span><br><span class="line">	2.2 在顶部工具条上有一个菜单图标</span><br><span class="line">		2.2.1 隐藏和显示左侧菜单+LOGO区域</span><br><span class="line"></span><br><span class="line">注意: 不支持响应式布局，个人认为对于后管来说，移动端意义不大，所以没做支持</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-左侧导航菜单介绍"><a href="#1-2-左侧导航菜单介绍" class="headerlink" title="1.2 左侧导航菜单介绍"></a>1.2 左侧导航菜单介绍</h4><blockquote>
+<p> 左侧菜单实现: 基于 <strong>LayUI</strong> 官网 <code>menu</code> 组件实现 详细文档: <a target="_blank" rel="noopener" href="https://layui.dev/docs/2/menu/">https://layui.dev/docs/2/menu/</a></p>
+</blockquote>
+<h4 id="1-3-顶部切换标签介绍"><a href="#1-3-顶部切换标签介绍" class="headerlink" title="1.3 顶部切换标签介绍"></a>1.3 顶部切换标签介绍</h4><blockquote>
+<p>顶部切换标签实现: 基于 <strong>LayUI</strong> 官网 <code>tabs</code> 组件实现 详细文档: <a target="_blank" rel="noopener" href="https://layui.dev/docs/2/tabs/">https://layui.dev/docs/2/tabs/</a></p>
+</blockquote>
+<h4 id="1-4-左侧菜单和顶部标签联动介绍"><a href="#1-4-左侧菜单和顶部标签联动介绍" class="headerlink" title="1.4 左侧菜单和顶部标签联动介绍"></a>1.4 左侧菜单和顶部标签联动介绍</h4><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEB7c1e0cfb553d5943799731bee14cee15?method=download&shareKey=d01726349b72d9d557b6b4293bc7e145" alt="联动"></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">左侧菜单和右侧顶部面包屑导航和右侧选项卡是同时联动的</span></span><br><span class="line"><span class="number">1</span><span class="string">.</span> <span class="string">点击左侧菜单右侧面包屑导航和选项卡跟着一起联动</span></span><br><span class="line"><span class="number">2</span><span class="string">.</span> <span class="string">点击右侧选项卡，顶部面包屑导航和左侧菜单联动</span></span><br><span class="line"><span class="number">3</span><span class="string">.</span> <span class="string">面包屑导航只有显示功能，没有实现跳转能力</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="第2节-Ya-Admin设计思想"><a href="#第2节-Ya-Admin设计思想" class="headerlink" title="第2节 Ya-Admin设计思想"></a>第2节 Ya-Admin设计思想</h3><p>有时候设计思想不重要，坚持才重要。写这个模板时遇到了很多问题，CSS问题，交互问题等，真想把键盘砸了不写了。最后整天自己<code>PUA</code>自己才一点点完成了此模板。这里不说设计思想，说一下心路历程。</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">开始<span class="string">...</span></span><br><span class="line">1. 豪言壮志:写一个基于LayUI的模板，以后再也不用受Vue2、Vue3、Vue生态、Nodejs版本和依赖的气</span><br><span class="line">2. 毫无头绪: MD放弃</span><br><span class="line"><span class="string">...</span> 过几天，受了Vue生态的气 <span class="string">...</span> </span><br><span class="line">3. 豪言壮志: 再也不受Vue的气，就不信我写不出来</span><br><span class="line"><span class="string">...</span> 毫无头绪，砸键盘 <span class="string">...</span></span><br><span class="line">4. 一个维护了好多年的Vue项目，装了好几个版本node，依赖总装不上 <span class="string">...</span> 已老实</span><br><span class="line">5. 豪言壮志: 觉得自己又行了，一定要实现一个不这么傻13的模板，不需要学Vue，会点HTML/CSS/JS就能干活的</span><br><span class="line"><span class="string">...</span> 毫无头绪 <span class="string">...</span></span><br><span class="line"></span><br><span class="line">计划开始，先不设想那么远，先就实现一个左右的布局:</span><br><span class="line">1. 第一步: 先实现整体布局</span><br><span class="line">	1.1 左右两栏布局实现</span><br><span class="line">	1.2 右侧上中下三行实现</span><br><span class="line">	1.3 添加左侧隐藏和显示菜单图标并实现左侧菜单的隐藏和显示</span><br><span class="line"><span class="string">...</span> 第一步完成后，高兴了好久，万事开头难，不要想太多，一步一步走，遇到问题在查资料处理问题 <span class="string">...</span></span><br><span class="line"></span><br><span class="line">2. 第二步: 左侧菜单实现</span><br><span class="line">	2.1 顶部LOGO和文字<span class="params">(非常简答转瞬完成)</span></span><br><span class="line">	2.2 导航菜单<span class="params">(想了好久该怎么实现，一遍遍看LayUI官网，在开发工具上测试menu组件)</span></span><br><span class="line">	2.3 将实现好的菜单，移植到模板工程中</span><br><span class="line"><span class="string">...</span> 第二步完成，又开心了好久 <span class="string">...</span></span><br><span class="line"></span><br><span class="line">3. 第三步: 右侧顶部工具条</span><br><span class="line">	3.1 面包屑导航<span class="params">(LayUI官网对应组件)</span></span><br><span class="line">	3.2 右侧用户信息<span class="params">(LayUI官网对应组件)</span></span><br><span class="line"><span class="string">...</span> 第三步完成，信心倍增 <span class="string">...</span></span><br><span class="line"></span><br><span class="line">4. 第四步: 右侧顶部选项卡</span><br><span class="line">	4.1 选项卡显示<span class="params">(LayUI官网对应组件)</span></span><br><span class="line">	4.2 选项卡切换<span class="params">(LayUI官网对应组件)</span></span><br><span class="line"><span class="string">...</span> 第四步完成，游刃有余 <span class="string">...</span></span><br><span class="line"></span><br><span class="line">5. 第五步: 左侧菜单+右侧面包屑导航+右侧选项卡联动</span><br><span class="line">	5.1 点击左侧菜单右侧选项卡如果不存在新增，如果存在定位</span><br><span class="line">	5.2 点击选项卡，定位到左侧菜单项</span><br><span class="line">	5.3 无论点击左侧还是点击右侧，顶部面包屑导航都要跟着变化</span><br><span class="line">	5.4 如果删除选项卡后，选项卡列表会定位一个新的，这时左侧菜单和顶部面包屑也要联动</span><br><span class="line"><span class="string">...</span> 第五步完成，心如止水，一切尽在掌握 <span class="string">...</span></span><br><span class="line"></span><br><span class="line">这是我在实现模板时的心路历程，最后不负众望，坚持了下来，这里感谢在各种BUG和不达预期时没有心态炸裂的自己。</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三章-Ya-Admin使用入门"><a href="#第三章-Ya-Admin使用入门" class="headerlink" title="第三章 Ya-Admin使用入门"></a>第三章 Ya-Admin使用入门</h2><h3 id="第1节-Ya-Admin-登录页"><a href="#第1节-Ya-Admin-登录页" class="headerlink" title="第1节 Ya-Admin-登录页"></a>第1节 Ya-Admin-登录页</h3><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEB97a4a8911909a5daa66b5f5757dd1d7f?method=download&shareKey=4cb21645ec3198c49130970735e4c619" alt="login"></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">登录页面是从LayUI官网复制得来，具体操作参考官网即可</span><br><span class="line">https:<span class="regexp">//</span>layui.dev<span class="regexp">/docs/</span><span class="number">2</span><span class="regexp">/form/</span><span class="comment">#login</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="第2节-Ya-Admin-首页"><a href="#第2节-Ya-Admin-首页" class="headerlink" title="第2节 Ya-Admin-首页"></a>第2节 Ya-Admin-首页</h3><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEBb6a631ce0cd6de8f41207c66ab57b358?method=download&shareKey=ba5ed976ad2a08d0195352fd3a2fb0a1" alt="home"></p>
+<h4 id="2-1-LOGO-标题修改"><a href="#2-1-LOGO-标题修改" class="headerlink" title="2.1 LOGO+标题修改"></a>2.1 LOGO+标题修改</h4><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEB295b88742d5b835fa2aa50825a60e4cf?method=download&shareKey=ac2c2ac76dafeab9044b04649a298096" alt="logl"></p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOGO+标题修改比较简单,在首页<span class="keyword">index</span>.html页面修改即可</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="2-2-浏览器选项卡ICON"><a href="#2-2-浏览器选项卡ICON" class="headerlink" title="2.2 浏览器选项卡ICON"></a>2.2 浏览器选项卡ICON</h4><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEB8edd2121528abc86011697670c1b1140?method=download&shareKey=47c247178c49fa70ee53209702d0f3a0" alt="icon"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改方式，见下图</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://share.note.youdao.com/yws/api/personal/file/WEBb7e2d2fb35093e3ba12958ede658455a?method=download&shareKey=9e97c0ebee74b212c02eaec10f472cad" alt="edit"></p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ico图标可以通过此网站生成<span class="punctuation">:</span> https<span class="punctuation">:</span><span class="comment">//www.icoa.cc/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="2-3-仪表盘-固定菜单-默认选项卡修改"><a href="#2-3-仪表盘-固定菜单-默认选项卡修改" class="headerlink" title="2.3 仪表盘-固定菜单|默认选项卡修改"></a>2.3 仪表盘-固定菜单|默认选项卡修改</h4><h5 id="2-3-1-固定菜单"><a href="#2-3-1-固定菜单" class="headerlink" title="2.3.1 固定菜单"></a>2.3.1 固定菜单</h5><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEB954117e481671352015e56d3c196a8f8?method=download&shareKey=bdfdbca0dec665742c12ce5834893ab5" alt="dashboad"></p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">固定菜单和动态菜单不同,动态菜单从服务器获取，固定菜单一般情况不放在服务器端,但是也有人将菜单全部交给服务器管理.</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-3-2-默认选项卡"><a href="#2-3-2-默认选项卡" class="headerlink" title="2.3.2 默认选项卡"></a>2.3.2 默认选项卡</h5><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEB4ac087653646e4dbd43386dd7a6275cd?method=download&shareKey=27d4b54ba7a47576512be6b073a7aba0" alt="dashboad2"></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">默认选项卡设置和固定菜单搭配，和固定菜单保持一致，如果不保持一致也可以，就是比较丑。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="2-4-动态菜单修改"><a href="#2-4-动态菜单修改" class="headerlink" title="2.4 动态菜单修改"></a>2.4 动态菜单修改</h4><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEBbb09cfc4ca5836b0c096e0500f292ecf?method=download&shareKey=f6543711610fb2b6ff36000431882514" alt="dy"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">动态菜单数据来源于服务器端,通过服务器端接口调用获取，需要严格保证前后端数据格式</span><br><span class="line">数据参考: data/menu.json</span><br><span class="line">如果前后端不能保持一致，可以在后端进行数据修改，或者在前端修改</span><br><span class="line">修改参考: js/index.js中的create_menu函数，此函数用于生成菜单</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="2-5-用户设置修改"><a href="#2-5-用户设置修改" class="headerlink" title="2.5 用户设置修改"></a>2.5 用户设置修改</h4><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEB437f86b953fd0d08de80d1405b653ee5?method=download&shareKey=b8d59e20d2d98de78054f90817370aef" alt="user"></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户设置在点击时会在顶部选项卡中生成选项卡，所以<span class="built_in">id</span>不能和选项卡中的<span class="built_in">id</span>相同，否则会出现切换失败。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="第3节-Ya-Admin-用户设置页"><a href="#第3节-Ya-Admin-用户设置页" class="headerlink" title="第3节 Ya-Admin-用户设置页"></a>第3节 Ya-Admin-用户设置页</h3><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEB3fc831eb4e7f383e2bcca0ded3c56d9e?method=download&shareKey=025b23e6a244a0f05e9361dc699583d8" alt="info"></p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户设置页面，是根据LayUI官网的组件生成，针对页面内容区域，大家可以根据自己的审美结合服务器端的需求进行DIY.</span><br></pre></td></tr></table></figure>
+
+<h3 id="第4节-Ya-Admin-用户管理页"><a href="#第4节-Ya-Admin-用户管理页" class="headerlink" title="第4节 Ya-Admin-用户管理页"></a>第4节 Ya-Admin-用户管理页</h3><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEB14cba3b0b15c6cb4686b2e421db0e062?method=download&shareKey=8c080d0d10e018f9a6fd8e8d5836ddac" alt="MANAGER"></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户管理页面相比于其它页面比较复杂，LayUI官网没有提供恰好合适的组件实现此功能，</span><br><span class="line">此页面根据LayUI官网提供的组件修改后得到，如果不满足用户需求，可以自定义修改。</span><br></pre></td></tr></table></figure>
+
+<h3 id="第5节-Ya-Admin-组织架构页"><a href="#第5节-Ya-Admin-组织架构页" class="headerlink" title="第5节 Ya-Admin-组织架构页"></a>第5节 Ya-Admin-组织架构页</h3><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEBf4313bca72a394801efe3a732df88364?method=download&shareKey=fb9dfa24ec628a13b9722e75f79577b4" alt="org"></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">组织架构就是部门，部门通常情况下都是多层的，所以采用LayUI官网的treeTable组件实现</span><br></pre></td></tr></table></figure>
+
+<h3 id="第6节-Ya-Admin-其它页面"><a href="#第6节-Ya-Admin-其它页面" class="headerlink" title="第6节 Ya-Admin-其它页面"></a>第6节 Ya-Admin-其它页面</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">其它页面没有太大的实际意义，大家可以根据自己的用户需求进行创建和删除</span><br></pre></td></tr></table></figure>
+
+<h2 id="第四章-Ya-Admin总结"><a href="#第四章-Ya-Admin总结" class="headerlink" title="第四章 Ya-Admin总结"></a>第四章 Ya-Admin总结</h2><p>这是一个基于<strong>LayUI</strong> 的前端模板框架，非常接近于原生，只要了解一些<strong>HTML&#x2F;CSS&#x2F;JS</strong>就可以进行开发，学习成本极低，希望给大家带来不一样的前端开发体验。</p>
+<hr>
+
+    </div>
+
+    
+    
+    
+	
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">--------------------------已经到底啦！<i class="fa fa-paw"></i>--------------------------</div>
+    
+</div>
+	  
+	</div>
+
+	
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    我愿意资助原创
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="新换了一个网名 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="新换了一个网名 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/web/" rel="tag"># web</a>
+              <a href="/tags/Layui/" rel="tag"># Layui</a>
+              <a href="/tags/html/" rel="tag"># html</a>
+              <a href="/tags/css/" rel="tag"># css</a>
+              <a href="/tags/js/" rel="tag"># js</a>
+              <a href="/tags/javascript/" rel="tag"># javascript</a>
+              <a href="/tags/Ya-Admin/" rel="tag"># Ya-Admin</a>
+              <a href="/tags/%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E6%A8%A1%E6%9D%BF/" rel="tag"># 后台管理模板</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/25/%E7%BD%91%E7%AB%99%E5%86%85%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" rel="prev" title="网站内文件存储-快速入门">
+                  <i class="fa fa-angle-left"></i> 网站内文件存储-快速入门
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">新换了一个网名</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">82k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:14</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+<!-- <br /> -->
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<!-- <span id="times">载入时分秒...</span> -->
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("11/17/2022 8:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); 
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        // var times = document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "+hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
