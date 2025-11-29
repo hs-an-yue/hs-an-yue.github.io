@@ -27,52 +27,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Centos操作系统不维护的解决方案</title>
-    <url>/2025/04/25/Centos%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8D%E7%BB%B4%E6%8A%A4%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<span id="more"></span>
-
-<h2 id="第一章-Centos介绍"><a href="#第一章-Centos介绍" class="headerlink" title="第一章 Centos介绍"></a>第一章 Centos介绍</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">1</span>. CentOS 是Linux发行版之一，是免费的、开源的、可以重新分发的开源操作系统</span><br><span class="line"><span class="attribute">2</span>. 目前最新版为 Centos8.x 国内市场使用最多的为Centos7.x和Centos6.x </span><br><span class="line"><span class="attribute">3</span>. CentOS7在<span class="number">2024</span>年<span class="number">6</span>月<span class="number">30</span>日停止维护,仓库基本不能在使用,很多命令也不能在使用</span><br></pre></td></tr></table></figure>
-
-<h2 id="第二章-Centos官方不维护解决方案"><a href="#第二章-Centos官方不维护解决方案" class="headerlink" title="第二章 Centos官方不维护解决方案"></a>第二章 Centos官方不维护解决方案</h2><figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">首先就是yum库的问题,由于Centos系统不在维护,yum命令不能使用,所以需要切换yum命令的源</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">使用一个安装命令测试yum库是否可用</span></span><br><span class="line"><span class="attribute">yum install -y vim     安装vim编辑器命令结果报错如下</span><span class="punctuation">:</span> <span class="string">找不到对应的地址,由于Centos不在维护整个yum源都停止使用了</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">官方yum源不能使用,怎么替换官方yum源呢?步骤如下</span><span class="punctuation">:</span></span><br></pre></td></tr></table></figure>
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB806dd0f8a4871f1c230a131dd72bfbe0?method=download&shareKey=49d7fda391f079da526558ca3a1cbd02">
-
-<h3 id="第1步-查看默认仓库的位置"><a href="#第1步-查看默认仓库的位置" class="headerlink" title="第1步 查看默认仓库的位置"></a>第1步 查看默认仓库的位置</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">默认仓库的地址: /etc/yum.repos.d  里面有一个 CentOS-<span class="keyword">Base</span>.repo 文件就是默认仓库文件 </span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB600bf0a41841ac20a1096e0f8ab0e5a7?method=download&shareKey=c12bca14c2186da0a4b8532507166aca">
-
- 
-
-<h3 id="第2步-默认仓库备份"><a href="#第2步-默认仓库备份" class="headerlink" title="第2步 默认仓库备份"></a>第2步 默认仓库备份</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">使用mv命令将原仓库 CentOS-<span class="keyword">Base</span>.repo 备份,防止后面操作失败会滚不回去.</span><br><span class="line"></span><br><span class="line">命令: mv /etc/yum.repos.d/CentOS-<span class="keyword">Base</span>.repo /etc/yum.repos.d/CentOS-<span class="keyword">Base</span>.repo.bak</span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB503ec65799d36459b9aac0a30f24c8c5?method=download&shareKey=2c79b13b51ff7c554c2e38be99f831f8">
-
-<h3 id="第3步-下载阿里云仓库"><a href="#第3步-下载阿里云仓库" class="headerlink" title="第3步 下载阿里云仓库"></a>第3步 下载阿里云仓库</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">下载阿里云镜像仓库命令如下: Centos7系统</span><br><span class="line">命令: curl -o /etc/yum.repos.d/CentOS-<span class="keyword">Base</span>.repo http://mirrors.aliyun.<span class="keyword">com</span>/repo/Centos-<span class="number">7</span>.repo</span><br></pre></td></tr></table></figure>
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEBb13eb5bb05bc027a08353b9ab2498808?method=download&shareKey=aa50284b5a821dd1909ce43d52f883de">
-
-<h3 id="第4步-清除缓存-生成缓存"><a href="#第4步-清除缓存-生成缓存" class="headerlink" title="第4步 清除缓存&amp;生成缓存"></a>第4步 清除缓存&amp;生成缓存</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">yum clean <span class="keyword">all</span></span><br><span class="line">yum makecache</span><br><span class="line"></span><br><span class="line">通过以上步骤,将原有的默认源配置成了阿里云的国内源. 通过一个安装命令测试一下源是否成功</span><br><span class="line"></span><br><span class="line">安装<span class="keyword">vim</span>编辑器</span><br><span class="line">命令为: yum install <span class="keyword">vim</span></span><br><span class="line">如果安装成功说明阿里云镜像源配置成功</span><br></pre></td></tr></table></figure>
-
-<h2 id="第三章-替代产品"><a href="#第三章-替代产品" class="headerlink" title="第三章 替代产品"></a>第三章 替代产品</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">由于Centos的停止更新，很多习惯使用Centos的用户来说特别的不方便,可以寻找一个替代Centos的Linux的发行版 AlmaLinux(阿尔玛),基本上继承了Centos的全部特性,使用上和Centos基本相同,可以作为Centos的替代产品,开源免费的社区版.具体可以自己去查询资料这里了不做详细介绍</span><br><span class="line"></span><br><span class="line">如果还是喜欢使用Centos系统,也可以像上面那样,做一个源修改,还是可以使用的.</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Linux(运维)</category>
-      </categories>
-      <tags>
-        <tag>Centos</tag>
-        <tag>Linux</tag>
-        <tag>AlmaLinux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker的常用命令以及使用</title>
     <url>/2025/04/25/Docker%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
@@ -133,6 +87,52 @@
         <tag>命令</tag>
         <tag>Shell</tag>
         <tag>控制面板</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Centos操作系统不维护的解决方案</title>
+    <url>/2025/04/25/Centos%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8D%E7%BB%B4%E6%8A%A4%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<span id="more"></span>
+
+<h2 id="第一章-Centos介绍"><a href="#第一章-Centos介绍" class="headerlink" title="第一章 Centos介绍"></a>第一章 Centos介绍</h2><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">1</span>. CentOS 是Linux发行版之一，是免费的、开源的、可以重新分发的开源操作系统</span><br><span class="line"><span class="attribute">2</span>. 目前最新版为 Centos8.x 国内市场使用最多的为Centos7.x和Centos6.x </span><br><span class="line"><span class="attribute">3</span>. CentOS7在<span class="number">2024</span>年<span class="number">6</span>月<span class="number">30</span>日停止维护,仓库基本不能在使用,很多命令也不能在使用</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二章-Centos官方不维护解决方案"><a href="#第二章-Centos官方不维护解决方案" class="headerlink" title="第二章 Centos官方不维护解决方案"></a>第二章 Centos官方不维护解决方案</h2><figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">首先就是yum库的问题,由于Centos系统不在维护,yum命令不能使用,所以需要切换yum命令的源</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">使用一个安装命令测试yum库是否可用</span></span><br><span class="line"><span class="attribute">yum install -y vim     安装vim编辑器命令结果报错如下</span><span class="punctuation">:</span> <span class="string">找不到对应的地址,由于Centos不在维护整个yum源都停止使用了</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">官方yum源不能使用,怎么替换官方yum源呢?步骤如下</span><span class="punctuation">:</span></span><br></pre></td></tr></table></figure>
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB806dd0f8a4871f1c230a131dd72bfbe0?method=download&shareKey=49d7fda391f079da526558ca3a1cbd02">
+
+<h3 id="第1步-查看默认仓库的位置"><a href="#第1步-查看默认仓库的位置" class="headerlink" title="第1步 查看默认仓库的位置"></a>第1步 查看默认仓库的位置</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">默认仓库的地址: /etc/yum.repos.d  里面有一个 CentOS-<span class="keyword">Base</span>.repo 文件就是默认仓库文件 </span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB600bf0a41841ac20a1096e0f8ab0e5a7?method=download&shareKey=c12bca14c2186da0a4b8532507166aca">
+
+ 
+
+<h3 id="第2步-默认仓库备份"><a href="#第2步-默认仓库备份" class="headerlink" title="第2步 默认仓库备份"></a>第2步 默认仓库备份</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">使用mv命令将原仓库 CentOS-<span class="keyword">Base</span>.repo 备份,防止后面操作失败会滚不回去.</span><br><span class="line"></span><br><span class="line">命令: mv /etc/yum.repos.d/CentOS-<span class="keyword">Base</span>.repo /etc/yum.repos.d/CentOS-<span class="keyword">Base</span>.repo.bak</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB503ec65799d36459b9aac0a30f24c8c5?method=download&shareKey=2c79b13b51ff7c554c2e38be99f831f8">
+
+<h3 id="第3步-下载阿里云仓库"><a href="#第3步-下载阿里云仓库" class="headerlink" title="第3步 下载阿里云仓库"></a>第3步 下载阿里云仓库</h3><figure class="highlight basic"><table><tr><td class="code"><pre><span class="line">下载阿里云镜像仓库命令如下: Centos7系统</span><br><span class="line">命令: curl -o /etc/yum.repos.d/CentOS-<span class="keyword">Base</span>.repo http://mirrors.aliyun.<span class="keyword">com</span>/repo/Centos-<span class="number">7</span>.repo</span><br></pre></td></tr></table></figure>
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEBb13eb5bb05bc027a08353b9ab2498808?method=download&shareKey=aa50284b5a821dd1909ce43d52f883de">
+
+<h3 id="第4步-清除缓存-生成缓存"><a href="#第4步-清除缓存-生成缓存" class="headerlink" title="第4步 清除缓存&amp;生成缓存"></a>第4步 清除缓存&amp;生成缓存</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">yum clean <span class="keyword">all</span></span><br><span class="line">yum makecache</span><br><span class="line"></span><br><span class="line">通过以上步骤,将原有的默认源配置成了阿里云的国内源. 通过一个安装命令测试一下源是否成功</span><br><span class="line"></span><br><span class="line">安装<span class="keyword">vim</span>编辑器</span><br><span class="line">命令为: yum install <span class="keyword">vim</span></span><br><span class="line">如果安装成功说明阿里云镜像源配置成功</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三章-替代产品"><a href="#第三章-替代产品" class="headerlink" title="第三章 替代产品"></a>第三章 替代产品</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">由于Centos的停止更新，很多习惯使用Centos的用户来说特别的不方便,可以寻找一个替代Centos的Linux的发行版 AlmaLinux(阿尔玛),基本上继承了Centos的全部特性,使用上和Centos基本相同,可以作为Centos的替代产品,开源免费的社区版.具体可以自己去查询资料这里了不做详细介绍</span><br><span class="line"></span><br><span class="line">如果还是喜欢使用Centos系统,也可以像上面那样,做一个源修改,还是可以使用的.</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux(运维)</category>
+      </categories>
+      <tags>
+        <tag>Centos</tag>
+        <tag>Linux</tag>
+        <tag>AlmaLinux</tag>
       </tags>
   </entry>
   <entry>
@@ -462,9 +462,9 @@
 <h2 id="第一章-Ya-Admin概述"><a href="#第一章-Ya-Admin概述" class="headerlink" title="第一章 Ya-Admin概述"></a>第一章 Ya-Admin概述</h2><h3 id="第1节-Ya-Admin介绍"><a href="#第1节-Ya-Admin介绍" class="headerlink" title="第1节 Ya-Admin介绍"></a>第1节 Ya-Admin介绍</h3><p><strong>Ya-Admin </strong> 是一款基于<em>LayUI2.13+</em>创建的后台管理系统模板，他的创建之初是因为作者不经常写前端代码，偶尔在进行前端开发时<em>Vue</em>的那一套知识体系因为距离上次开发时间间隔太久，很多都忘记了，需要重新学。例如：<em>Vue2</em>和<em>Vue3</em>版本差异，造成的生态差异(路由，状态管理器，脚手架)以及选项式组合式语法差异，还有<em>JS&#x2F;TS</em>脚本语言差异，<em>ES</em>版本差异，<em>nodejs</em>依赖库差异，以及各种插件问题等，让作者每次都非常痛苦。作者觉得开发一个PC端的后台管理系统，付出的时间成本实在是太高，有没有只需要了解简单的<em>HTML&#x2F;CSS&#x2F;JS</em>就可以开发出自己想要的后台管理系统呢？于是就发现了<em>LayUI</em>这个只需要会简单的<em>HTML&#x2F;CSS&#x2F;JS</em>就可以干活的前端<em>UI</em>框架。但是市面上针对<em>LayUI</em>的生成的模板实在是太少并且版本非常低，根本就跟不上<em>LayUI</em>官网更新速度，基于作者对<em>LayUI</em>的喜欢，<strong>Ya-Admin</strong>应运而生。最初的想法只是作者个人使用，没想过开源，后面觉得可能有一些和我一样的后端开发，遇到共同的难题，有共同的需求，遂决定开源，为我们这群小众群体，提供一些力所能及的帮助。</p>
 <h3 id="第2节-Ya-Admin特点"><a href="#第2节-Ya-Admin特点" class="headerlink" title="第2节 Ya-Admin特点"></a>第2节 Ya-Admin特点</h3><figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">优点</span></span><br><span class="line"><span class="attribute"> -学习成本低</span><span class="punctuation">:</span> <span class="string">会简单的HTML/CSS/JS就可以干活</span></span><br><span class="line"> <span class="attribute">-基于HTML页面开发</span><span class="punctuation">:</span> <span class="string">简单粗暴</span></span><br><span class="line"> <span class="attribute">-LayUI框架是LTS版本,文档清晰明了，使用简单，组件丰富</span></span><br><span class="line"><span class="attribute">缺点</span></span><br><span class="line"><span class="attribute"> -小众</span><span class="punctuation">:</span> <span class="string">大部分人还是用Vue那一套,用LayUI的人比较少</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="第3节-Ya-Admin在线预览"><a href="#第3节-Ya-Admin在线预览" class="headerlink" title="第3节 Ya-Admin在线预览"></a>第3节 Ya-Admin在线预览</h3><figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">预览地址<span class="punctuation">:</span> http<span class="punctuation">:</span><span class="comment">//106.14.27.178</span></span><br><span class="line">因为没有域名，有些系统浏览器不支持</span><br></pre></td></tr></table></figure>
+<h3 id="第3节-Ya-Admin在线预览"><a href="#第3节-Ya-Admin在线预览" class="headerlink" title="第3节 Ya-Admin在线预览"></a>第3节 Ya-Admin在线预览</h3><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">预览地址: http://106.14.27.178</span></span><br><span class="line"></span><br><span class="line"><span class="section">注意: 因为没有域名，有些系统浏览器不支持</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="第4节-Ya-Admin下载和运行"><a href="#第4节-Ya-Admin下载和运行" class="headerlink" title="第4节 Ya-Admin下载和运行"></a>第4节 Ya-Admin下载和运行</h3><h4 id="4-1-下载地址"><a href="#4-1-下载地址" class="headerlink" title="4.1 下载地址"></a>4.1 下载地址</h4><figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://gitee.com/ukoko/ya-layui-admin.git</span><br></pre></td></tr></table></figure>
+<h3 id="第4节-Ya-Admin下载和运行"><a href="#第4节-Ya-Admin下载和运行" class="headerlink" title="第4节 Ya-Admin下载和运行"></a>第4节 Ya-Admin下载和运行</h3><h4 id="4-1-下载地址"><a href="#4-1-下载地址" class="headerlink" title="4.1 下载地址"></a>4.1 下载地址</h4><figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://gitee.com/ukoko/ya-layui-admin.git</span><br><span class="line"></span><br><span class="line">作者提供了两个版本</span><br><span class="line">第一个版本(<span class="literal">master</span>分支): 纯白色背景版本(LayUI官网默认主题颜色) 纯白色+绿色</span><br><span class="line">第二个版本(dark分支): 左侧深色主题+右侧白色主题+字体蓝色主题</span><br><span class="line"></span><br><span class="line">大家可以根据自己的喜好进行分支选择，或者根据自己的喜好进行DIY</span><br></pre></td></tr></table></figure>
 
 <h4 id="4-2-开发工具"><a href="#4-2-开发工具" class="headerlink" title="4.2 开发工具"></a>4.2 开发工具</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">根据个人喜好而定</span><br><span class="line"><span class="bullet">    1.</span> HBuilder X</span><br><span class="line"><span class="bullet">    2.</span> Visual Studio Code</span><br><span class="line"><span class="bullet">    3.</span> IntelliJ IDEA</span><br><span class="line"><span class="bullet">    4.</span> WebStorm</span><br><span class="line"><span class="code">    ...</span></span><br></pre></td></tr></table></figure>
 
@@ -524,7 +524,10 @@
 <h3 id="第5节-Ya-Admin-组织架构页"><a href="#第5节-Ya-Admin-组织架构页" class="headerlink" title="第5节 Ya-Admin-组织架构页"></a>第5节 Ya-Admin-组织架构页</h3><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEBf4313bca72a394801efe3a732df88364?method=download&shareKey=fb9dfa24ec628a13b9722e75f79577b4" alt="org"></p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">组织架构就是部门，部门通常情况下都是多层的，所以采用LayUI官网的treeTable组件实现</span><br></pre></td></tr></table></figure>
 
-<h3 id="第6节-Ya-Admin-其它页面"><a href="#第6节-Ya-Admin-其它页面" class="headerlink" title="第6节 Ya-Admin-其它页面"></a>第6节 Ya-Admin-其它页面</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line">其它页面没有太大的实际意义，大家可以根据自己的用户需求进行创建和删除</span><br></pre></td></tr></table></figure>
+<h3 id="第6节-Ya-Admin-Dark主题页面"><a href="#第6节-Ya-Admin-Dark主题页面" class="headerlink" title="第6节 Ya-Admin-Dark主题页面"></a>第6节 Ya-Admin-Dark主题页面</h3><p><img src="https://share.note.youdao.com/yws/api/personal/file/WEBa9024da154208311b1bf1ad2387214dc?method=download&shareKey=3a67ed9de7fc11042fda0be1e0a83d0f" alt="dark"></p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">Dark主题:如果使用纯白主题切换<span class="literal">master</span>分支，使用Dark主题切换dark分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="第7节-Ya-Admin-其它页面"><a href="#第7节-Ya-Admin-其它页面" class="headerlink" title="第7节 Ya-Admin-其它页面"></a>第7节 Ya-Admin-其它页面</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line">其它页面没有太大的实际意义，大家可以根据自己的用户需求进行创建和删除</span><br></pre></td></tr></table></figure>
 
 <h2 id="第四章-Ya-Admin总结"><a href="#第四章-Ya-Admin总结" class="headerlink" title="第四章 Ya-Admin总结"></a>第四章 Ya-Admin总结</h2><p>这是一个基于<strong>LayUI</strong> 的前端模板框架，非常接近于原生，只要了解一些<strong>HTML&#x2F;CSS&#x2F;JS</strong>就可以进行开发，学习成本极低，希望给大家带来不一样的前端开发体验。</p>
 <hr>
