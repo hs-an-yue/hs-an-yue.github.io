@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-12-16T06:35:00.385Z</updated>
+  <updated>2026-01-28T09:39:50.679Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,45 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>YaYa-Layui-Admin-Plus模板使用手册</title>
+    <link href="http://example.com/2026/01/28/YaYa-Layui-Admin-Plus%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"/>
+    <id>http://example.com/2026/01/28/YaYa-Layui-Admin-Plus%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</id>
+    <published>2026-01-28T08:03:41.198Z</published>
+    <updated>2026-01-28T09:39:50.679Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure><hr><span id="more"></span><h2 id="第一章-模板概述"><a href="#第一章-模板概述" class="headerlink" title="第一章 模板概述"></a>第一章 模板概述</h2><h3 id="第1节-模板简介"><a href="#第1节-模板简介" class="headerlink" title="第1节 模板简介"></a>第1节 模板简介</h3><p><strong>YaYa-Layui-Admin-Plus</strong>  基于  <strong>Layui</strong> 框架实现的一套 简单、方便、纯国产化前端管理模板，借助 <strong>Layui</strong> 强大的交互能力，可以让后端程序员告别前端繁琐的配置，快速使用此模板+后端服务构建出属于自己的系统，<strong>Layui</strong>  作者在设计此框架的时候就不是为前端开发设计的，<strong>Layui</strong> 的  <strong>UI</strong>  设计不够亮眼，但是他的交互能力非常强大，偏向于为后端程序员设计，方便后端程序员只要掌握简单的 <strong>HTML&#x2F;CSS&#x2F;JS</strong> 在结合 <strong>Layui</strong> 官网就可以快速建站。</p><h3 id="第2节-优缺点"><a href="#第2节-优缺点" class="headerlink" title="第2节 优缺点"></a>第2节 优缺点</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">1</span>. 优点</span><br><span class="line">  <span class="attribute">1</span>.<span class="number">1</span> 基于 HTML/CSS/JS 原生开发，开发人员学习成本极低</span><br><span class="line">  <span class="attribute">1</span>.<span class="number">2</span> Layui框架提供了丰富的交互组件，例如:表单组件，表格组件，树形表格组件，树形组件，弹出层组件，使用简单方便</span><br><span class="line">  <span class="attribute">1</span>.<span class="number">3</span> 模板显示页基于iframe开发，各个iframe之间互不影响，所以在每一个页面可以用非Layui技术,例如bootstrap、vue、element-ui等</span><br><span class="line"><span class="attribute">2</span>. 缺点</span><br><span class="line">  <span class="attribute">2</span>.<span class="number">1</span> Layui没有提供强大的UI组件，尽管也提供了UI组件，但是UI组件的审美不够主流</span><br><span class="line">  <span class="attribute">2</span>.<span class="number">2</span> 社区不够活跃，不像vue一样社区提供了非常丰富的前端模板</span><br></pre></td></tr></table></figure><h2 id="第二章-下载和运行"><a href="#第二章-下载和运行" class="headerlink" title="第二章 下载和运行"></a>第二章 下载和运行</h2><h3 id="第1节-下载"><a href="#第1节-下载" class="headerlink" title="第1节 下载"></a>第1节 下载</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码克隆: git <span class="keyword">clone</span> <span class="title">https</span>://gitee.com/ukoko/yaya-layui-admin-plus.git</span><br></pre></td></tr></table></figure><h3 id="第2节-开发工具选择"><a href="#第2节-开发工具选择" class="headerlink" title="第2节 开发工具选择"></a>第2节 开发工具选择</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">开发工具建议选择 vscode</span><br><span class="line">下载地址<span class="punctuation">:</span> https<span class="punctuation">:</span><span class="comment">//code.visualstudio.com</span></span><br></pre></td></tr></table></figure><h3 id="第3节-运行"><a href="#第3节-运行" class="headerlink" title="第3节 运行"></a>第3节 运行</h3><table>    <tr> <td style="width:50%;"> <img src="https://share.note.youdao.com/yws/api/personal/file/WEB53c696469f28f919e042a1f3acfe5f44?method=download&shareKey=0f2d37c6e54dbc9b1309ea625deb4465" alt=""> </td><td style="width:50%;"><img src="https://share.note.youdao.com/yws/api/personal/file/WEB284fd1e7534db1280f7e648020f0c5e0?method=download&shareKey=11aa719eefceef9cc61bf0d11f4fdfa7" alt=""></td></tr></table><h2 id="第三章-目录结构介绍"><a href="#第三章-目录结构介绍" class="headerlink" title="第三章 目录结构介绍"></a>第三章 目录结构介绍</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">yaya-layui-admin-plus</span></span><br><span class="line"><span class="string">├──</span> <span class="string">assets</span>                  <span class="comment"># Gitee或者Github上README.md文件中显示的图片</span></span><br><span class="line"><span class="string">├──</span> <span class="string">css</span>                     <span class="comment"># yaya-layui-admin-plus模板的核心css文件</span></span><br><span class="line"><span class="string">├──────</span> <span class="string">index.css</span>           <span class="comment"># index.html首页的核心css</span></span><br><span class="line"><span class="string">├──────</span> <span class="string">menu.css</span>            <span class="comment"># index.html首页中左侧导航区域(菜单+LOGO+TITLE)的核心css</span></span><br><span class="line"><span class="string">├──────</span> <span class="string">yaya-common.css</span>     <span class="comment"># 整个模板中大部分页面需要用到的公共css配置在这里(这个属于个人喜好)</span></span><br><span class="line"><span class="string">├──</span> <span class="string">data</span>                    <span class="comment"># yaya-layui-admin-plus模板中的测试数据(例如左侧菜单生成数据,用户测试数据,部门测试数据等)</span></span><br><span class="line"><span class="string">├──</span> <span class="string">image</span>                   <span class="comment"># yaya-layui-admin-plus模板中用到的图片(登陆页面的背景图、网站用到的图标等)</span></span><br><span class="line"><span class="string">├──</span> <span class="string">js</span>                      <span class="comment"># yaya-layui-admin-plus模板中的核心JS文件</span></span><br><span class="line"><span class="string">├──────</span> <span class="string">yaya-admin-plus.js</span>  <span class="comment"># yaya-layui-admin-plus模板的核心JS文件(包含整个模板的核心功能的核心函数,例如 左侧菜单实现、选项卡实现等)</span></span><br><span class="line"><span class="string">├──────</span> <span class="string">xm-select.js</span>        <span class="comment"># 多功能下拉框库(第三方库)</span></span><br><span class="line"><span class="string">├──────</span> <span class="string">echarts.min.js</span>      <span class="comment"># 图表库(第三方库)</span></span><br><span class="line"><span class="string">├──</span> <span class="string">layui</span>                   <span class="comment"># Layui核心库</span></span><br><span class="line"><span class="string">├──</span> <span class="string">views</span>                   <span class="comment"># yaya-layui-admin-plus模板中提供的一些案例页面(不喜欢可以全部删掉,用户自己重新添加)</span></span><br><span class="line"><span class="string">├──</span> <span class="string">.gitignore</span>              <span class="comment"># Git配置文件,用于版本控制管理</span></span><br><span class="line"><span class="string">├──</span> <span class="string">DISCLAIMER.md</span>           <span class="comment"># 开源软件的免责声明文件</span></span><br><span class="line"><span class="string">├──</span> <span class="string">favicon.ico</span>             <span class="comment"># yaya-layui-admin-plus模板在预览时,浏览器选项卡上显示的图标</span></span><br><span class="line"><span class="string">├──</span> <span class="string">index.html</span>              <span class="comment"># yaya-layui-admin-plus模板首页</span></span><br><span class="line"><span class="string">├──</span> <span class="string">LICENSE</span>                 <span class="comment"># 开源软件的开源协议(MIT协议)</span></span><br><span class="line"><span class="string">├──</span> <span class="string">README.md</span>               <span class="comment"># yaya-layui-admin-plus模板的介绍文件</span></span><br></pre></td></tr></table></figure><h2 id="第四章-模板配置"><a href="#第四章-模板配置" class="headerlink" title="第四章 模板配置"></a>第四章 模板配置</h2>]]></content>
+    
+    
+    <summary type="html">&lt;figure class=&quot;highlight nestedtext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;作者&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;夜泊1990&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;企鹅&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;1611756908&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;Q 群&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;948233848&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;邮箱&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;hd1611756908@163.com&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;博客&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;https://hs-an-yue.github.io/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;B 站&lt;/span&gt;&lt;span class=&quot;punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;https://space.bilibili.com/514155929/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;</summary>
+    
+    
+    
+    <category term="Layui" scheme="http://example.com/categories/Layui/"/>
+    
+    
+    <category term="web" scheme="http://example.com/tags/web/"/>
+    
+    <category term="Layui" scheme="http://example.com/tags/Layui/"/>
+    
+    <category term="html" scheme="http://example.com/tags/html/"/>
+    
+    <category term="css" scheme="http://example.com/tags/css/"/>
+    
+    <category term="js" scheme="http://example.com/tags/js/"/>
+    
+    <category term="javascript" scheme="http://example.com/tags/javascript/"/>
+    
+    <category term="JQuery" scheme="http://example.com/tags/JQuery/"/>
+    
+    <category term="YaYa-Layui-Admin-Plus" scheme="http://example.com/tags/YaYa-Layui-Admin-Plus/"/>
+    
+    <category term="前端管理模板" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF%E7%AE%A1%E7%90%86%E6%A8%A1%E6%9D%BF/"/>
+    
+  </entry>
   
   <entry>
     <title>Ya-Admin生态功能实现</title>
@@ -214,9 +253,9 @@
     
     <category term="镜像" scheme="http://example.com/tags/%E9%95%9C%E5%83%8F/"/>
     
-    <category term="控制面板" scheme="http://example.com/tags/%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/"/>
-    
     <category term="IntelliJ IDEA" scheme="http://example.com/tags/IntelliJ-IDEA/"/>
+    
+    <category term="控制面板" scheme="http://example.com/tags/%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/"/>
     
     <category term="Dockerfile" scheme="http://example.com/tags/Dockerfile/"/>
     
@@ -367,11 +406,11 @@
     
     <category term="镜像" scheme="http://example.com/tags/%E9%95%9C%E5%83%8F/"/>
     
+    <category term="控制面板" scheme="http://example.com/tags/%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/"/>
+    
     <category term="命令" scheme="http://example.com/tags/%E5%91%BD%E4%BB%A4/"/>
     
     <category term="Shell" scheme="http://example.com/tags/Shell/"/>
-    
-    <category term="控制面板" scheme="http://example.com/tags/%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/"/>
     
   </entry>
   
