@@ -253,9 +253,9 @@
     
     <category term="镜像" scheme="http://example.com/tags/%E9%95%9C%E5%83%8F/"/>
     
-    <category term="控制面板" scheme="http://example.com/tags/%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/"/>
-    
     <category term="IntelliJ IDEA" scheme="http://example.com/tags/IntelliJ-IDEA/"/>
+    
+    <category term="控制面板" scheme="http://example.com/tags/%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/"/>
     
     <category term="Dockerfile" scheme="http://example.com/tags/Dockerfile/"/>
     
@@ -406,11 +406,11 @@
     
     <category term="镜像" scheme="http://example.com/tags/%E9%95%9C%E5%83%8F/"/>
     
+    <category term="控制面板" scheme="http://example.com/tags/%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/"/>
+    
     <category term="命令" scheme="http://example.com/tags/%E5%91%BD%E4%BB%A4/"/>
     
     <category term="Shell" scheme="http://example.com/tags/Shell/"/>
-    
-    <category term="控制面板" scheme="http://example.com/tags/%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/"/>
     
   </entry>
   
