@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1234567作者: 夜泊1990企鹅: 1611756908Q 群: 948233848邮箱: hd1611756908@163.com博客: https:&#x2F;&#x2F;hs-an-yue.github.io&#x2F;B 站: https:&#x2F;&#x2F;space.bilibili.com&#x2F;514155929&#x2F;公众号: 丫丫模板的成神之路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="02-YaYa-Layui-Admin-Plus基础配置">
+<meta property="og:url" content="http://example.com/2026/08/03/yaya/02-YaYa-Layui-Admin-Plus%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="夜泊1990">
+<meta property="og:description" content="1234567作者: 夜泊1990企鹅: 1611756908Q 群: 948233848邮箱: hd1611756908@163.com博客: https:&#x2F;&#x2F;hs-an-yue.github.io&#x2F;B 站: https:&#x2F;&#x2F;space.bilibili.com&#x2F;514155929&#x2F;公众号: 丫丫模板的成神之路">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/hs-an-yue/yaya-layui-admin-plus/raw/main/assets/43-logo-title.png">
+<meta property="og:image" content="https://github.com/hs-an-yue/yaya-layui-admin-plus/raw/main/assets/44-footer-config.png">
+<meta property="og:image" content="https://github.com/hs-an-yue/yaya-layui-admin-plus/raw/main/assets/42-person-center.png">
+<meta property="og:image" content="https://github.com/hs-an-yue/yaya-layui-admin-plus/raw/main/assets/41-config.png">
+<meta property="article:published_time" content="2026-08-03T05:40:44.724Z">
+<meta property="article:modified_time" content="2026-08-03T05:40:44.724Z">
+<meta property="article:author" content="新换了一个网名">
+<meta property="article:tag" content="YaYa模板">
+<meta property="article:tag" content="YaYa">
+<meta property="article:tag" content="前端模板">
+<meta property="article:tag" content="管理模板">
+<meta property="article:tag" content="Layui">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="基础配置">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/hs-an-yue/yaya-layui-admin-plus/raw/main/assets/43-logo-title.png">
+
+
+<link rel="canonical" href="http://example.com/2026/08/03/yaya/02-YaYa-Layui-Admin-Plus%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2026/08/03/yaya/02-YaYa-Layui-Admin-Plus%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/","path":"2026/08/03/yaya/02-YaYa-Layui-Admin-Plus基础配置/","title":"02-YaYa-Layui-Admin-Plus基础配置"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>02-YaYa-Layui-Admin-Plus基础配置 | 夜泊1990</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="夜泊1990" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+	<a target="_blank" rel="noopener" href="https://gitee.com/ukoko" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">夜泊1990</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">每走一步,都是进步</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E9%A6%96%E9%A1%B5LOGO%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">第一章 首页LOGO配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%A1%B5%E9%9D%A2%E9%A1%B5%E8%84%9A%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">第二章 页面页脚配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83%E9%A1%B5%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">第三章 个人中心页配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%A6%96%E9%A1%B5%E9%BB%98%E8%AE%A4%E8%8F%9C%E5%8D%95%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">第四章 首页默认菜单配置</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="新换了一个网名"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">新换了一个网名</p>
+  <div class="site-description" itemprop="description">须知少年凌云志,曾许人间第一流</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/ukoko" title="码云 → https:&#x2F;&#x2F;gitee.com&#x2F;ukoko" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>码云</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hd1611756908@163.com" title="邮箱 → mailto:hd1611756908@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>邮箱</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/08/03/yaya/02-YaYa-Layui-Admin-Plus%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="新换了一个网名">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夜泊1990">
+      <meta itemprop="description" content="须知少年凌云志,曾许人间第一流">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="02-YaYa-Layui-Admin-Plus基础配置 | 夜泊1990">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          02-YaYa-Layui-Admin-Plus基础配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-08-03 13:40:44" itemprop="dateCreated datePublished" datetime="2026-08-03T13:40:44+08:00">2026-08-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/YaYa%E6%A8%A1%E6%9D%BF/" itemprop="url" rel="index"><span itemprop="name">YaYa模板</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>10k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br><span class="line"><span class="attribute">公众号</span><span class="punctuation">:</span> <span class="string">丫丫模板的成神之路</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<span id="more"></span>
+<h2 id="第一章-首页LOGO配置"><a href="#第一章-首页LOGO配置" class="headerlink" title="第一章 首页LOGO配置"></a>第一章 首页LOGO配置</h2><p><img src="https://github.com/hs-an-yue/yaya-layui-admin-plus/raw/main/assets/43-logo-title.png" alt="1"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">需要修改的文件: yaya-layui-admin-plus/index.html (大概在37行~42行之间)</span><br><span class="line"></span><br><span class="line">LOGO: svg标签,也可以换成图片</span><br><span class="line">标题: h4标签</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- LOGO --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;yaya-logo&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- LOGO图标 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">svg</span> <span class="attr">t</span>=<span class="string">&quot;1769259060319&quot;</span> <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">viewBox</span>=<span class="string">&quot;0 0 1024 1024&quot;</span> <span class="attr">version</span>=<span class="string">&quot;1.1&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="attr">p-id</span>=<span class="string">&quot;5060&quot;</span> <span class="attr">width</span>=<span class="string">&quot;25&quot;</span> <span class="attr">height</span>=<span class="string">&quot;25&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M150.320611 720.240765c7.749498-8.218172 20.813025-8.218172 28.562523 0 7.995091 7.525394 7.995091 20.589944 0 29.05371l-50.559513 50.336432c-7.994068 8.218172-21.305235 8.218172-29.031197 0-8.017604-7.995091-8.017604-20.813025 0-29.031197L150.320611 720.240765 150.320611 720.240765zM786.42514 365.541347 786.42514 365.541347c0 70.167083-56.856939 126.800941-127.024022 126.800941s-127.269615-56.633858-127.269615-126.800941c0-69.654406 57.102532-126.778428 127.269615-126.778428S786.42514 295.374264 786.42514 365.541347L786.42514 365.541347zM659.401118 279.406594 659.401118 279.406594c-47.656393 0-86.11224 38.232766-86.11224 86.134753 0 47.433312 38.455847 85.666078 86.11224 85.666078 47.433312 0 86.157265-38.232766 86.157265-85.666078C745.55736 317.638337 706.83443 279.406594 659.401118 279.406594L659.401118 279.406594zM190.495612 645.964084 190.495612 645.964084c0-26.352181 1.452071-52.257178 4.846378-78.608336 1.429559-9.223059 2.411933-18.401092 4.109598-27.603685l-7.258311 2.90312c-16.703427 6.789637-32.180933 16.705474-45.981241 29.52443-13.778818 12.594853-35.329646 11.858072-48.14758-1.675152-2.411933-3.148713-4.600785-5.828752-5.806239-8.977465-21.281699-42.341341-28.048823-89.997734-20.791535-135.711891 7.258311-45.490054 28.048823-88.345094 62.908772-123.161041l0 0 0 0c31.44313-32.202423 70.88135-52.257178 111.74913-61.234643 34.859949-7.258311 70.680782-6.297426 105.519242 2.680039l6.274914-6.297426 0.5137-0.959861-0.5137 0c73.561389-73.092715 162.621774-122.669854 256.483512-147.83807 97.256044-26.396183 199.849654-26.396183 297.127188 0 12.349259 3.148713 21.282722 12.573363 24.431435 24.185842l0 0.491187 0 0.245593c25.882484 97.010451 25.882484 199.378933-0.245593 296.390407-25.145703 93.637634-74.745355 183.145204-148.061151 256.215406l-2.188852 2.434445-4.823865 4.355191c9.42465 34.367739 10.161431 70.635757 2.657526 105.496729-8.709359 40.644699-29.05371 79.83528-60.989049 111.547539l-1.919722 1.944282c-34.369785 33.363875-76.934207 53.953819-121.241318 61.189617-46.205345 7.034207-94.107331 0.245593-137.185452-21.282722-16.458857-8.218172-23.224957-29.031197-14.984273-45.735647 1.429559-2.657526 3.394307-5.560646 5.783727-7.995091 12.595876-13.533224 22.756283-29.255301 29.544897-45.736671l2.90312-7.480368c-9.200546 1.697665-18.893302 3.148713-28.071336 4.353145-27.111474 3.640923-54.199413 4.847401-81.310887 4.601808-9.178033 0-17.396205-3.617387-23.693632-9.44614l0 0L199.920262 672.828942C192.908568 665.348574 189.513238 655.901411 190.495612 645.964084L190.495612 645.964084zM262.584464 576.288189 262.584464 576.288189c-2.390443 19.361977-3.864004 38.969547-4.332678 58.08593l132.115993 132.339074c19.339464-0.468674 38.70144-2.166339 58.040904-4.600785 23.493064-3.1262 47.210231-7.503904 70.167083-14.270005 3.394307-0.959861 7.258311-1.452071 10.898211-1.205455 18.647709 0.468674 33.631982 16.458857 32.649608 35.329646-0.959861 26.373671-6.744611 52.257178-16.905018 77.1798-3.885494 8.463766-8.240685 17.418718-13.08604 25.882484 18.401092 4.131087 37.517475 4.600785 56.387241 0.982374 30.728862-5.091972 60.229756-18.893302 84.437088-42.341341l1.206478-1.473561c22.509666-21.99699 36.310997-49.599651 42.36283-77.894068 6.744611-29.523407 4.109598-60.497862-6.788613-89.037872-4.846378-12.103666-1.452071-27.334555 9.178033-36.780695l10.652618-10.18292 8.486278-8.686846 1.205455-1.227967c65.321728-64.829518 108.869546-143.460366 130.642432-225.486544 21.305235-79.122035 23.24747-163.067936 4.846378-243.173368-79.837326-17.909905-163.090449-15.968693-242.436588 5.069459-82.761935 22.286586-161.14719 66.056462-226.000244 130.910539l-9.44614 9.178033-0.223081 0-9.178033 10.18292c-9.223059 10.875698-24.208355 15.497972-38.008662 9.915837-28.541033-10.875698-59.761082-12.842493-88.792279-6.54302-28.54001 5.828752-55.897078 20.098757-78.162174 42.341341l0-0.223081c-24.430412 24.431435-38.946011 54.199413-43.793412 86.134753-3.148713 18.155499-2.90312 37.494962 0.982374 56.142671 8.709359-4.868891 17.418718-9.44614 26.128077-13.087063 24.677029-10.161431 50.314942-15.477506 76.44302-17.173125 3.6399 0 7.770987 0.245593 11.142781 1.695618 18.401092 4.356214 28.562523 23.695678 23.694655 41.605583C270.824125 529.122983 265.977747 552.839127 262.584464 576.288189L262.584464 576.288189zM276.139178 845.835228 276.139178 845.835228c7.749498-7.972579 20.567431-7.972579 28.562523 0 8.240685 7.995091 8.240685 20.813025 0 28.785603l-50.805106 50.827619c-7.995091 7.726985-20.813025 7.726985-28.54001 0-8.240685-7.749498-8.240685-21.305235 0-28.785603L276.139178 845.835228 276.139178 845.835228zM213.230406 782.680862 213.230406 782.680862c7.748475-7.749498 20.567431-7.749498 28.562523 0 8.240685 8.240685 8.240685 21.058618 0 29.05371L126.603443 927.123602c-7.972579 7.995091-20.790512 7.995091-28.54001 0-8.463766-8.218172-8.463766-21.058618 0-29.031197L213.230406 782.680862 213.230406 782.680862z&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;var(--tab-text)&quot;</span> <span class="attr">p-id</span>=<span class="string">&quot;5061&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 标题 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span>&gt;</span>丫A丫A<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">根据注释修改即可</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二章-页面页脚配置"><a href="#第二章-页面页脚配置" class="headerlink" title="第二章 页面页脚配置"></a>第二章 页面页脚配置</h2><p><img src="https://github.com/hs-an-yue/yaya-layui-admin-plus/raw/main/assets/44-footer-config.png" alt="2"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">页脚一般只有在登录页面才有</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 网站底部 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;layui-footer login-footer&quot;</span>&gt;</span></span><br><span class="line">    Copyright © 2026 YaYa-Layui-Admin-Plus <span class="tag">&lt;<span class="name">svg</span> <span class="attr">t</span>=<span class="string">&quot;1769072378478&quot;</span> <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">viewBox</span>=<span class="string">&quot;0 0 1024 1024&quot;</span> <span class="attr">version</span>=<span class="string">&quot;1.1&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="attr">p-id</span>=<span class="string">&quot;4955&quot;</span> <span class="attr">width</span>=<span class="string">&quot;15&quot;</span> <span class="attr">height</span>=<span class="string">&quot;15&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M780.288 750.592H244.736V415.744C244.736 229.376 396.288 79.872 460.8 24.576c29.696-24.576 71.68-24.576 101.376 0 65.536 55.296 217.088 204.8 217.088 391.168v334.848z m-453.632-81.92h371.712V415.744c0-150.528-128-277.504-186.368-326.656-57.344 49.152-186.368 176.128-186.368 326.656v252.928zM509.952 87.04z&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;#16b777&quot;</span> <span class="attr">p-id</span>=<span class="string">&quot;4956&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M326.656 750.592H148.48c-43.008 0-78.848-34.816-78.848-78.848v-76.8c0-26.624 13.312-51.2 34.816-65.536l221.184-146.432v367.616z m-175.104-81.92h92.16v-133.12l-92.16 61.44v71.68zM875.52 750.592H697.344V384l221.184 146.432c22.528 14.336 34.816 38.912 34.816 65.536v76.8c1.024 41.984-34.816 77.824-77.824 77.824z m-96.256-81.92h92.16v-71.68l-92.16-61.44v133.12zM513.024 489.472c-64.512 0-116.736-52.224-116.736-116.736S449.536 256 513.024 256s116.736 52.224 116.736 116.736-52.224 116.736-116.736 116.736z m0-151.552c-18.432 0-34.816 15.36-34.816 34.816s15.36 34.816 34.816 34.816 34.816-15.36 34.816-34.816S532.48 337.92 513.024 337.92zM512 1017.856c-22.528 0-40.96-18.432-40.96-40.96v-163.84c0-22.528 18.432-40.96 40.96-40.96s40.96 18.432 40.96 40.96v163.84c0 22.528-18.432 40.96-40.96 40.96zM351.232 953.344c-22.528 0-40.96-18.432-40.96-40.96v-66.56c0-22.528 18.432-40.96 40.96-40.96s40.96 18.432 40.96 40.96v66.56c0 22.528-18.432 40.96-40.96 40.96zM673.792 953.344c-22.528 0-40.96-18.432-40.96-40.96v-66.56c0-22.528 18.432-40.96 40.96-40.96s40.96 18.432 40.96 40.96v66.56c0 22.528-18.432 40.96-40.96 40.96z&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;#16b777&quot;</span> <span class="attr">p-id</span>=<span class="string">&quot;4957&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span> MIT Licensed</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="第三章-个人中心页配置"><a href="#第三章-个人中心页配置" class="headerlink" title="第三章 个人中心页配置"></a>第三章 个人中心页配置</h2><p><img src="https://github.com/hs-an-yue/yaya-layui-admin-plus/raw/main/assets/42-person-center.png" alt="3"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">不同的企业可能叫不同的名字，例如有的企业叫个人中心，有的企业叫用户设置等，可以根据企业进行自定义修改</span><br><span class="line"></span><br><span class="line">需要修改的文件: </span><br><span class="line"><span class="number">1.</span> yaya-layui-admin-plus/index.<span class="property">html</span> (大概在<span class="number">83</span>行~<span class="number">87</span>行之间)</span><br><span class="line"></span><br><span class="line">&lt;dl <span class="keyword">class</span>=<span class="string">&quot;layui-nav-child&quot;</span>&gt;</span><br><span class="line">    &lt;!-- </span><br><span class="line">        <span class="title function_">yaya_add</span>(参数<span class="number">1</span>,参数<span class="number">2</span>,参数<span class="number">3</span>):函数</span><br><span class="line">        参数<span class="number">1</span>: 参数<span class="number">1</span>这个值随便给,但是不能与左侧菜单中的yaya-id属性相同,否则会出现选项卡切换混乱问题</span><br><span class="line">        参数<span class="number">2</span>: 选项卡名称,名字自定义</span><br><span class="line">        参数<span class="number">3</span>: 点击个人中心跳转的具体的页面地址</span><br><span class="line">        a标签中的内容(个人中心),一般与参数<span class="number">2</span>相同    </span><br><span class="line">    --&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">dd</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">onclick</span>=<span class="string">&quot;yaya_add(&#x27;888888888&#x27;,&#x27;个人中心&#x27;,&#x27;views/personal-center.html&#x27;)&quot;</span>&gt;</span>个人中心<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">dd</span> <span class="attr">id</span>=<span class="string">&quot;pwdChange&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>&gt;</span>修改密码<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">dd</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;login.html&quot;</span>&gt;</span>退出<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span></span><br><span class="line">&lt;/dl&gt;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> yaya-layui-admin-plus/js/yaya-admin-plus.<span class="property">js</span> (大概在<span class="number">385</span>行~<span class="number">387</span>行和<span class="number">491</span>行~<span class="number">494</span>行两部分)</span><br><span class="line">	<span class="number">2.1</span> 第一部分修改的代码在<span class="title function_">setTabs</span>()函数中</span><br><span class="line">        <span class="keyword">let</span> personYayaId=<span class="string">&#x27;888888888&#x27;</span>; <span class="comment">//与上面的参数1对应</span></span><br><span class="line">        <span class="keyword">let</span> personYayaTitle=<span class="string">&#x27;个人中心&#x27;</span>; <span class="comment">//与上面的参数2对应</span></span><br><span class="line">        <span class="keyword">let</span> personYayaUrl=<span class="string">&#x27;views/personal-center.html&#x27;</span>;<span class="comment">//与上面的参数3对应</span></span><br><span class="line"></span><br><span class="line">	<span class="number">2.2</span> 第二部分修改的代码在<span class="title function_">yaya_general_bread</span>()函数中</span><br><span class="line">        <span class="keyword">if</span>(menu_id===<span class="string">&#x27;888888888&#x27;</span>)&#123; <span class="comment">//888888888与上面的参数1对应								</span></span><br><span class="line">            $(<span class="string">&#x27;.layui-breadcrumb&#x27;</span>).<span class="title function_">html</span>(<span class="string">&#x27;&lt;a&gt;&lt;cite&gt;个人中心&lt;/cite&gt;&lt;/a&gt;&#x27;</span>);<span class="comment">//与上面的参数2对应</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第四章-首页默认菜单配置"><a href="#第四章-首页默认菜单配置" class="headerlink" title="第四章 首页默认菜单配置"></a>第四章 首页默认菜单配置</h2><p><img src="https://github.com/hs-an-yue/yaya-layui-admin-plus/raw/main/assets/41-config.png" alt="4"></p>
+<hr>
+<p>左侧的菜单生成一般分两种情况</p>
+<ul>
+<li>第一种情况: 左侧菜单全部由后端服务器提供</li>
+<li>第二种情况: 左侧菜单会留一个默认菜单(由前端默认配置)其余的由后端提供</li>
+</ul>
+<blockquote>
+<p>我们这里说第二种情况，</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">如果左侧菜单有一个默认的由前端配置，那么需要怎么配置? 都需要配置哪些地方。</span><br><span class="line"></span><br><span class="line">看上面的图示 👆👆👆👆👆 </span><br><span class="line">图示中仪表盘作为默认菜单，需要配置三个地方:</span><br><span class="line">1️⃣. 左侧菜单需要配置</span><br><span class="line">2️⃣. 顶部面包屑导航需要配置</span><br><span class="line">3️⃣. 选项卡需要配置</span><br><span class="line">以上三个位置在哪里呢？ 接下来开始进行代码配置。</span><br><span class="line"></span><br><span class="line">1. 左侧菜单 配置文件位置-01: yaya-layui-admin-plus/index.html (大概在44行~52行之间)</span><br><span class="line"><span class="comment">&lt;!-- 导航菜单 采用的手风琴效果 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;layui-menu&quot;</span> <span class="attr">id</span>=<span class="string">&quot;yaya-menu&quot;</span> <span class="attr">lay-accordion</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">        菜单项-默认菜单</span></span><br><span class="line"><span class="comment">        yaya-id: 标记默认菜单的唯一值(取一个特殊值,不能与后台的菜单ID重复,否则菜单会报错)</span></span><br><span class="line"><span class="comment">        yaya-url: 点击菜单后跳转的地址,有的菜单是带有跳转功能的</span></span><br><span class="line"><span class="comment">        yaya-title: 菜单名称</span></span><br><span class="line"><span class="comment">        yaya_add(参数1,参数2,参数3): 函数</span></span><br><span class="line"><span class="comment">        参数1: 菜单ID,和yaya-id属性相同,保证不能与数据库菜单相同,保证唯一</span></span><br><span class="line"><span class="comment">        参数2: 选项卡名称,点击菜单时右侧顶部生成选项卡,选项卡名字和菜单名字相同,所以此参数和yaya-title属性相同</span></span><br><span class="line"><span class="comment">        参数3: 右侧内容区域显示的内容页面，设置菜单的跳转地址,不一定和yaya-url属性相同,有的菜单没有yaya-url属性,只有带有跳转的菜单才有yaya-url属性.</span></span><br><span class="line"><span class="comment">        下面的a标签中的仪表盘,也需要同步修改，修改成企业需要的名称    </span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">yaya-id</span>=<span class="string">&quot;999999999&quot;</span> <span class="attr">yaya-url</span>=<span class="string">&quot;views/dashboard.html&quot;</span> <span class="attr">yaya-title</span>=<span class="string">&quot;仪表盘&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;yaya_add(&#x27;999999999&#x27;, &#x27;仪表盘&#x27;, &#x27;views/dashboard.html&#x27;)&quot;</span> <span class="attr">class</span>=<span class="string">&quot;layui-menu-item-checked&quot;</span>&gt;</span><span class="comment">&lt;!-- 默认选中 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;layui-menu-body-title&quot;</span>&gt;</span></span><br><span class="line">	  <span class="tag">&lt;<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;layui-icon layui-icon-chart-screen&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>仪表盘<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 其它菜单由后端动态生成 ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">1. 左侧菜单 配置文件位置-02  配置文件位置: yaya-layui-admin-plus/js/yaya-admin-plus.js (大概在382行~384行,需要修改的代码在setTabs()函数中)</span><br><span class="line">    let welcomeYayaId=&#x27;999999999&#x27;; // welcomeYayaId值与上面的yaya-id属性值相同</span><br><span class="line">    let welcomeYayaTitle=&#x27;仪表盘&#x27;;  // welcomeYayaTitle值与上面的yaya-title属性值相同</span><br><span class="line">    let welcomeYayaUrl=&#x27;views/dashboard.html&#x27;;//welcomeYayaUrl与上面的yaya_add()函数的参数3相同</span><br><span class="line">    </span><br><span class="line">2. 顶部面包屑导航  配置文件位置:	yaya-layui-admin-plus/index.html (大概在65行~68行之间)</span><br><span class="line"><span class="comment">&lt;!--面包屑菜单--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;layui-breadcrumb&quot;</span> <span class="attr">lay-filter</span>=<span class="string">&quot;yaya-breadcrumb&quot;</span> <span class="attr">style</span>=<span class="string">&quot;margin-left: 15px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    	默认面包屑导航值,和菜单yaya-title属性值对应上</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">cite</span>&gt;</span>仪表盘<span class="tag">&lt;/<span class="name">cite</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line">3. 选项卡 (不需要单独修改)</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>🔔 👀 🎉 🚀 💪 A Happy And Wonderful Day ☀️ 🌙 ✨ 🦅 🐎</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+	
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">--------------------------已经到底啦！<i class="fa fa-paw"></i>--------------------------</div>
+    
+</div>
+	  
+	</div>
+
+	
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    我愿意资助原创
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="新换了一个网名 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="新换了一个网名 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/YaYa%E6%A8%A1%E6%9D%BF/" rel="tag"># YaYa模板</a>
+              <a href="/tags/YaYa/" rel="tag"># YaYa</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A8%A1%E6%9D%BF/" rel="tag"># 前端模板</a>
+              <a href="/tags/%E7%AE%A1%E7%90%86%E6%A8%A1%E6%9D%BF/" rel="tag"># 管理模板</a>
+              <a href="/tags/Layui/" rel="tag"># Layui</a>
+              <a href="/tags/html/" rel="tag"># html</a>
+              <a href="/tags/css/" rel="tag"># css</a>
+              <a href="/tags/js/" rel="tag"># js</a>
+              <a href="/tags/%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" rel="tag"># 基础配置</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/08/03/ai/Centos7%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85Ollama/" rel="prev" title="Centos7服务器安装Ollama服务器">
+                  <i class="fa fa-angle-left"></i> Centos7服务器安装Ollama服务器
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/08/03/yaya/01-YaYa-Layui-Admin-Plus%E6%A6%82%E8%BF%B0/" rel="next" title="01-YaYa-Layui-Admin-Plus概述">
+                  01-YaYa-Layui-Admin-Plus概述 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">新换了一个网名</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">94k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:26</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+<!-- <br /> -->
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<!-- <span id="times">载入时分秒...</span> -->
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("11/17/2022 8:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); 
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        // var times = document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "+hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
