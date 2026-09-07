@@ -27,35 +27,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Docker版单容器Nginx运行多web项目</title>
-    <url>/2026/08/03/Docker%E7%89%88%E5%8D%95%E5%AE%B9%E5%99%A8Nginx%E8%BF%90%E8%A1%8C%E5%A4%9Aweb%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<span id="more"></span>
-
-<h2 id="第一章-需求介绍"><a href="#第一章-需求介绍" class="headerlink" title="第一章 需求介绍"></a>第一章 需求介绍</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 想使用docker运行一个nginx容器</span><br><span class="line"><span class="bullet">2.</span> 公司有多个前端项目需要nginx运行</span><br><span class="line"><span class="bullet">3.</span> 想将多个项目放在同一个nginx中,让一个nginx容器同时运行多个前端项目</span><br></pre></td></tr></table></figure>
-
-<h2 id="第二章-实现步骤"><a href="#第二章-实现步骤" class="headerlink" title="第二章 实现步骤"></a>第二章 实现步骤</h2><figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">第一步: 以两个项目为例: </span><br><span class="line">	<span class="number">1</span>. 项目<span class="number">1</span>为: admin </span><br><span class="line">	<span class="number">2</span>. 项目二为:rag</span><br><span class="line"></span><br><span class="line">第二步: 容器nginx的本机挂载卷创建，我将容器nginx的挂载卷,挂载到了 <span class="regexp">/home/</span>nginx 跟目录下</span><br><span class="line"></span><br><span class="line">	<span class="number">1</span>. 创建容器涉及到的目录: mkdir -p <span class="regexp">/home/</span>nginx<span class="regexp">/&#123;conf.d,html/</span>admin,html/rag,ssl,logs&#125;</span><br><span class="line">	</span><br><span class="line">		目录<span class="number">1</span>: <span class="regexp">/home/</span>nginx/conf.d  		此目录映射nginx容器<span class="keyword">default</span>.conf配置文件</span><br><span class="line">		目录<span class="number">2</span>: <span class="regexp">/home/</span>nginx<span class="regexp">/html/</span>admin  	此目录映射nginx容器admin项目的前端文件</span><br><span class="line">		目录<span class="number">3</span>: <span class="regexp">/home/</span>nginx<span class="regexp">/html/</span>rag  	此目录映射nginx容器rag项目的前端文件</span><br><span class="line">		目录<span class="number">3</span>: <span class="regexp">/home/</span>nginx/ssl  		此目录映射nginx容器的https证书目录</span><br><span class="line">		目录<span class="number">4</span>: <span class="regexp">/home/</span>nginx/logs  		此目录映射nginx容器运行的日志</span><br><span class="line">	</span><br><span class="line">	<span class="number">2</span>. 配置文件: nginx有两个配置文件分别为 nginx.conf和<span class="keyword">default</span>.conf </span><br><span class="line">		nginx.conf配置文件放到<span class="regexp">/home/</span>nginx目录下</span><br><span class="line">		<span class="keyword">default</span>.conf配置文件放到<span class="regexp">/home/</span>nginx/conf.d目录下</span><br><span class="line">		</span><br><span class="line">	<span class="number">3</span>. 执行Docker命令启动nginx容器</span><br><span class="line">	</span><br><span class="line">	docker run -d \</span><br><span class="line">		--name nginx \</span><br><span class="line">		--restart always \</span><br><span class="line">		-p <span class="number">80</span>:<span class="number">80</span> \</span><br><span class="line">		-p <span class="number">443</span>:<span class="number">443</span> \</span><br><span class="line">		-v <span class="regexp">/home/</span>hs<span class="regexp">/nginx/</span>nginx.conf:<span class="regexp">/etc/</span>nginx/nginx.conf \</span><br><span class="line">		-v <span class="regexp">/home/</span>hs<span class="regexp">/nginx/</span>conf.d:<span class="regexp">/etc/</span>nginx/conf.d \</span><br><span class="line">		-v <span class="regexp">/home/</span>hs<span class="regexp">/nginx/</span>html:<span class="regexp">/usr/</span>share<span class="regexp">/nginx/</span>html \</span><br><span class="line">		-v <span class="regexp">/home/</span>hs<span class="regexp">/nginx/</span>ssl:<span class="regexp">/etc/</span>nginx/ssl \</span><br><span class="line">		-v <span class="regexp">/home/</span>hs<span class="regexp">/nginx/</span>logs:<span class="regexp">/var/</span>log/nginx \</span><br><span class="line">		nginx:latest	</span><br></pre></td></tr></table></figure>
-
-<h2 id="第三章-nginx配置文件详细介绍"><a href="#第三章-nginx配置文件详细介绍" class="headerlink" title="第三章 nginx配置文件详细介绍"></a>第三章 nginx配置文件详细介绍</h2><h3 id="1-nginx-conf配置文件"><a href="#1-nginx-conf配置文件" class="headerlink" title="1. nginx.conf配置文件"></a>1. nginx.conf配置文件</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">user  nginx; 						# 指定 Nginx  worker 子进程运行的用户，不要用root</span><br><span class="line">worker_processes  auto; 			# 指定 Nginx 创建的 worker 工作进程数量,设置为 auto 会让 Nginx 自动检测服务器的 CPU 核心数，并启动相同数量的进程</span><br><span class="line"></span><br><span class="line">error_log  /var/log/nginx/error.log notice;  # 指定全局错误日志文件的存放路径与日志记录级别,/var/log/nginx/路径为容器内路径,不要修改，notice为日志级别(高于 debug/info，低于 warn/error)</span><br><span class="line">pid        /run/nginx.pid;					 # 指定存放 Nginx 主进程 PID（进程 ID）文件的路径</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024; # 每个 worker 进程允许的最大并发连接数;理论上该 Nginx 实例能处理的最大并发连接数为 worker_processes * worker_connections（当前配置下，若为 4 核 CPU，则最大连接数为 4 ✖ 1024 = 4096）</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       /etc/nginx/mime.types;    # 告诉 Nginx 如何根据文件后缀名设置 HTTP 响应头中的 Content-Type（例如让浏览器知道 .html 是网页，.png 是图片</span><br><span class="line">    default_type  application/octet-stream; # 默认的 MIME 类型（二进制流）：当文件后缀未在 mime.types 中定义时，默认使用此类型，提示浏览器“将其作为二进制文件直接下载”</span><br><span class="line">	# 日志输出格式模板</span><br><span class="line">    log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span><br><span class="line">                      &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span><br><span class="line">                      &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span><br><span class="line"></span><br><span class="line">    access_log  /var/log/nginx/access.log  main; # 指定访问日志（请求日志）的路径及使用的格式</span><br><span class="line"></span><br><span class="line">    sendfile        on;   # 开启高效文件传输模式</span><br><span class="line">  </span><br><span class="line">    keepalive_timeout  65; # HTTP 保持长连接（Keep-Alive）的超时时间，单位为秒；客户端与服务器建立 TCP 连接后，若 65 秒内没有新的请求，Nginx 会主动断开该连接，防止连接被无限制占用</span><br><span class="line">	</span><br><span class="line">	# 隐藏nginx版本</span><br><span class="line">    server_tokens off;</span><br><span class="line"></span><br><span class="line">    #gzip  on; # 开启 Gzip 传输压缩功能；Nginx 会在传输文本类文件（如 HTML、CSS、JS）前进行压缩，可显著节省网络带宽并加快网页加载 speed</span><br><span class="line"></span><br><span class="line">    include /etc/nginx/conf.d/*.conf; # 包含并加载指定目录下的所有以 .conf 结尾的子配置文件，不要修改 /etc/nginx/conf.d/ 路径，此路径为容器内路径</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-default-conf配置文件"><a href="#2-default-conf配置文件" class="headerlink" title="2. default.conf配置文件"></a>2. default.conf配置文件</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80;    # 监听 IPv4 的 80 端口（标准 HTTP 端口）</span><br><span class="line">    listen  [::]:80;   # 监听 IPv6 的 80 端口</span><br><span class="line">    server_name  106.14.27.178; # 匹配的域名或 IP 地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # ==========================</span><br><span class="line">    # 首页</span><br><span class="line">    # =========================</span><br><span class="line">    location / &#123;</span><br><span class="line">        root /usr/share/nginx/html;   # 指定网站首页的根目录，容器内的路径,不能用户自己宿主机的路径</span><br><span class="line">        index index.html;</span><br><span class="line">        try_files $uri $uri/ /index.html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # =========================</span><br><span class="line">    # admin管理后台</span><br><span class="line">    # =========================</span><br><span class="line"></span><br><span class="line">    location /admin/ &#123;</span><br><span class="line">        alias /usr/share/nginx/html/admin/;  # # 指定网页根目录，容器内的路径,不能用户自己宿主机的路径</span><br><span class="line">        index index.html;</span><br><span class="line">        try_files $uri $uri/ /admin/index.html;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	# =========================</span><br><span class="line">    # RAG前端</span><br><span class="line">    # =========================</span><br><span class="line"></span><br><span class="line">    location /rag/ &#123;</span><br><span class="line">        alias /usr/share/nginx/html/rag/;  # # 指定网页根目录，容器内的路径,不能用户自己宿主机的路径</span><br><span class="line">        index index.html;</span><br><span class="line">        try_files $uri $uri/ /rag/index.html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location /api/ &#123;</span><br><span class="line">        # 后端服务地址</span><br><span class="line">        proxy_pass http://106.14.27.178:8080/;</span><br><span class="line">       </span><br><span class="line">        # 代理请求头，传递真实客户端IP</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">		# websocket支持（RAG流式输出可能需要）</span><br><span class="line">        proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">        proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">        proxy_read_timeout 300s;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    #</span><br><span class="line">    error_page   500 502 503 504  /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   /home/hs/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>每走一步,都是进步.</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>web</category>
-      </categories>
-      <tags>
-        <tag>nginx</tag>
-        <tag>docker</tag>
-        <tag>服务器</tag>
-        <tag>容器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Centos操作系统不维护的解决方案</title>
     <url>/2026/08/03/Centos%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8D%E7%BB%B4%E6%8A%A4%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
@@ -99,6 +70,144 @@
         <tag>Centos</tag>
         <tag>Linux</tag>
         <tag>AlmaLinux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker版单容器Nginx运行多web项目</title>
+    <url>/2026/08/03/Docker%E7%89%88%E5%8D%95%E5%AE%B9%E5%99%A8Nginx%E8%BF%90%E8%A1%8C%E5%A4%9Aweb%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<span id="more"></span>
+
+<h2 id="第一章-需求介绍"><a href="#第一章-需求介绍" class="headerlink" title="第一章 需求介绍"></a>第一章 需求介绍</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 想使用docker运行一个nginx容器</span><br><span class="line"><span class="bullet">2.</span> 公司有多个前端项目需要nginx运行</span><br><span class="line"><span class="bullet">3.</span> 想将多个项目放在同一个nginx中,让一个nginx容器同时运行多个前端项目</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二章-实现步骤"><a href="#第二章-实现步骤" class="headerlink" title="第二章 实现步骤"></a>第二章 实现步骤</h2><figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">第一步: 以两个项目为例: </span><br><span class="line">	<span class="number">1</span>. 项目<span class="number">1</span>为: admin </span><br><span class="line">	<span class="number">2</span>. 项目二为:rag</span><br><span class="line"></span><br><span class="line">第二步: 容器nginx的本机挂载卷创建，我将容器nginx的挂载卷,挂载到了 <span class="regexp">/home/</span>nginx 跟目录下</span><br><span class="line"></span><br><span class="line">	<span class="number">1</span>. 创建容器涉及到的目录: mkdir -p <span class="regexp">/home/</span>nginx<span class="regexp">/&#123;conf.d,html/</span>admin,html/rag,ssl,logs&#125;</span><br><span class="line">	</span><br><span class="line">		目录<span class="number">1</span>: <span class="regexp">/home/</span>nginx/conf.d  		此目录映射nginx容器<span class="keyword">default</span>.conf配置文件</span><br><span class="line">		目录<span class="number">2</span>: <span class="regexp">/home/</span>nginx<span class="regexp">/html/</span>admin  	此目录映射nginx容器admin项目的前端文件</span><br><span class="line">		目录<span class="number">3</span>: <span class="regexp">/home/</span>nginx<span class="regexp">/html/</span>rag  	此目录映射nginx容器rag项目的前端文件</span><br><span class="line">		目录<span class="number">3</span>: <span class="regexp">/home/</span>nginx/ssl  		此目录映射nginx容器的https证书目录</span><br><span class="line">		目录<span class="number">4</span>: <span class="regexp">/home/</span>nginx/logs  		此目录映射nginx容器运行的日志</span><br><span class="line">	</span><br><span class="line">	<span class="number">2</span>. 配置文件: nginx有两个配置文件分别为 nginx.conf和<span class="keyword">default</span>.conf </span><br><span class="line">		nginx.conf配置文件放到<span class="regexp">/home/</span>nginx目录下</span><br><span class="line">		<span class="keyword">default</span>.conf配置文件放到<span class="regexp">/home/</span>nginx/conf.d目录下</span><br><span class="line">		</span><br><span class="line">	<span class="number">3</span>. 执行Docker命令启动nginx容器</span><br><span class="line">	</span><br><span class="line">	docker run -d \</span><br><span class="line">		--name nginx \</span><br><span class="line">		--restart always \</span><br><span class="line">		-p <span class="number">80</span>:<span class="number">80</span> \</span><br><span class="line">		-p <span class="number">443</span>:<span class="number">443</span> \</span><br><span class="line">		-v <span class="regexp">/home/</span>hs<span class="regexp">/nginx/</span>nginx.conf:<span class="regexp">/etc/</span>nginx/nginx.conf \</span><br><span class="line">		-v <span class="regexp">/home/</span>hs<span class="regexp">/nginx/</span>conf.d:<span class="regexp">/etc/</span>nginx/conf.d \</span><br><span class="line">		-v <span class="regexp">/home/</span>hs<span class="regexp">/nginx/</span>html:<span class="regexp">/usr/</span>share<span class="regexp">/nginx/</span>html \</span><br><span class="line">		-v <span class="regexp">/home/</span>hs<span class="regexp">/nginx/</span>ssl:<span class="regexp">/etc/</span>nginx/ssl \</span><br><span class="line">		-v <span class="regexp">/home/</span>hs<span class="regexp">/nginx/</span>logs:<span class="regexp">/var/</span>log/nginx \</span><br><span class="line">		nginx:latest	</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三章-nginx配置文件详细介绍"><a href="#第三章-nginx配置文件详细介绍" class="headerlink" title="第三章 nginx配置文件详细介绍"></a>第三章 nginx配置文件详细介绍</h2><h3 id="1-nginx-conf配置文件"><a href="#1-nginx-conf配置文件" class="headerlink" title="1. nginx.conf配置文件"></a>1. nginx.conf配置文件</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">user  nginx; 						# 指定 Nginx  worker 子进程运行的用户，不要用root</span><br><span class="line">worker_processes  auto; 			# 指定 Nginx 创建的 worker 工作进程数量,设置为 auto 会让 Nginx 自动检测服务器的 CPU 核心数，并启动相同数量的进程</span><br><span class="line"></span><br><span class="line">error_log  /var/log/nginx/error.log notice;  # 指定全局错误日志文件的存放路径与日志记录级别,/var/log/nginx/路径为容器内路径,不要修改，notice为日志级别(高于 debug/info，低于 warn/error)</span><br><span class="line">pid        /run/nginx.pid;					 # 指定存放 Nginx 主进程 PID（进程 ID）文件的路径</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024; # 每个 worker 进程允许的最大并发连接数;理论上该 Nginx 实例能处理的最大并发连接数为 worker_processes * worker_connections（当前配置下，若为 4 核 CPU，则最大连接数为 4 ✖ 1024 = 4096）</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       /etc/nginx/mime.types;    # 告诉 Nginx 如何根据文件后缀名设置 HTTP 响应头中的 Content-Type（例如让浏览器知道 .html 是网页，.png 是图片</span><br><span class="line">    default_type  application/octet-stream; # 默认的 MIME 类型（二进制流）：当文件后缀未在 mime.types 中定义时，默认使用此类型，提示浏览器“将其作为二进制文件直接下载”</span><br><span class="line">	# 日志输出格式模板</span><br><span class="line">    log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span><br><span class="line">                      &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span><br><span class="line">                      &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span><br><span class="line"></span><br><span class="line">    access_log  /var/log/nginx/access.log  main; # 指定访问日志（请求日志）的路径及使用的格式</span><br><span class="line"></span><br><span class="line">    sendfile        on;   # 开启高效文件传输模式</span><br><span class="line">  </span><br><span class="line">    keepalive_timeout  65; # HTTP 保持长连接（Keep-Alive）的超时时间，单位为秒；客户端与服务器建立 TCP 连接后，若 65 秒内没有新的请求，Nginx 会主动断开该连接，防止连接被无限制占用</span><br><span class="line">	</span><br><span class="line">	# 隐藏nginx版本</span><br><span class="line">    server_tokens off;</span><br><span class="line"></span><br><span class="line">    #gzip  on; # 开启 Gzip 传输压缩功能；Nginx 会在传输文本类文件（如 HTML、CSS、JS）前进行压缩，可显著节省网络带宽并加快网页加载 speed</span><br><span class="line"></span><br><span class="line">    include /etc/nginx/conf.d/*.conf; # 包含并加载指定目录下的所有以 .conf 结尾的子配置文件，不要修改 /etc/nginx/conf.d/ 路径，此路径为容器内路径</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-default-conf配置文件"><a href="#2-default-conf配置文件" class="headerlink" title="2. default.conf配置文件"></a>2. default.conf配置文件</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80;    # 监听 IPv4 的 80 端口（标准 HTTP 端口）</span><br><span class="line">    listen  [::]:80;   # 监听 IPv6 的 80 端口</span><br><span class="line">    server_name  106.14.27.178; # 匹配的域名或 IP 地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # ==========================</span><br><span class="line">    # 首页</span><br><span class="line">    # =========================</span><br><span class="line">    location / &#123;</span><br><span class="line">        root /usr/share/nginx/html;   # 指定网站首页的根目录，容器内的路径,不能用户自己宿主机的路径</span><br><span class="line">        index index.html;</span><br><span class="line">        try_files $uri $uri/ /index.html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # =========================</span><br><span class="line">    # admin管理后台</span><br><span class="line">    # =========================</span><br><span class="line"></span><br><span class="line">    location /admin/ &#123;</span><br><span class="line">        alias /usr/share/nginx/html/admin/;  # # 指定网页根目录，容器内的路径,不能用户自己宿主机的路径</span><br><span class="line">        index index.html;</span><br><span class="line">        try_files $uri $uri/ /admin/index.html;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	# =========================</span><br><span class="line">    # RAG前端</span><br><span class="line">    # =========================</span><br><span class="line"></span><br><span class="line">    location /rag/ &#123;</span><br><span class="line">        alias /usr/share/nginx/html/rag/;  # # 指定网页根目录，容器内的路径,不能用户自己宿主机的路径</span><br><span class="line">        index index.html;</span><br><span class="line">        try_files $uri $uri/ /rag/index.html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location /api/ &#123;</span><br><span class="line">        # 后端服务地址</span><br><span class="line">        proxy_pass http://106.14.27.178:8080/;</span><br><span class="line">       </span><br><span class="line">        # 代理请求头，传递真实客户端IP</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_set_header X-Forwarded-Proto $scheme;</span><br><span class="line">		# websocket支持（RAG流式输出可能需要）</span><br><span class="line">        proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">        proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">        proxy_read_timeout 300s;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    #</span><br><span class="line">    error_page   500 502 503 504  /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   /home/hs/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>每走一步,都是进步.</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
+        <tag>docker</tag>
+        <tag>服务器</tag>
+        <tag>容器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IntelliJ IDEA集成Dockerfile连接远程Docker平台一键发布</title>
+    <url>/2026/08/03/IntelliJ%20IDEA%E9%9B%86%E6%88%90Dockerfile%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8BDocker%E5%B9%B3%E5%8F%B0%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83/</url>
+    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<span id="more"></span>
+
+<h2 id="第一章-一键发布介绍"><a href="#第一章-一键发布介绍" class="headerlink" title="第一章 一键发布介绍"></a>第一章 一键发布介绍</h2><h3 id="第1节-看图"><a href="#第1节-看图" class="headerlink" title="第1节 看图"></a>第1节 看图</h3><img src="https://note.youdao.com/yws/api/personal/file/WEB03bada513268ed8464b560de4f2d8405?method=download&shareKey=848a6e665ac67061b0416fa7095df260">
+
+
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">1. IDEA 提供了Docker一键发布的功能</span><br><span class="line">2. 上图中是通过Dockerfile加上IDEA自带的Docker插件功能可以实现一键将本地的项目发布到远程的Docker平台</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">注意: 本地要安装 IntelliJ IDEA 开发工具,远程服务器使用Docker平台进行应用发布和管理</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="第二章-IntelliJ-IDEA配置"><a href="#第二章-IntelliJ-IDEA配置" class="headerlink" title="第二章 IntelliJ IDEA配置"></a>第二章 IntelliJ IDEA配置</h2><h3 id="第一步-打开IDEA开发工具-安装Docker插件"><a href="#第一步-打开IDEA开发工具-安装Docker插件" class="headerlink" title="第一步: 打开IDEA开发工具,安装Docker插件"></a>第一步: 打开IDEA开发工具,安装Docker插件</h3><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">我使用的开发工具为 IntelliJ IDEA <span class="number">2023.2</span> (Ultimate Edition) 下面以此软件作为演示</span><br><span class="line"></span><br><span class="line">下面看安装Docker插件的步骤</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEBf9f41963a35b9f0af777ea230f417fc7?method=download&shareKey=b291b289ab63e1204856b31053a7542a">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEBc71d01b3e1eca12d1ae2ffa4e733503a?method=download&shareKey=1f9166861195361202b813e2b9a40972">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB5a149693be36820999589920e69f0ccd?method=download&shareKey=a54617626018a2da088fbc022c438285">
+
+
+
+<h3 id="第二步-找一个需要发布到Docker平台的项目-创建Dockerfile文件"><a href="#第二步-找一个需要发布到Docker平台的项目-创建Dockerfile文件" class="headerlink" title="第二步: 找一个需要发布到Docker平台的项目,创建Dockerfile文件"></a>第二步: 找一个需要发布到Docker平台的项目,创建Dockerfile文件</h3><figure class="highlight erlang"><table><tr><td class="code"><pre><span class="line">我这里以一个Java项目为例,在项目的根目录创建一个Dockerfile文件,在Dockerfile文件中编写命令,写哪些命令,请自行脑补.</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB944e61d7e0578b781f31bc22103289f0?method=download&shareKey=22c2e5995edaba5779f3aa6b3c7dd692">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB32b013e2cdc8e0f2ab7eb3c32b5a0f23?method=download&shareKey=132bfa2825cf9c232b5a526644f5fca0">
+
+
+
+<h3 id="第三步-配置IDEA中的Docker"><a href="#第三步-配置IDEA中的Docker" class="headerlink" title="第三步: 配置IDEA中的Docker"></a>第三步: 配置IDEA中的Docker</h3><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">配置步骤如下:</span></span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB659109d0df56368c589b21222467136a?method=download&shareKey=c6c81d7982835ed287bcbb5d2ee4c251">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB7f52eb90d8e9dc31a2f4f2168cfda18f?method=download&shareKey=f85e6d01185df035f1346a0d15c1c5d1">
+
+
+
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">IDEA连接远程的Docker服务器会出现失败的情况,原因是远程Docker服务器没有开放<span class="number">2375</span>端口号的连接,所以去Docker服务器端进行配置</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">配置步骤:</span><br><span class="line"></span><br><span class="line">第一步: 找到配置文件</span><br><span class="line">	<span class="number">1</span>. 配置文件在Linux服务器的位置 <span class="regexp">/usr/</span>lib<span class="regexp">/systemd/</span>system/docker.service</span><br><span class="line">	<span class="number">2</span>. 通过 vim <span class="regexp">/usr/</span>lib<span class="regexp">/systemd/</span>system/docker.service  编辑文件</span><br><span class="line">	<span class="number">3</span>. 在docker.service文件中找到 以 ExecStart=<span class="regexp">/usr/</span>bin<span class="regexp">/dockerd开头的行,在后面添加 -H tcp:/</span>/<span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">2375</span> 修改之后如下,可能因为版本不同,此行内容略有区别,但是差距不大</span><br><span class="line">	<span class="number">4</span>. 修改后: ExecStart=<span class="regexp">/usr/</span>bin<span class="regexp">/dockerd -H tcp:/</span><span class="regexp">/0.0.0.0:2375  -H fd:/</span><span class="regexp">/ --containerd=/</span>run<span class="regexp">/containerd/</span>containerd.sock</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">文件演示如下:</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEBbaf20009679c42ea3751679eff76b605?method=download&shareKey=db02979b18ab1cd4aa754c25e659bdab">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB3bb6417c017af2144c2a088285659497?method=download&shareKey=1257735099862fc6b48ce8ad831d235a">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB5a41a6728bae4c196ea935e38bb75a00?method=download&shareKey=4acff9493c53c479833def3be311e9d1">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEBe715862817b374f457e803baafce5225?method=download&shareKey=9c567066fb955f3d0ef38e2d6833123e">
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">下方有日志,可以通过日志查看是否发布成功</span><br></pre></td></tr></table></figure>
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB21666a2058a31f3bf845da9ee535623f?method=download&shareKey=5dcb9caab51559ce0822393afe9822cb">
+
+<h2 id="第三章-控制面板使用"><a href="#第三章-控制面板使用" class="headerlink" title="第三章 控制面板使用"></a>第三章 控制面板使用</h2><figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line">上图中IDEA左下角有一个操作容器和镜像的控制面板<span class="punctuation">,</span>这个控制面板可以控制远程的Docker平台的镜像和容器</span><br><span class="line"></span><br><span class="line">当然也有第三方的控制面板使用</span><br><span class="line"></span><br><span class="line">在前面的博客中  https://hs-an-yue.github.io/<span class="number">2024</span>/<span class="number">08</span>/<span class="number">03</span>/Docker<span class="variable">%E7</span><span class="variable">%9</span>A<span class="variable">%84</span><span class="variable">%E5</span><span class="variable">%B8</span><span class="variable">%B8</span><span class="variable">%E7</span><span class="variable">%94</span><span class="variable">%A8</span><span class="variable">%E5</span><span class="variable">%91</span><span class="variable">%BD</span><span class="variable">%E4</span><span class="variable">%BB</span><span class="variable">%A4</span><span class="variable">%E4</span><span class="variable">%BB</span><span class="variable">%A5</span><span class="variable">%E5</span><span class="variable">%8</span>F<span class="variable">%8</span>A<span class="variable">%E4</span><span class="variable">%BD</span><span class="variable">%BF</span><span class="variable">%E7</span><span class="variable">%94</span><span class="variable">%A8</span>/#<span class="variable">%E7</span><span class="variable">%AC</span><span class="variable">%AC4</span><span class="variable">%E8</span><span class="variable">%8</span>A<span class="variable">%82</span>-Docker<span class="variable">%E6</span><span class="variable">%8</span>E<span class="variable">%A7</span><span class="variable">%E5</span><span class="variable">%88</span><span class="variable">%B6</span><span class="variable">%E9</span><span class="variable">%9</span>D<span class="variable">%A2</span><span class="variable">%E6</span><span class="variable">%9</span>D<span class="variable">%BF</span><span class="variable">%E5</span><span class="variable">%AE</span><span class="variable">%89</span><span class="variable">%E8</span><span class="variable">%A3</span><span class="variable">%85</span></span><br><span class="line"></span><br><span class="line">也介绍了一个控制面板<span class="punctuation">,</span>大家可以自行去看一下</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB1e2badb7b02cd7b8535cc3db899eb3dc?method=download&shareKey=d4a36245255d7933cef34081bfa7c0a3">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB63b349cb3e08fd2f0c54690f434b2781?method=download&shareKey=44732a5eeb2d6890ab9e1340937e10a0">
+
+
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEBc8bf5e6a97793ff8155981b58223a398?method=download&shareKey=0d0a44297fe237908e47586737f87ed4">
+
+
+
+<hr>
+]]></content>
+      <categories>
+        <category>Linux(运维)</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>镜像</tag>
+        <tag>IntelliJ IDEA</tag>
+        <tag>控制面板</tag>
+        <tag>Dockerfile</tag>
+        <tag>运维</tag>
+        <tag>一键发布</tag>
       </tags>
   </entry>
   <entry>
@@ -159,9 +268,45 @@
       <tags>
         <tag>Docker</tag>
         <tag>镜像</tag>
+        <tag>控制面板</tag>
         <tag>命令</tag>
         <tag>Shell</tag>
-        <tag>控制面板</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Live Server代理实现</title>
+    <url>/2026/08/03/VS%20Code%E4%B8%ADLive%20Server%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<span id="more"></span>
+
+<h2 id="第一章-Live-Server介绍"><a href="#第一章-Live-Server介绍" class="headerlink" title="第一章 Live Server介绍"></a>第一章 Live Server介绍</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">Webpack Dev Server: 是 Webpack 提供的一个开发辅助工具</span><br><span class="line"><span class="bullet">	1.</span> HTTP开发服务器</span><br><span class="line"><span class="bullet">	2.</span> 打包</span><br><span class="line"><span class="bullet">	3.</span> 服务器代理</span><br><span class="line"><span class="bullet">	4.</span> 页面实时刷新</span><br><span class="line"><span class="code">	...</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">Vite: 是一种新型前端构建工具</span><br><span class="line"><span class="bullet">	1.</span> HTTP开发服务器</span><br><span class="line"><span class="bullet">	2.</span> 打包</span><br><span class="line"><span class="bullet">	3.</span> 服务器代理</span><br><span class="line"><span class="bullet">	4.</span> 页面实时刷新</span><br><span class="line"><span class="code">	...</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">Live Server:</span><br><span class="line"><span class="bullet">	1.</span> HTTP开发服务器</span><br><span class="line"><span class="bullet">	2.</span> 页面实时刷新</span><br><span class="line"><span class="bullet">	3.</span> 不支持打包</span><br><span class="line"><span class="bullet">	4.</span> 不支持代理</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二章-为什么添加代理"><a href="#第二章-为什么添加代理" class="headerlink" title="第二章 为什么添加代理"></a>第二章 为什么添加代理</h2><p>浏览器不允许在前端页面中跨域访问后端服务器接口，为了解决这个问题，将前端发送的请求，转发到前端自己的服务器,然后前端自己的服务器帮助调用后端接口，这样将浏览器直接向后端发送请求转换成，浏览器发送请求到自己的前端服务器，前端服务器在向后端转发请求，尽管也跨域但是服务器调用服务器不会出现跨域问题，跨域只有浏览器才会出现。</p>
+<h2 id="第三章-代理实现"><a href="#第三章-代理实现" class="headerlink" title="第三章 代理实现"></a>第三章 代理实现</h2><figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line">前端开发工具采用 Visual Studio <span class="meta">Code</span> </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>配置方式</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">第一步<span class="punctuation">:</span> 创建一个新的web项目或者导入一个已有的项目(纯HTML项目)</span><br><span class="line">第二步<span class="punctuation">:</span> 在项目的根目录下创建一个文件夹(.vscode)，不要忘记点</span><br><span class="line">第三步<span class="punctuation">:</span> 在.vscode文件夹中创建一个settings.json文件</span><br><span class="line">第四步<span class="punctuation">:</span> 在settings.json文件中设置以下内容</span><br><span class="line"></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;liveServer.settings.port&quot;</span><span class="punctuation">:</span> <span class="number">5500</span><span class="punctuation">,</span> <span class="comment">//当前前端HTTP服务器启动的默认端口号</span></span><br><span class="line">  <span class="attr">&quot;liveServer.settings.proxy&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;enable&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span> <span class="comment">//开启代理</span></span><br><span class="line">    <span class="attr">&quot;baseUri&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/api&quot;</span><span class="punctuation">,</span> <span class="comment">//前端代理(使用此地址代替后端服务器地址)</span></span><br><span class="line">    <span class="attr">&quot;proxyUri&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http://127.0.0.1:8080&quot;</span> <span class="comment">//服务器地址</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>每走一步,都是进步.</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>Live</tag>
+        <tag>Server</tag>
+        <tag>跨域</tag>
+        <tag>代理</tag>
+        <tag>proxy</tag>
+        <tag>开发</tag>
+        <tag>VS Code</tag>
       </tags>
   </entry>
   <entry>
@@ -478,151 +623,6 @@
         <tag>JWT</tag>
         <tag>认证授权</tag>
         <tag>前后端分离</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>IntelliJ IDEA集成Dockerfile连接远程Docker平台一键发布</title>
-    <url>/2026/08/03/IntelliJ%20IDEA%E9%9B%86%E6%88%90Dockerfile%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8BDocker%E5%B9%B3%E5%8F%B0%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83/</url>
-    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<span id="more"></span>
-
-<h2 id="第一章-一键发布介绍"><a href="#第一章-一键发布介绍" class="headerlink" title="第一章 一键发布介绍"></a>第一章 一键发布介绍</h2><h3 id="第1节-看图"><a href="#第1节-看图" class="headerlink" title="第1节 看图"></a>第1节 看图</h3><img src="https://note.youdao.com/yws/api/personal/file/WEB03bada513268ed8464b560de4f2d8405?method=download&shareKey=848a6e665ac67061b0416fa7095df260">
-
-
-
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">1. IDEA 提供了Docker一键发布的功能</span><br><span class="line">2. 上图中是通过Dockerfile加上IDEA自带的Docker插件功能可以实现一键将本地的项目发布到远程的Docker平台</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">注意: 本地要安装 IntelliJ IDEA 开发工具,远程服务器使用Docker平台进行应用发布和管理</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="第二章-IntelliJ-IDEA配置"><a href="#第二章-IntelliJ-IDEA配置" class="headerlink" title="第二章 IntelliJ IDEA配置"></a>第二章 IntelliJ IDEA配置</h2><h3 id="第一步-打开IDEA开发工具-安装Docker插件"><a href="#第一步-打开IDEA开发工具-安装Docker插件" class="headerlink" title="第一步: 打开IDEA开发工具,安装Docker插件"></a>第一步: 打开IDEA开发工具,安装Docker插件</h3><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">我使用的开发工具为 IntelliJ IDEA <span class="number">2023.2</span> (Ultimate Edition) 下面以此软件作为演示</span><br><span class="line"></span><br><span class="line">下面看安装Docker插件的步骤</span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEBf9f41963a35b9f0af777ea230f417fc7?method=download&shareKey=b291b289ab63e1204856b31053a7542a">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEBc71d01b3e1eca12d1ae2ffa4e733503a?method=download&shareKey=1f9166861195361202b813e2b9a40972">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB5a149693be36820999589920e69f0ccd?method=download&shareKey=a54617626018a2da088fbc022c438285">
-
-
-
-<h3 id="第二步-找一个需要发布到Docker平台的项目-创建Dockerfile文件"><a href="#第二步-找一个需要发布到Docker平台的项目-创建Dockerfile文件" class="headerlink" title="第二步: 找一个需要发布到Docker平台的项目,创建Dockerfile文件"></a>第二步: 找一个需要发布到Docker平台的项目,创建Dockerfile文件</h3><figure class="highlight erlang"><table><tr><td class="code"><pre><span class="line">我这里以一个Java项目为例,在项目的根目录创建一个Dockerfile文件,在Dockerfile文件中编写命令,写哪些命令,请自行脑补.</span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB944e61d7e0578b781f31bc22103289f0?method=download&shareKey=22c2e5995edaba5779f3aa6b3c7dd692">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB32b013e2cdc8e0f2ab7eb3c32b5a0f23?method=download&shareKey=132bfa2825cf9c232b5a526644f5fca0">
-
-
-
-<h3 id="第三步-配置IDEA中的Docker"><a href="#第三步-配置IDEA中的Docker" class="headerlink" title="第三步: 配置IDEA中的Docker"></a>第三步: 配置IDEA中的Docker</h3><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">配置步骤如下:</span></span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB659109d0df56368c589b21222467136a?method=download&shareKey=c6c81d7982835ed287bcbb5d2ee4c251">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB7f52eb90d8e9dc31a2f4f2168cfda18f?method=download&shareKey=f85e6d01185df035f1346a0d15c1c5d1">
-
-
-
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">IDEA连接远程的Docker服务器会出现失败的情况,原因是远程Docker服务器没有开放<span class="number">2375</span>端口号的连接,所以去Docker服务器端进行配置</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">配置步骤:</span><br><span class="line"></span><br><span class="line">第一步: 找到配置文件</span><br><span class="line">	<span class="number">1</span>. 配置文件在Linux服务器的位置 <span class="regexp">/usr/</span>lib<span class="regexp">/systemd/</span>system/docker.service</span><br><span class="line">	<span class="number">2</span>. 通过 vim <span class="regexp">/usr/</span>lib<span class="regexp">/systemd/</span>system/docker.service  编辑文件</span><br><span class="line">	<span class="number">3</span>. 在docker.service文件中找到 以 ExecStart=<span class="regexp">/usr/</span>bin<span class="regexp">/dockerd开头的行,在后面添加 -H tcp:/</span>/<span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">2375</span> 修改之后如下,可能因为版本不同,此行内容略有区别,但是差距不大</span><br><span class="line">	<span class="number">4</span>. 修改后: ExecStart=<span class="regexp">/usr/</span>bin<span class="regexp">/dockerd -H tcp:/</span><span class="regexp">/0.0.0.0:2375  -H fd:/</span><span class="regexp">/ --containerd=/</span>run<span class="regexp">/containerd/</span>containerd.sock</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">文件演示如下:</span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEBbaf20009679c42ea3751679eff76b605?method=download&shareKey=db02979b18ab1cd4aa754c25e659bdab">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB3bb6417c017af2144c2a088285659497?method=download&shareKey=1257735099862fc6b48ce8ad831d235a">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB5a41a6728bae4c196ea935e38bb75a00?method=download&shareKey=4acff9493c53c479833def3be311e9d1">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEBe715862817b374f457e803baafce5225?method=download&shareKey=9c567066fb955f3d0ef38e2d6833123e">
-
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">下方有日志,可以通过日志查看是否发布成功</span><br></pre></td></tr></table></figure>
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB21666a2058a31f3bf845da9ee535623f?method=download&shareKey=5dcb9caab51559ce0822393afe9822cb">
-
-<h2 id="第三章-控制面板使用"><a href="#第三章-控制面板使用" class="headerlink" title="第三章 控制面板使用"></a>第三章 控制面板使用</h2><figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line">上图中IDEA左下角有一个操作容器和镜像的控制面板<span class="punctuation">,</span>这个控制面板可以控制远程的Docker平台的镜像和容器</span><br><span class="line"></span><br><span class="line">当然也有第三方的控制面板使用</span><br><span class="line"></span><br><span class="line">在前面的博客中  https://hs-an-yue.github.io/<span class="number">2024</span>/<span class="number">08</span>/<span class="number">03</span>/Docker<span class="variable">%E7</span><span class="variable">%9</span>A<span class="variable">%84</span><span class="variable">%E5</span><span class="variable">%B8</span><span class="variable">%B8</span><span class="variable">%E7</span><span class="variable">%94</span><span class="variable">%A8</span><span class="variable">%E5</span><span class="variable">%91</span><span class="variable">%BD</span><span class="variable">%E4</span><span class="variable">%BB</span><span class="variable">%A4</span><span class="variable">%E4</span><span class="variable">%BB</span><span class="variable">%A5</span><span class="variable">%E5</span><span class="variable">%8</span>F<span class="variable">%8</span>A<span class="variable">%E4</span><span class="variable">%BD</span><span class="variable">%BF</span><span class="variable">%E7</span><span class="variable">%94</span><span class="variable">%A8</span>/#<span class="variable">%E7</span><span class="variable">%AC</span><span class="variable">%AC4</span><span class="variable">%E8</span><span class="variable">%8</span>A<span class="variable">%82</span>-Docker<span class="variable">%E6</span><span class="variable">%8</span>E<span class="variable">%A7</span><span class="variable">%E5</span><span class="variable">%88</span><span class="variable">%B6</span><span class="variable">%E9</span><span class="variable">%9</span>D<span class="variable">%A2</span><span class="variable">%E6</span><span class="variable">%9</span>D<span class="variable">%BF</span><span class="variable">%E5</span><span class="variable">%AE</span><span class="variable">%89</span><span class="variable">%E8</span><span class="variable">%A3</span><span class="variable">%85</span></span><br><span class="line"></span><br><span class="line">也介绍了一个控制面板<span class="punctuation">,</span>大家可以自行去看一下</span><br></pre></td></tr></table></figure>
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB1e2badb7b02cd7b8535cc3db899eb3dc?method=download&shareKey=d4a36245255d7933cef34081bfa7c0a3">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB63b349cb3e08fd2f0c54690f434b2781?method=download&shareKey=44732a5eeb2d6890ab9e1340937e10a0">
-
-
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEBc8bf5e6a97793ff8155981b58223a398?method=download&shareKey=0d0a44297fe237908e47586737f87ed4">
-
-
-
-<hr>
-]]></content>
-      <categories>
-        <category>Linux(运维)</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-        <tag>镜像</tag>
-        <tag>控制面板</tag>
-        <tag>IntelliJ IDEA</tag>
-        <tag>Dockerfile</tag>
-        <tag>运维</tag>
-        <tag>一键发布</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Live Server代理实现</title>
-    <url>/2026/08/03/VS%20Code%E4%B8%ADLive%20Server%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<span id="more"></span>
-
-<h2 id="第一章-Live-Server介绍"><a href="#第一章-Live-Server介绍" class="headerlink" title="第一章 Live Server介绍"></a>第一章 Live Server介绍</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">Webpack Dev Server: 是 Webpack 提供的一个开发辅助工具</span><br><span class="line"><span class="bullet">	1.</span> HTTP开发服务器</span><br><span class="line"><span class="bullet">	2.</span> 打包</span><br><span class="line"><span class="bullet">	3.</span> 服务器代理</span><br><span class="line"><span class="bullet">	4.</span> 页面实时刷新</span><br><span class="line"><span class="code">	...</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">Vite: 是一种新型前端构建工具</span><br><span class="line"><span class="bullet">	1.</span> HTTP开发服务器</span><br><span class="line"><span class="bullet">	2.</span> 打包</span><br><span class="line"><span class="bullet">	3.</span> 服务器代理</span><br><span class="line"><span class="bullet">	4.</span> 页面实时刷新</span><br><span class="line"><span class="code">	...</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">Live Server:</span><br><span class="line"><span class="bullet">	1.</span> HTTP开发服务器</span><br><span class="line"><span class="bullet">	2.</span> 页面实时刷新</span><br><span class="line"><span class="bullet">	3.</span> 不支持打包</span><br><span class="line"><span class="bullet">	4.</span> 不支持代理</span><br></pre></td></tr></table></figure>
-
-<h2 id="第二章-为什么添加代理"><a href="#第二章-为什么添加代理" class="headerlink" title="第二章 为什么添加代理"></a>第二章 为什么添加代理</h2><p>浏览器不允许在前端页面中跨域访问后端服务器接口，为了解决这个问题，将前端发送的请求，转发到前端自己的服务器,然后前端自己的服务器帮助调用后端接口，这样将浏览器直接向后端发送请求转换成，浏览器发送请求到自己的前端服务器，前端服务器在向后端转发请求，尽管也跨域但是服务器调用服务器不会出现跨域问题，跨域只有浏览器才会出现。</p>
-<h2 id="第三章-代理实现"><a href="#第三章-代理实现" class="headerlink" title="第三章 代理实现"></a>第三章 代理实现</h2><figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line">前端开发工具采用 Visual Studio <span class="meta">Code</span> </span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>配置方式</p>
-</blockquote>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">第一步<span class="punctuation">:</span> 创建一个新的web项目或者导入一个已有的项目(纯HTML项目)</span><br><span class="line">第二步<span class="punctuation">:</span> 在项目的根目录下创建一个文件夹(.vscode)，不要忘记点</span><br><span class="line">第三步<span class="punctuation">:</span> 在.vscode文件夹中创建一个settings.json文件</span><br><span class="line">第四步<span class="punctuation">:</span> 在settings.json文件中设置以下内容</span><br><span class="line"></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;liveServer.settings.port&quot;</span><span class="punctuation">:</span> <span class="number">5500</span><span class="punctuation">,</span> <span class="comment">//当前前端HTTP服务器启动的默认端口号</span></span><br><span class="line">  <span class="attr">&quot;liveServer.settings.proxy&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;enable&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span> <span class="comment">//开启代理</span></span><br><span class="line">    <span class="attr">&quot;baseUri&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/api&quot;</span><span class="punctuation">,</span> <span class="comment">//前端代理(使用此地址代替后端服务器地址)</span></span><br><span class="line">    <span class="attr">&quot;proxyUri&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http://127.0.0.1:8080&quot;</span> <span class="comment">//服务器地址</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<blockquote>
-<p>每走一步,都是进步.</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>web</category>
-      </categories>
-      <tags>
-        <tag>Live</tag>
-        <tag>Server</tag>
-        <tag>跨域</tag>
-        <tag>代理</tag>
-        <tag>proxy</tag>
-        <tag>开发</tag>
-        <tag>VS Code</tag>
       </tags>
   </entry>
   <entry>
