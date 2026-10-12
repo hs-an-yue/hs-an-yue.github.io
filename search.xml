@@ -626,6 +626,508 @@
       </tags>
   </entry>
   <entry>
+    <title>网站内文件存储-快速入门</title>
+    <url>/2026/08/03/%E7%BD%91%E7%AB%99%E5%86%85%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<span id="more"></span>
+<h2 id="第一章-什么是文件存储"><a href="#第一章-什么是文件存储" class="headerlink" title="第一章 什么是文件存储"></a>第一章 什么是文件存储</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">在网络上存在各种各样的资源</span></span><br><span class="line"><span class="number">1</span><span class="string">.</span> <span class="string">文本资源</span> <span class="string">.txt</span> <span class="string">.html</span> <span class="string">用户信息(用户名、密码、性别、年龄...)</span></span><br><span class="line"><span class="number">2</span><span class="string">.</span> <span class="string">多媒体资源</span></span><br><span class="line">	<span class="number">2.1</span> <span class="string">Excel、Word、PPT、PDF等</span></span><br><span class="line">	<span class="number">2.2</span> <span class="string">音频(mp3</span> <span class="string">...)</span></span><br><span class="line">	<span class="number">2.3</span> <span class="string">视频(mp4</span> <span class="string">...)</span></span><br><span class="line">	<span class="number">2.4</span> <span class="string">图片</span></span><br><span class="line"></span><br><span class="line"><span class="string">以上这些数据按照分类需要保存到不同的数据库中</span></span><br><span class="line">	<span class="number">1</span><span class="string">.</span> <span class="string">数据库</span></span><br><span class="line">		<span class="number">1.1</span> <span class="string">关系型数据库</span></span><br><span class="line">		<span class="number">1.2</span> <span class="string">非关系型数据库</span></span><br><span class="line">		<span class="number">1.3</span> <span class="string">向量数据库</span></span><br><span class="line">			<span class="string">...</span></span><br><span class="line">	<span class="number">2</span><span class="string">.</span> <span class="string">文件服务器（存储大文件）</span></span><br><span class="line">		<span class="string">...</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="第二章-文件存储的实现方式"><a href="#第二章-文件存储的实现方式" class="headerlink" title="第二章 文件存储的实现方式"></a>第二章 文件存储的实现方式</h2><h3 id="第1节-方式一-基于SpringBoot应用存储"><a href="#第1节-方式一-基于SpringBoot应用存储" class="headerlink" title="第1节 方式一 基于SpringBoot应用存储"></a>第1节 方式一 基于SpringBoot应用存储</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">如果项目较小，存储的文件不是很多，并且多以图片或者小的文本文件为主，并且不涉及到敏感图片，这是可以采用方式一，简单方便。</span></span><br><span class="line"></span><br><span class="line"><span class="string">实现方式非常简单,步骤如下</span> <span class="string">↓↓↓↓↓↓↓↓↓↓↓↓↓↓</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="第1步-创建一个基于Springboot的Web项目"><a href="#第1步-创建一个基于Springboot的Web项目" class="headerlink" title="第1步 创建一个基于Springboot的Web项目"></a>第1步 创建一个基于Springboot的Web项目</h4><img src="https://note.youdao.com/yws/api/personal/file/WEB210316c2efffd2ee57f883fbcd9a5d36?method=download&shareKey=0a6dfdf18008883fd5ad46c4e206f72f">
+
+<h4 id="第2步-配置SpringBoot的静态资源管理"><a href="#第2步-配置SpringBoot的静态资源管理" class="headerlink" title="第2步 配置SpringBoot的静态资源管理"></a>第2步 配置SpringBoot的静态资源管理</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">web:</span></span><br><span class="line">    <span class="attr">resources:</span></span><br><span class="line">      <span class="attr">static-locations:</span> <span class="string">classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:d:/file/</span></span><br></pre></td></tr></table></figure>
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB81ff93f1e6931087d37c838b2e588a79?method=download&shareKey=4b86a3fa331d9b59b9952e474a4eb6d3">
+
+<h4 id="第3步-测试"><a href="#第3步-测试" class="headerlink" title="第3步 测试"></a>第3步 测试</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">按照第2步</span> <span class="string">在d盘(可以设置本地硬盘的任意位置)创建一个file文件夹,并且在此文件夹中放一张图片用于测试，如下所以:</span></span><br></pre></td></tr></table></figure>
+
+<img src="https://note.youdao.com/yws/api/personal/file/WEB1bf0da9f04a59cd1834095f508258c1d?method=download&shareKey=c34a0c919e170a2c07de9dfb9db829dc">
+
+<h4 id="第4步-启动项目并测试"><a href="#第4步-启动项目并测试" class="headerlink" title="第4步 启动项目并测试"></a>第4步 启动项目并测试</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 启动项目</span><br><span class="line"><span class="bullet">2.</span> 在浏览器中输入 服务器地址+文件名 例如: </span><br></pre></td></tr></table></figure>
+
+<h4 id="第5步-测试完成后-编写API将文件操作接口暴露给用户使用"><a href="#第5步-测试完成后-编写API将文件操作接口暴露给用户使用" class="headerlink" title="第5步 测试完成后,编写API将文件操作接口暴露给用户使用"></a>第5步 测试完成后,编写API将文件操作接口暴露给用户使用</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1. 设计数据库表</span></span><br><span class="line">-- 创建库</span><br><span class="line">CREATE DATABASE db_file DEFAULT CHARACTER SET utf8;</span><br><span class="line">-- 文件表</span><br><span class="line">CREATE TABLE <span class="title function_">sys_file</span><span class="params">(</span></span><br><span class="line"><span class="params">    file_id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT <span class="string">&#x27;文件ID,主键自增&#x27;</span>,</span></span><br><span class="line"><span class="params">    file_name VARCHAR(<span class="number">255</span>)</span> NOT NULL COMMENT <span class="string">&#x27;文件名称&#x27;</span>,</span><br><span class="line">    file_url <span class="title function_">VARCHAR</span><span class="params">(<span class="number">255</span>)</span> NOT NULL COMMENT <span class="string">&#x27;文件服务器地址&#x27;</span>,</span><br><span class="line">    file_address <span class="title function_">VARCHAR</span><span class="params">(<span class="number">255</span>)</span> NOT NULL COMMENT <span class="string">&#x27;文件本地硬盘的真实地址&#x27;</span>,</span><br><span class="line">    suffix <span class="title function_">VARCHAR</span><span class="params">(<span class="number">100</span>)</span> COMMENT <span class="string">&#x27;文件格式 pdf xlsx zip ppt docx等&#x27;</span>,</span><br><span class="line">    size BIGINT DEFAULT <span class="number">0</span> COMMENT <span class="string">&#x27;文件大小&#x27;</span>,</span><br><span class="line">    create_time DATETIME NOT NULL COMMENT <span class="string">&#x27;创建时间&#x27;</span>,</span><br><span class="line">    update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT <span class="string">&#x27;设置当前时间，并且自动更更新时间&#x27;</span></span><br><span class="line">)DEFAULT CHARSET=<span class="string">&#x27;UTF8&#x27;</span> AUTO_INCREMENT=<span class="number">1000</span> COMMENT=<span class="string">&#x27;文件表&#x27;</span>;</span><br><span class="line"><span class="comment">//2. 其它操作略</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="第2节-方式二-基于minio文件服务器存储"><a href="#第2节-方式二-基于minio文件服务器存储" class="headerlink" title="第2节 方式二 基于minio文件服务器存储"></a>第2节 方式二 基于minio文件服务器存储</h3><h4 id="第1步-minio官网"><a href="#第1步-minio官网" class="headerlink" title="第1步 minio官网"></a>第1步 minio官网</h4><figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">https:</span>//www.minio<span class="meta">.org</span>.cn/</span><br></pre></td></tr></table></figure>
+
+<h4 id="第2步-minio安装"><a href="#第2步-minio安装" class="headerlink" title="第2步 minio安装"></a>第2步 minio安装</h4><figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line">本练习通过<span class="type">Docker</span>容器化平台进行minio的安装: minio支持<span class="type">Podman</span>和<span class="type">Docker</span>两种方式，我这里采用<span class="type">Docker</span>方式</span><br><span class="line">安装地址: https://www.minio.org.cn/docs/minio/container/index.html</span><br><span class="line"></span><br><span class="line">第一步: 创建数据库的保存目录 命令为: mkdir -p ~/minio/<span class="class"><span class="keyword">data</span></span></span><br><span class="line">第二步: 运行docker命令,命令如下:   (注意:需要自己安装<span class="type">Docker</span>平台)</span><br><span class="line">	docker run \</span><br><span class="line">       -p <span class="number">9000</span>:<span class="number">9000</span> \</span><br><span class="line">       -p <span class="number">9001</span>:<span class="number">9001</span> \</span><br><span class="line">       <span class="comment">--name minio \</span></span><br><span class="line">       -d <span class="comment">--restart=always \</span></span><br><span class="line">       -v ~/minio/<span class="class"><span class="keyword">data</span>:/<span class="keyword">data</span> \</span></span><br><span class="line">       -e <span class="string">&quot;MINIO_ROOT_USER=minio&quot;</span> \</span><br><span class="line">       -e <span class="string">&quot;MINIO_ROOT_PASSWORD=minio123&quot;</span> \</span><br><span class="line">       quay.io/minio/minio server /<span class="class"><span class="keyword">data</span> <span class="comment">--console-address &quot;:9001&quot;</span></span></span><br><span class="line">第三步: 访问和测试</span><br><span class="line">	<span class="number">1</span>. 访问地址: http://<span class="number">192.168</span>.<span class="number">206.129</span>:<span class="number">9001</span>/</span><br><span class="line">	<span class="number">2</span>. 用户名和而密码: minio/minio123    在进行第一次启动时设置用户名和密码(用户名长度至少<span class="number">5</span>位，密码至少<span class="number">8</span>位)</span><br><span class="line">	<span class="number">3</span>. 登录上去后进入minio控制台页面</span><br></pre></td></tr></table></figure>
+
+<h4 id="第3步-minio的API操作-Java版"><a href="#第3步-minio的API操作-Java版" class="headerlink" title="第3步 minio的API操作(Java版)"></a>第3步 minio的API操作(Java版)</h4><blockquote>
+<p>Maven依赖</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.minio<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>minio<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.5.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>功能介绍</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span><span class="string">.</span> <span class="string">文件上传</span></span><br><span class="line"><span class="number">2</span><span class="string">.</span> <span class="string">文件删除</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>集成SpringBoot对外提供API接口案例</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">第一步: 在minio操作页面创建一个用户(给读写权限)，并且在创建accessKey和securityKey</span><br><span class="line">第二步: 创建SpringBoot项目添加minio依赖</span><br><span class="line">第三步: 在SpringBoot配置minio服务器 application.yml</span><br><span class="line">    minio:</span><br><span class="line">      # minio账户的access</span><br><span class="line">      access_key: s9Aev3pEpCqKaaoMuanY</span><br><span class="line">      # minio账户的security</span><br><span class="line">      security_key: mvsXMUYHq44GQkZERtbzzspYu1iULIvGsZynwC80</span><br><span class="line">      # 服务器地址</span><br><span class="line">      endpoint: http:<span class="comment">//192.168.206.129:9000/</span></span><br><span class="line">      # 创建桶，用来装文件(可以在minio页面创建，并且分配权限,默认私有)</span><br><span class="line">      bucketName: test</span><br><span class="line">第四步: 创建minio客户端</span><br><span class="line"></span><br><span class="line">    <span class="keyword">import</span> io.minio.MinioClient;</span><br><span class="line">    <span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line">    <span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line">    <span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line">    <span class="meta">@Configuration</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MinioConfig</span> &#123;</span><br><span class="line">        <span class="meta">@Value(&quot;$&#123;minio.endpoint&#125;&quot;)</span></span><br><span class="line">        <span class="keyword">private</span> String endpoint;</span><br><span class="line">        <span class="meta">@Value(&quot;$&#123;minio.access_key&#125;&quot;)</span></span><br><span class="line">        <span class="keyword">private</span> String accessKey;</span><br><span class="line">        <span class="meta">@Value(&quot;$&#123;minio.security_key&#125;&quot;)</span></span><br><span class="line">        <span class="keyword">private</span> String secretKey;</span><br><span class="line">        <span class="meta">@Bean</span></span><br><span class="line">        <span class="keyword">public</span> MinioClient <span class="title function_">createMinioClient</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> MinioClient.builder().endpoint(endpoint).credentials(accessKey, secretKey).build();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">第五步: 上传和删除代码实现</span><br><span class="line">	<span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> MinioClient minioClient;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;minio.bucketName&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String bucketName;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;minio.endpoint&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String endpoint;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除文件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(value = &quot;/deleteFile&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">deleteFile</span><span class="params">(String fileName)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        minioClient.removeObject(RemoveObjectArgs.builder()</span><br><span class="line">                        .bucket(bucketName)</span><br><span class="line">                        .object(fileName)</span><br><span class="line">                .build());</span><br><span class="line">        <span class="keyword">return</span> Map.of(<span class="string">&quot;code&quot;</span>,<span class="string">&quot;0&quot;</span>,<span class="string">&quot;msg&quot;</span>,<span class="string">&quot;删除成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 上传文件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(value = &quot;/uploadFile&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">uploadFile</span><span class="params">(MultipartFile file)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//创建桶</span></span><br><span class="line">        createBucket(minioClient,bucketName);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//文件上传</span></span><br><span class="line">            minioClient.putObject(PutObjectArgs.builder().</span><br><span class="line">                    bucket(bucketName)</span><br><span class="line">                    .object(file.getOriginalFilename())</span><br><span class="line">                            .stream(file.getInputStream(), file.getSize(), -<span class="number">1</span>)</span><br><span class="line">                            .contentType(file.getContentType())</span><br><span class="line">                    .build());</span><br><span class="line">            <span class="keyword">return</span> Map.of(<span class="string">&quot;code&quot;</span>,<span class="number">0</span>,<span class="string">&quot;msg&quot;</span>,<span class="string">&quot;success&quot;</span>,<span class="string">&quot;data&quot;</span>,endpoint+bucketName+<span class="string">&quot;/&quot;</span>+file.getOriginalFilename());</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Map.of(<span class="string">&quot;code&quot;</span>,<span class="number">0</span>,<span class="string">&quot;msg&quot;</span>,<span class="string">&quot;success&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建桶</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> minioClient minio客户端</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> bucketName  桶名字</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception  异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createBucket</span><span class="params">(MinioClient minioClient, String bucketName)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">found</span> <span class="operator">=</span> minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());</span><br><span class="line">        <span class="keyword">if</span> (!found) &#123;</span><br><span class="line">            minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Bucket &quot;</span> + bucketName + <span class="string">&quot; already exists.&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>已完成…</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>文件服务器</category>
+      </categories>
+      <tags>
+        <tag>文件服务器</tag>
+        <tag>SpringBoot</tag>
+        <tag>file</tag>
+        <tag>SQL</tag>
+        <tag>文件管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>postgresql-快速入门</title>
+    <url>/2026/10/12/db/postgresql-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<span id="more"></span>
+<h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h2><h3 id="第1节-介绍"><a href="#第1节-介绍" class="headerlink" title="第1节 介绍"></a>第1节 介绍</h3><p>PostgreSQL 是一个开源的关系型数据库，和 MySQL、Oracle 属于同一类数据库</p>
+<h3 id="第2节-起源"><a href="#第2节-起源" class="headerlink" title="第2节 起源"></a>第2节 起源</h3><p>它最初源于加州大学伯克利分校的 POSTGRES 项目，目前由全球社区持续维护。</p>
+<h3 id="第3节-和MySQL区别"><a href="#第3节-和MySQL区别" class="headerlink" title="第3节 和MySQL区别"></a>第3节 和MySQL区别</h3><table>
+<thead>
+<tr>
+<th>对比</th>
+<th>PostgreSQL</th>
+<th>MySQL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类型</td>
+<td>关系型数据库</td>
+<td>关系型数据库</td>
+</tr>
+<tr>
+<td>开源</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>事务</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>SQL 支持</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>非常强</td>
+<td>很强</td>
+</tr>
+<tr>
+<td>地理空间</td>
+<td>PostGIS 非常强</td>
+<td>有 GIS</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>稍高</td>
+<td>相对简单</td>
+</tr>
+<tr>
+<td>国内使用普及度</td>
+<td>较高</td>
+<td>很高</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="第二章-安装"><a href="#第二章-安装" class="headerlink" title="第二章 安装"></a>第二章 安装</h2><h3 id="第1节-官网"><a href="#第1节-官网" class="headerlink" title="第1节 官网"></a>第1节 官网</h3><figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">https:</span>//www.postgresql<span class="meta">.org</span>/</span><br></pre></td></tr></table></figure>
+
+<h3 id="第2节-安装"><a href="#第2节-安装" class="headerlink" title="第2节 安装"></a>第2节 安装</h3><blockquote>
+<p>Windows 系统命令</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">run</span> -d --name pg18-gis -p 5432:5432 -e <span class="attribute">POSTGRES_USER</span>=postgres -e <span class="attribute">POSTGRES_PASSWORD</span>=postgres -e <span class="attribute">POSTGRES_DB</span>=gis_main -e <span class="attribute">TZ</span>=Asia/Shanghai -v pg18_postgis_data:/var/lib/postgresql <span class="attribute">--restart</span>=always postgis/postgis:18-3.6</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Linux系统命令</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">run</span> -d \</span><br><span class="line">  --name pg18-gis \</span><br><span class="line">  -p 5432:5432 \</span><br><span class="line">  -e <span class="attribute">POSTGRES_USER</span>=postgres \</span><br><span class="line">  -e <span class="attribute">POSTGRES_PASSWORD</span>=postgres \</span><br><span class="line">  -e <span class="attribute">POSTGRES_DB</span>=gis_main \</span><br><span class="line">  -e <span class="attribute">TZ</span>=Asia/Shanghai \</span><br><span class="line">  -v /opt/pg18_data:/var/lib/postgresql \</span><br><span class="line">  <span class="attribute">--restart</span>=always \</span><br><span class="line">  postgis/postgis:18-3.6</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="第3节-客户端"><a href="#第3节-客户端" class="headerlink" title="第3节 客户端"></a>第3节 客户端</h3><blockquote>
+<p>自带客户端(psql) - 通过容器进入</p>
+</blockquote>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">docker exec -<span class="keyword">it</span> 容器名称/容器ID psql -U postgres -d gis_main</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight livescript"><table><tr><td class="code"><pre><span class="line">psql基础命令</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看帮助</span></span><br><span class="line"><span class="string">\?</span>        <span class="comment"># psql元命令帮助</span></span><br><span class="line"><span class="string">\h</span>        <span class="comment"># SQL语法帮助，例 \h CREATE DATABASE</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 库相关</span></span><br><span class="line"><span class="string">\l</span>        <span class="comment"># 列出所有数据库（就是你刚才看到的postgres template0 template1 template_postgis）</span></span><br><span class="line"><span class="string">\l+</span>       <span class="comment"># 列出数据库+大小、详细信息</span></span><br><span class="line"><span class="string">\c</span> test_db   <span class="comment"># 切换连接到 test_db 数据库（\connect简写）</span></span><br><span class="line"><span class="string">\conninfo</span>     <span class="comment"># 查看当前连接信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Schema、表、扩展（GIS高频）</span></span><br><span class="line"><span class="string">\dn</span>          <span class="comment"># 列出当前库所有schema</span></span><br><span class="line"><span class="string">\dn+</span>         <span class="comment"># schema+权限</span></span><br><span class="line"><span class="string">\dt</span>          <span class="comment"># 列出当前库的表</span></span><br><span class="line"><span class="string">\dt+</span>         <span class="comment"># 表+大小注释</span></span><br><span class="line"><span class="string">\d</span> test_table1 <span class="comment"># 查看表结构（字段、类型、索引、约束）</span></span><br><span class="line"><span class="string">\d+</span> test_table1</span><br><span class="line"><span class="string">\dx</span>          <span class="comment"># 查看当前库安装的扩展（用来看PostGIS！）</span></span><br><span class="line"><span class="string">\du</span>          <span class="comment"># 列出角色/用户</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他实用</span></span><br><span class="line"><span class="string">\r</span>           <span class="comment"># 清空当前输入缓冲区</span></span><br><span class="line"><span class="string">\q</span>           <span class="comment"># 退出psql（quit）</span></span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>官方提供GUI - pgAdmin4</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">略</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>第三方GUI - DBeaver</p>
+</blockquote>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">自己下载安装 <span class="comment">(略)</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="第三章-库介绍-MySQL-vs-PG"><a href="#第三章-库介绍-MySQL-vs-PG" class="headerlink" title="第三章 库介绍(MySQL vs PG)"></a>第三章 库介绍(MySQL vs PG)</h2><blockquote>
+<p>MySQL</p>
+</blockquote>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">MySQL实例（服务）</span><br><span class="line">├─ <span class="keyword">Database</span>（数据库/库）</span><br><span class="line">│  ├─ <span class="keyword">Table</span> 表</span><br><span class="line">│  ├─ <span class="keyword">View</span> 视图</span><br><span class="line">│  └─ 函数、存储过程</span><br><span class="line"></span><br><span class="line">MySQL表直接放在库下面</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>PG</p>
+</blockquote>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">PG实例（服务）</span><br><span class="line">├─ <span class="keyword">Database</span>（数据库）</span><br><span class="line">│  ├─ <span class="keyword">Schema</span>（模式，很多人翻译成“方案”）</span><br><span class="line">│  │  ├─ <span class="built_in">public</span>（默认自带<span class="keyword">schema</span>！最重要）</span><br><span class="line">│  │  │   └─ <span class="keyword">Table</span>、视图、函数、空间表</span><br><span class="line">│  │  ├─ tenant_01（自定义<span class="keyword">schema</span>，做多租户）</span><br><span class="line">│  │  └─ tenant_02</span><br><span class="line">│  └─ 其他<span class="keyword">schema</span></span><br><span class="line"></span><br><span class="line">PG和MySQL不同，PG的表不是直接在数据库中，PG在库和表之间多了一层<span class="keyword">Schema</span></span><br><span class="line"></span><br><span class="line">在<span class="keyword">Schema</span>下，默认带一个<span class="built_in">public</span>的<span class="keyword">Schema</span>，还可以自定义多个<span class="keyword">Schema</span>，PG的表放在<span class="keyword">Schema</span>下进行管理</span><br><span class="line"></span><br><span class="line">在MySQL的用户看来，PG中的<span class="keyword">Schema</span>更像数据库。</span><br></pre></td></tr></table></figure>
+
+<h2 id="第四章-SQL语句"><a href="#第四章-SQL语句" class="headerlink" title="第四章 SQL语句"></a>第四章 SQL语句</h2><h3 id="第1节-数据库管理"><a href="#第1节-数据库管理" class="headerlink" title="第1节 数据库管理"></a>第1节 数据库管理</h3><p>PG安装好后会自带系统默认库 postgres，不要把自己的业务数据存到这个库中，针对自己的业务要新建自己的业务库。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">PG默认库</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>. <span class="built_in">postgres</span>(系统自带默认库)		</span><br><span class="line"><span class="number">2</span>. <span class="built_in">template0</span>(系统自带默认库)</span><br><span class="line"><span class="number">3</span>. <span class="built_in">template1</span>(系统自带默认库)</span><br><span class="line"></span><br><span class="line">虽然三个库都有各自的用途，但是针对使用者来说，关系不大，这里不做介绍，下面用到再说。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">-- 创建数据库</span></span><br><span class="line"></span><br><span class="line">最简写法:</span><br><span class="line"><span class="keyword">CREATE</span> DATABASE test_db;</span><br><span class="line"></span><br><span class="line">描述: </span><br><span class="line"><span class="keyword">CREATE</span> DATABASE 创建库的关键字，test_db自定义的库名，命名见名知意即可。</span><br><span class="line">不需要像MySQL那样指定编码，PG默认utf8，不像MySQL那样utf8还分为utf8mb3和utf8mb4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">指定模板:</span><br><span class="line"><span class="keyword">CREATE</span> DATABASE test_db TEMPLATE template0;</span><br><span class="line"></span><br><span class="line">描述:</span><br><span class="line">template0:PG默认自带的库(不可修改)</span><br><span class="line">template1:PG默认自带的库(可以修改,但是很少有人修改)</span><br><span class="line">PG在创建数据库的时候必须基于template0或者template1进行创建，不指定默认是template1，上面的最简写法就是。</span><br><span class="line">PG的想法很简单，你要创建一个库，不知道怎么配置这个库，官方给你两个库，你找一个根据它进行复制就行了。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">完整写法:</span><br><span class="line"><span class="keyword">CREATE</span> DATABASE test_db TEMPLATE template0 ENCODING <span class="string">&#x27;UTF8&#x27;</span> LC_COLLATE <span class="string">&#x27;zh_CN.UTF-8&#x27;</span> LC_CTYPE <span class="string">&#x27;zh_CN.UTF-8&#x27;</span> CONNECTION LIMIT <span class="number">-1</span>; <span class="comment">-- -1代表不限制连接数（注意：LC_COLLATE 指定的 locale 需容器内已生成，否则会报 invalid locale name）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除数据库</span></span><br><span class="line"></span><br><span class="line">最简写法:</span><br><span class="line"><span class="keyword">DROP</span> DATABASE test_db;</span><br><span class="line"></span><br><span class="line">安全写法:</span><br><span class="line"><span class="keyword">DROP</span> DATABASE IF <span class="keyword">EXISTS</span> test_db;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">注意:⚠️</span><br><span class="line"></span><br><span class="line">有会话连接到目标库时，无法删除，需要强制断开连接，再删除。</span><br><span class="line"></span><br><span class="line">第一步: 强制断开连接</span><br><span class="line"><span class="comment">-- 终止所有连接到 test_db 的会话</span></span><br><span class="line"><span class="keyword">SELECT</span> pg_terminate_backend(pid)</span><br><span class="line"><span class="keyword">FROM</span> pg_stat_activity</span><br><span class="line"><span class="keyword">WHERE</span> datname <span class="operator">=</span> <span class="string">&#x27;test_db&#x27;</span> <span class="keyword">AND</span> pid <span class="operator">&lt;&gt;</span> pg_backend_pid();</span><br><span class="line">第二步: 删除</span><br><span class="line"><span class="comment">-- 删除数据库</span></span><br><span class="line"><span class="keyword">DROP</span> DATABASE IF <span class="keyword">EXISTS</span> test_db;</span><br></pre></td></tr></table></figure>
+
+<h3 id="第2节-数据库表管理"><a href="#第2节-数据库表管理" class="headerlink" title="第2节 数据库表管理"></a>第2节 数据库表管理</h3><h4 id="2-1-数据结构-常用"><a href="#2-1-数据结构-常用" class="headerlink" title="2.1 数据结构(常用)"></a>2.1 数据结构(常用)</h4><table>
+<thead>
+<tr>
+<th>分类</th>
+<th>MySQL</th>
+<th>PostgreSQL</th>
+<th>差异说明 &amp; 业务建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>整型</td>
+<td>tinyint &#x2F; smallint &#x2F; int &#x2F; bigint</td>
+<td>smallint &#x2F; int &#x2F; bigint</td>
+<td>取值范围基本一致 &amp; 主键推荐两者都用bigint</td>
+</tr>
+<tr>
+<td>高精度小数</td>
+<td>decimal(p,s)</td>
+<td>numeric(p,s)</td>
+<td>等价，无精度丢失；GPS 坐标、金额优先选用</td>
+</tr>
+<tr>
+<td>浮点数</td>
+<td>float &#x2F; double</td>
+<td>real &#x2F; double precision</td>
+<td>两者都存在精度丢失</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>varchar(n) &#x2F; char(n) &#x2F; longtext</td>
+<td>text（推荐，不限长） &#x2F; varchar(n) &#x2F; char(n)</td>
+<td>PG 中 <code>text</code> 与 varchar 性能相同，推荐 <code>text</code>；MySQL 大文本用 longtext 等，性能偏弱</td>
+</tr>
+<tr>
+<td>时间类型</td>
+<td>datetime（无时区） &#x2F; timestamp（有 2038 上限） &#x2F; date &#x2F; time</td>
+<td>timestamp（无时区） &#x2F; <strong>timestamptz（带时区）</strong> &#x2F; date &#x2F; time</td>
+<td>PG 优先 <code>timestamptz</code>；MySQL 业务时间推荐 datetime</td>
+</tr>
+<tr>
+<td>布尔</td>
+<td>tinyint(1)（伪布尔，约定 0&#x2F;1）</td>
+<td>boolean（原生，true&#x2F;false&#x2F;null）</td>
+<td>MySQL 布尔底层是数字，容易产生判断异常；PG 是原生布尔</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>json</td>
+<td>json（文本）<strong>jsonb（二进制，支持 GIN 索引）</strong></td>
+<td>PG jsonb 能力强，支持包含、键值索引；MySQL JSON 索引能力弱</td>
+</tr>
+<tr>
+<td>数组</td>
+<td>无原生数组</td>
+<td>原生支持 <code>bigint[]</code>、<code>text[]</code></td>
+<td>MySQL 只能逗号分隔字符串（不可索引）场景：点位关联多张图片 ID，PG 数组更便捷</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>其他空间地理信息的数据类型，请查看官网。</p>
+</blockquote>
+<h4 id="2-2-创建表"><a href="#2-2-创建表" class="headerlink" title="2.2  创建表"></a>2.2  创建表</h4><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 部门表(主键由程序生成，如雪花 ID，不使用数据库自增)</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> sys_dept (</span><br><span class="line">    dept_id        <span class="type">BIGINT</span>           <span class="keyword">PRIMARY KEY</span>,</span><br><span class="line">    dept_name      <span class="type">TEXT</span>             <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    parent_id      <span class="type">BIGINT</span>           <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">    sort           <span class="type">INT</span>              <span class="keyword">DEFAULT</span> <span class="number">1</span>,</span><br><span class="line">    status         <span class="type">INT</span>              <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>,</span><br><span class="line">    is_deleted     <span class="type">INT</span>              <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">    create_id      <span class="type">BIGINT</span>,</span><br><span class="line">    update_id      <span class="type">BIGINT</span>,</span><br><span class="line">    create_time    <span class="type">TIMESTAMPTZ</span>      <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span>,</span><br><span class="line">    update_time    <span class="type">TIMESTAMPTZ</span>      <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 表注释</span></span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">TABLE</span> sys_dept <span class="keyword">IS</span> <span class="string">&#x27;部门表&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 字段注释</span></span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.dept_id <span class="keyword">IS</span> <span class="string">&#x27;部门ID,主键&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.dept_name <span class="keyword">IS</span> <span class="string">&#x27;部门名称&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.parent_id <span class="keyword">IS</span> <span class="string">&#x27;父ID,最顶层从0开始&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.sort <span class="keyword">IS</span> <span class="string">&#x27;排序序号&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.status <span class="keyword">IS</span> <span class="string">&#x27;状态(1-正常 0-停用)&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.is_deleted <span class="keyword">IS</span> <span class="string">&#x27;逻辑删除标识(1-已删除 0-未删除)&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.create_id <span class="keyword">IS</span> <span class="string">&#x27;创建人ID,关联用户表(sys_user)主键&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.update_id <span class="keyword">IS</span> <span class="string">&#x27;更新人ID,关联用户表(sys_user)主键&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.create_time <span class="keyword">IS</span> <span class="string">&#x27;创建时间&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.update_time <span class="keyword">IS</span> <span class="string">&#x27;更新时间&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 索引（统一前缀命名：PG 中索引与表共享同一 schema 的命名空间，同一 schema 内索引名不能重复）</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> idx_sys_dept_dept_name <span class="keyword">ON</span> sys_dept(dept_name);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> idx_sys_dept_parent_id <span class="keyword">ON</span> sys_dept(parent_id);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> idx_sys_dept_sort <span class="keyword">ON</span> sys_dept(sort);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> idx_sys_dept_create_time <span class="keyword">ON</span> sys_dept(create_time);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> idx_sys_dept_update_time <span class="keyword">ON</span> sys_dept(update_time);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 外键（前提：sys_user 表需已创建，含 user_id 主键、dept_id 字段，否则以下语句会报错）</span></span><br><span class="line"><span class="comment">-- create_id 创建人，关联 sys_user.user_id</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sys_dept</span><br><span class="line">    <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> fk_sys_dept_create_id</span><br><span class="line">        <span class="keyword">FOREIGN KEY</span> (create_id) <span class="keyword">REFERENCES</span> sys_user(user_id);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- update_id 更新人，关联 sys_user.user_id</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sys_dept</span><br><span class="line">    <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> fk_sys_dept_update_id</span><br><span class="line">        <span class="keyword">FOREIGN KEY</span> (update_id) <span class="keyword">REFERENCES</span> sys_user(user_id);</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sys_user</span><br><span class="line">    <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> fk_sys_user_dept_id</span><br><span class="line">        <span class="keyword">FOREIGN KEY</span> (dept_id) <span class="keyword">REFERENCES</span> sys_dept(dept_id);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 部门表(主键自增 - GENERATED ALWAYS 不允许手动插入主键值；如需手动指定主键，改用 GENERATED BY DEFAULT)</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> sys_dept (</span><br><span class="line">    dept_id        <span class="type">BIGINT</span>           <span class="keyword">PRIMARY KEY</span> <span class="keyword">GENERATED</span> <span class="keyword">ALWAYS</span> <span class="keyword">AS</span> <span class="keyword">IDENTITY</span>,</span><br><span class="line">    dept_name      <span class="type">TEXT</span>             <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    parent_id      <span class="type">BIGINT</span>           <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">    sort           <span class="type">INT</span>              <span class="keyword">DEFAULT</span> <span class="number">1</span>,</span><br><span class="line">    status         <span class="type">INT</span>              <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>,</span><br><span class="line">    is_deleted     <span class="type">INT</span>              <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">    create_id      <span class="type">BIGINT</span>,</span><br><span class="line">    update_id      <span class="type">BIGINT</span>,</span><br><span class="line">    create_time    <span class="type">TIMESTAMPTZ</span>      <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span>,</span><br><span class="line">    update_time    <span class="type">TIMESTAMPTZ</span>      <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 表注释</span></span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">TABLE</span> sys_dept <span class="keyword">IS</span> <span class="string">&#x27;部门表&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 字段注释</span></span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.dept_id <span class="keyword">IS</span> <span class="string">&#x27;部门ID,主键&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.dept_name <span class="keyword">IS</span> <span class="string">&#x27;部门名称&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.parent_id <span class="keyword">IS</span> <span class="string">&#x27;父ID,最顶层从0开始&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.sort <span class="keyword">IS</span> <span class="string">&#x27;排序序号&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.status <span class="keyword">IS</span> <span class="string">&#x27;状态(1-正常 0-停用)&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.is_deleted <span class="keyword">IS</span> <span class="string">&#x27;逻辑删除标识(1-已删除 0-未删除)&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.create_id <span class="keyword">IS</span> <span class="string">&#x27;创建人ID,关联用户表(sys_user)主键&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.update_id <span class="keyword">IS</span> <span class="string">&#x27;更新人ID,关联用户表(sys_user)主键&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.create_time <span class="keyword">IS</span> <span class="string">&#x27;创建时间&#x27;</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.update_time <span class="keyword">IS</span> <span class="string">&#x27;更新时间&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 索引（统一前缀命名：PG 中索引与表共享同一 schema 的命名空间，同一 schema 内索引名不能重复）</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> idx_sys_dept_dept_name <span class="keyword">ON</span> sys_dept(dept_name);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> idx_sys_dept_parent_id <span class="keyword">ON</span> sys_dept(parent_id);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> idx_sys_dept_sort <span class="keyword">ON</span> sys_dept(sort);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> idx_sys_dept_create_time <span class="keyword">ON</span> sys_dept(create_time);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> idx_sys_dept_update_time <span class="keyword">ON</span> sys_dept(update_time);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 外键（前提：sys_user 表需已创建，含 user_id 主键、dept_id 字段，否则以下语句会报错）</span></span><br><span class="line"><span class="comment">-- create_id 创建人，关联 sys_user.user_id</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sys_dept</span><br><span class="line">    <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> fk_sys_dept_create_id</span><br><span class="line">        <span class="keyword">FOREIGN KEY</span> (create_id) <span class="keyword">REFERENCES</span> sys_user(user_id);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- update_id 更新人，关联 sys_user.user_id</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sys_dept</span><br><span class="line">    <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> fk_sys_dept_update_id</span><br><span class="line">        <span class="keyword">FOREIGN KEY</span> (update_id) <span class="keyword">REFERENCES</span> sys_user(user_id);</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sys_user</span><br><span class="line">    <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> fk_sys_user_dept_id</span><br><span class="line">        <span class="keyword">FOREIGN KEY</span> (dept_id) <span class="keyword">REFERENCES</span> sys_dept(dept_id);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-删除表"><a href="#2-3-删除表" class="headerlink" title="2.3  删除表"></a>2.3  删除表</h4><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">基础删除</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> sys_dept;</span><br><span class="line"></span><br><span class="line">如果被其他对象依赖，级联删除（连带引用它的视图、其他表的外键约束一起删掉，谨慎使用）</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> sys_dept <span class="keyword">CASCADE</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-修改表"><a href="#2-4-修改表" class="headerlink" title="2.4  修改表"></a>2.4  修改表</h4><h5 id="2-4-1-新增列"><a href="#2-4-1-新增列" class="headerlink" title="2.4.1 新增列"></a>2.4.1 新增列</h5><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 新增 remark 字段</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sys_dept <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> remark <span class="type">TEXT</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 添加字段注释</span></span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.remark <span class="keyword">IS</span> <span class="string">&#x27;备注&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-4-2-删除列"><a href="#2-4-2-删除列" class="headerlink" title="2.4.2 删除列"></a>2.4.2 删除列</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sys_dept <span class="keyword">DROP</span> <span class="keyword">COLUMN</span> IF <span class="keyword">EXISTS</span> remark;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-4-3-修改列"><a href="#2-4-3-修改列" class="headerlink" title="2.4.3 修改列"></a>2.4.3 修改列</h5><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 1. 修改字段类型</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sys_dept <span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> 字段名 <span class="keyword">TYPE</span> 新类型;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2. 修改 NOT NULL 约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sys_dept <span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> 字段名 <span class="keyword">SET</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sys_dept <span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> 字段名 <span class="keyword">DROP</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 3. 修改默认值</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sys_dept <span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> 字段名 <span class="keyword">SET</span> <span class="keyword">DEFAULT</span> xxx;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sys_dept <span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> 字段名 <span class="keyword">DROP</span> <span class="keyword">DEFAULT</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 4. 修改字段注释（独立语句）</span></span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> sys_dept.字段名 <span class="keyword">IS</span> <span class="string">&#x27;新注释&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 5. 重命名字段（不改类型）</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> sys_dept <span class="keyword">RENAME</span> <span class="keyword">COLUMN</span> old_name <span class="keyword">TO</span> new_name;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-4-4-查询表结构"><a href="#2-4-4-查询表结构" class="headerlink" title="2.4.4 查询表结构"></a>2.4.4 查询表结构</h5><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 不同 schema 可能有同名表，建议加上 table_schema 限定</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> information_schema.<span class="keyword">columns</span> <span class="keyword">WHERE</span> <span class="built_in">table_name</span>=<span class="string">&#x27;sys_dept&#x27;</span> <span class="keyword">AND</span> table_schema=<span class="string">&#x27;public&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="第3节-用户权限管理"><a href="#第3节-用户权限管理" class="headerlink" title="第3节 用户权限管理"></a>第3节 用户权限管理</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 修改密码</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">ROLE</span> yaya <span class="keyword">PASSWORD</span> <span class="string">&#x27;NewPass@2026&#x27;</span>;</span><br><span class="line"></span><br><span class="line">其他权限控制，请自行查资料</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="第五章-导入和导出"><a href="#第五章-导入和导出" class="headerlink" title="第五章 导入和导出"></a>第五章 导入和导出</h2><p>前面几章把库和表都建好了,这一章解决数据怎么进、怎么出的问题。日常就两个场景:</p>
+<ul>
+<li><strong>整库备份&#x2F;还原</strong> —— 用 <code>pg_dump</code> &#x2F; <code>pg_restore</code></li>
+<li><strong>单表数据导入导出</strong> —— 用 <code>COPY</code> &#x2F; <code>\copy</code>(CSV 最常用)</li>
+</ul>
+<p>物理备份、主从复制属于运维范畴,本文不展开。</p>
+<h3 id="第1节-工具概览-MySQL-vs-PG"><a href="#第1节-工具概览-MySQL-vs-PG" class="headerlink" title="第1节 工具概览(MySQL vs PG)"></a>第1节 工具概览(MySQL vs PG)</h3><table>
+<thead>
+<tr>
+<th>用途</th>
+<th>MySQL</th>
+<th>PostgreSQL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>备份单个库</td>
+<td>mysqldump 库名</td>
+<td>pg_dump -d 库名</td>
+</tr>
+<tr>
+<td>还原</td>
+<td>mysql 库名 &lt; backup.sql</td>
+<td>psql -d 库名 -f backup.sql</td>
+</tr>
+<tr>
+<td>备份整个实例</td>
+<td>mysqldump –all-databases</td>
+<td>pg_dumpall</td>
+</tr>
+<tr>
+<td>压缩格式备份</td>
+<td>管道配合 gzip 压缩</td>
+<td>pg_dump -Fc 自带压缩,配套 pg_restore 还原</td>
+</tr>
+<tr>
+<td>表数据导出</td>
+<td>SELECT … INTO OUTFILE</td>
+<td>\copy TO</td>
+</tr>
+<tr>
+<td>表数据导入</td>
+<td>LOAD DATA INFILE</td>
+<td>\copy FROM</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>我们的 PG 跑在 Docker 里,所以下面统一用 <code>docker exec</code> 方式演示(方便,不用进容器交互),容器名用第二章的 <code>pg18-gis</code>。</p>
+</blockquote>
+<blockquote>
+<p>如果宿主机自己装了 PG 客户端,给命令加上 <code>-h 127.0.0.1 -p 5432</code> 也能直接连(密码是创建容器时设的 postgres)。还是推荐容器内执行:pg_dump 版本和数据库版本天然匹配,不会踩版本兼容的坑。</p>
+</blockquote>
+<h3 id="第2节-整库备份和还原-pg-dump-pg-restore"><a href="#第2节-整库备份和还原-pg-dump-pg-restore" class="headerlink" title="第2节 整库备份和还原(pg_dump&#x2F;pg_restore)"></a>第2节 整库备份和还原(pg_dump&#x2F;pg_restore)</h3><h4 id="2-1-备份"><a href="#2-1-备份" class="headerlink" title="2.1 备份"></a>2.1 备份</h4><blockquote>
+<p>备份成 SQL 纯文本(默认格式,可读可改,跨版本通用)</p>
+</blockquote>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"># 在容器里生成备份文件</span><br><span class="line">docker exec pg18-gis pg_dump -U postgres -d gis_main -f /tmp/gis_main.<span class="keyword">sql</span></span><br><span class="line"></span><br><span class="line"># 从容器拷回宿主机</span><br><span class="line">docker cp pg18-gis:/tmp/gis_main.<span class="keyword">sql</span> ./gis_main.<span class="keyword">sql</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>备份成自定义格式(-Fc:自带压缩,文件更小,还原更灵活,推荐做正式备份)</p>
+</blockquote>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">docker exec pg18-gis pg_dump -U postgres -d gis_main -Fc -f /tmp/gis_main.dump</span><br><span class="line">docker cp pg18-gis:/tmp/gis_main.dump ./gis_main.dump</span><br></pre></td></tr></table></figure>
+
+<p>⚠️ Windows 下不要写成 <code>docker exec ... &gt; dump.sql</code> 这种重定向导出:PowerShell 会按 UTF-16 编码写文件,导致备份文件损坏。统一用 <code>-f</code> 生成到容器里、再 <code>docker cp</code> 拷出来最稳。</p>
+<blockquote>
+<p>只备份结构 &#x2F; 只备份数据</p>
+</blockquote>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"># 只导结构(建表、索引、注释等,不含数据)</span><br><span class="line">docker exec pg18-gis pg_dump -U postgres -d gis_main -s -f /tmp/only_ddl.<span class="keyword">sql</span></span><br><span class="line"></span><br><span class="line"># 只导数据(不含建表语句)</span><br><span class="line">docker exec pg18-gis pg_dump -U postgres -d gis_main -a -f /tmp/only_data.<span class="keyword">sql</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>只备份某张表 &#x2F; 某个 schema</p>
+</blockquote>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"># 只备份 sys_dept 表</span><br><span class="line">docker exec pg18-gis pg_dump -U postgres -d gis_main -t sys_dept -f /tmp/sys_dept.<span class="keyword">sql</span></span><br><span class="line"></span><br><span class="line"># 只备份 <span class="built_in">public</span> 这个 <span class="keyword">schema</span></span><br><span class="line">docker exec pg18-gis pg_dump -U postgres -d gis_main -n <span class="built_in">public</span> -f /tmp/<span class="built_in">public</span>.<span class="keyword">sql</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>常用参数</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-U 用户名</td>
+<td>指定连接用户</td>
+</tr>
+<tr>
+<td>-d 库名</td>
+<td>指定要备份的数据库</td>
+</tr>
+<tr>
+<td>-f 文件</td>
+<td>输出到文件</td>
+</tr>
+<tr>
+<td>-t 表名</td>
+<td>只备份指定表(可写多次,备份多张)</td>
+</tr>
+<tr>
+<td>-n schema名</td>
+<td>只备份指定 schema</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>只导结构(不含数据)</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>只导数据(不含结构)</td>
+</tr>
+<tr>
+<td>-Fc</td>
+<td>自定义格式(压缩,配套 pg_restore 还原)</td>
+</tr>
+<tr>
+<td>-Fd</td>
+<td>目录格式(超大库可用 pg_restore -j 并行还原)</td>
+</tr>
+</tbody></table>
+<h4 id="2-2-还原"><a href="#2-2-还原" class="headerlink" title="2.2 还原"></a>2.2 还原</h4><p>⚠️ 关键点:<code>pg_dump</code> 备份的是<strong>库里</strong>的内容,<strong>不含建库语句</strong>(类似 mysqldump 不带 <code>--databases</code> 参数),所以还原前必须先手工建好空库。</p>
+<blockquote>
+<p>还原 SQL 文本格式</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. 先建好空库</span></span><br><span class="line">docker <span class="built_in">exec</span> pg18-gis psql -U postgres -c <span class="string">&quot;CREATE DATABASE gis_main_new&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 把备份文件拷进容器</span></span><br><span class="line">docker <span class="built_in">cp</span> ./gis_main.sql pg18-gis:/tmp/gis_main.sql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 还原(-v ON_ERROR_STOP=1:遇到第一个错误就停,避免错误被日志淹没)</span></span><br><span class="line">docker <span class="built_in">exec</span> pg18-gis psql -U postgres -d gis_main_new -v ON_ERROR_STOP=1 -f /tmp/gis_main.sql</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>还原自定义格式(-Fc 备份的文件必须用 pg_restore 还原)</p>
+</blockquote>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"># 同样先建好空库,再拷文件进容器</span><br><span class="line">docker exec pg18-gis psql -U postgres -c &quot;CREATE DATABASE gis_main_new&quot;</span><br><span class="line">docker cp ./gis_main.dump pg18-gis:/tmp/gis_main.dump</span><br><span class="line"></span><br><span class="line"># 还原</span><br><span class="line">docker exec pg18-gis pg_restore -U postgres -d gis_main_new /tmp/gis_main.dump</span><br><span class="line"></span><br><span class="line"># 如果目标库里已有同名对象,加 -c <span class="comment">--if-exists 先删再建</span></span><br><span class="line">docker exec pg18-gis pg_restore -U postgres -d gis_main_new -c <span class="comment">--if-exists /tmp/gis_main.dump</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>小习惯:备份完顺手在测试库还原验证一次,避免关键时刻备份不可用。</p>
+</blockquote>
+<h4 id="2-3-备份整个实例-pg-dumpall"><a href="#2-3-备份整个实例-pg-dumpall" class="headerlink" title="2.3 备份整个实例(pg_dumpall)"></a>2.3 备份整个实例(pg_dumpall)</h4><blockquote>
+<p>场景:整个 PG(所有库 + 用户角色 + 权限)搬家</p>
+</blockquote>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"># 备份</span><br><span class="line">docker exec pg18-gis pg_dumpall -U postgres -f /tmp/pg_all.<span class="keyword">sql</span></span><br><span class="line">docker cp pg18-gis:/tmp/pg_all.<span class="keyword">sql</span> ./pg_all.<span class="keyword">sql</span></span><br><span class="line"></span><br><span class="line"># 还原(连到 postgres 库执行,脚本里自带建库、建角色语句)</span><br><span class="line">docker cp ./pg_all.<span class="keyword">sql</span> pg18-gis:/tmp/pg_all.<span class="keyword">sql</span></span><br><span class="line">docker exec pg18-gis psql -U postgres -v ON_ERROR_STOP=<span class="number">1</span> -f /tmp/pg_all.<span class="keyword">sql</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>pg_dump vs pg_dumpall</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>对比</th>
+<th>pg_dump</th>
+<th>pg_dumpall</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>范围</td>
+<td>单个库</td>
+<td>整个实例(所有库+角色+权限)</td>
+</tr>
+<tr>
+<td>格式</td>
+<td>SQL &#x2F; 自定义 &#x2F; 目录</td>
+<td>只有 SQL 文本</td>
+</tr>
+<tr>
+<td>还原方式</td>
+<td>psql 或 pg_restore</td>
+<td>psql</td>
+</tr>
+<tr>
+<td>典型场景</td>
+<td>日常单库备份</td>
+<td>整机迁移、大版本升级</td>
+</tr>
+</tbody></table>
+<h3 id="第3节-表级导入导出-COPY-copy"><a href="#第3节-表级导入导出-COPY-copy" class="headerlink" title="第3节 表级导入导出(COPY &#x2F; \copy)"></a>第3节 表级导入导出(COPY &#x2F; \copy)</h3><p>单表数据进出最常用的就是 CSV。PG 原生的 COPY 命令,比逐条 INSERT 快几个数量级,对应 MySQL 的 <code>LOAD DATA INFILE</code> &#x2F; <code>SELECT ... INTO OUTFILE</code>。</p>
+<p>同样的功能有两个版本,一句话区分:</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>谁执行</th>
+<th>文件在哪</th>
+<th>权限要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>COPY</td>
+<td>数据库服务端</td>
+<td>服务器(容器)上的路径</td>
+<td>需要超级用户或 pg_read_server_files &#x2F; pg_write_server_files</td>
+</tr>
+<tr>
+<td>\copy</td>
+<td>psql 客户端</td>
+<td>执行 psql 的机器上的路径</td>
+<td>普通用户即可</td>
+</tr>
+</tbody></table>
+<p>✅ 日常推荐用 <code>\copy</code>:不用超级用户,更安全,和 MySQL 的使用习惯最接近。</p>
+<p>⚠️ 因为本文的 psql 是 <code>docker exec</code> 进容器执行的,所以 <code>\copy</code> 的文件实际也落在容器里,来回都需要 <code>docker cp</code>(见下面示例)。</p>
+<h4 id="3-1-导出-CSV"><a href="#3-1-导出-CSV" class="headerlink" title="3.1 导出 CSV"></a>3.1 导出 CSV</h4><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"># 进入 psql 后执行(进入方式见第二章)</span><br><span class="line"></span><br><span class="line"># 最简写法:导出整表</span><br><span class="line">\<span class="keyword">copy</span> sys_dept <span class="keyword">TO</span> <span class="string">&#x27;/tmp/sys_dept.csv&#x27;</span> CSV <span class="keyword">HEADER</span></span><br><span class="line"></span><br><span class="line"># 导出查询结果(可挑列、加条件)</span><br><span class="line">\<span class="keyword">copy</span> (<span class="keyword">SELECT</span> dept_id, dept_name <span class="keyword">FROM</span> sys_dept <span class="keyword">WHERE</span> status = <span class="number">1</span>) <span class="keyword">TO</span> <span class="string">&#x27;/tmp/sys_dept_ok.csv&#x27;</span> CSV <span class="keyword">HEADER</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 再从容器把文件拷到宿主机</span></span><br><span class="line">docker <span class="built_in">cp</span> pg18-gis:/tmp/sys_dept.csv ./sys_dept.csv</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-导入-CSV"><a href="#3-2-导入-CSV" class="headerlink" title="3.2 导入 CSV"></a>3.2 导入 CSV</h4><p>⚠️ 前置条件:目标表必须先建好,且 CSV 中列的顺序要和表列一一对应(带表头时,<code>HEADER</code> 只是让导入时跳过第一行,并不会按列名自动匹配)。</p>
+<figure class="highlight ruleslanguage"><table><tr><td class="code"><pre><span class="line"><span class="literal"># </span>先把 <span class="keyword">CSV</span> 拷进容器</span><br><span class="line">docker cp ./sys_dept.csv pg18-gis:/tmp/sys_dept.csv</span><br><span class="line"></span><br><span class="line"><span class="literal"># </span>进入 psql 后执行</span><br><span class="line">\copy sys_dept <span class="keyword">FROM</span> <span class="string">&#x27;/tmp/sys_dept.csv&#x27;</span> <span class="keyword">CSV</span> HEADER</span><br><span class="line"></span><br><span class="line"><span class="literal"># </span>如果 <span class="keyword">CSV</span> 列顺序与表不一致(比如 <span class="keyword">CSV</span> 里是 名称在前、ID 在后),</span><br><span class="line"><span class="literal"># </span>可写列清单建立对应关系 —— 列清单按 <span class="keyword">CSV</span> 的列顺序列出表列名</span><br><span class="line">\copy sys_dept (dept_name, dept_id) <span class="keyword">FROM</span> <span class="string">&#x27;/tmp/sys_dept.csv&#x27;</span> <span class="keyword">CSV</span> HEADER</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>常用选项</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CSV</td>
+<td>逗号分隔(不写默认是制表符分隔)</td>
+</tr>
+<tr>
+<td>HEADER</td>
+<td>第一行是列名,导入时自动跳过</td>
+</tr>
+<tr>
+<td>ENCODING ‘UTF8’</td>
+<td>指定文件编码(中文乱码时检查这个)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>完整写法(选项都写进 WITH,更直观):</p>
+</blockquote>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">\<span class="keyword">copy</span> sys_dept <span class="keyword">TO</span> <span class="string">&#x27;/tmp/sys_dept.csv&#x27;</span> <span class="keyword">WITH</span> (<span class="keyword">FORMAT</span> csv, <span class="keyword">HEADER</span> <span class="keyword">true</span>, <span class="keyword">ENCODING</span> <span class="string">&#x27;UTF8&#x27;</span>)</span><br><span class="line">\<span class="keyword">copy</span> sys_dept <span class="keyword">FROM</span> <span class="string">&#x27;/tmp/sys_dept.csv&#x27;</span> <span class="keyword">WITH</span> (<span class="keyword">FORMAT</span> csv, <span class="keyword">HEADER</span> <span class="keyword">true</span>, <span class="keyword">ENCODING</span> <span class="string">&#x27;UTF8&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-带-geometry-空间字段-的表"><a href="#3-3-带-geometry-空间字段-的表" class="headerlink" title="3.3 带 geometry(空间字段)的表"></a>3.3 带 geometry(空间字段)的表</h4><blockquote>
+<p>GIS 场景的坑:COPY&#x2F;\copy 不认识 WKT,不能直接往 geometry 列里导。</p>
+</blockquote>
+<p>导出 —— geometry 列默认会导出成十六进制 EWKB,想要 WKT 得显式转换:</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">\<span class="keyword">copy</span> (<span class="keyword">SELECT</span> id, <span class="type">name</span>, ST_AsText(geom) <span class="keyword">FROM</span> poi) <span class="keyword">TO</span> <span class="string">&#x27;/tmp/poi.csv&#x27;</span> CSV <span class="keyword">HEADER</span></span><br></pre></td></tr></table></figure>
+
+<p>导入 —— 不能直接进 geometry 列,分两步:先落到文本临时表,再转换入库:</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 1. 建临时表,geom 先用 text 存</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> poi_tmp (</span><br><span class="line">    id        <span class="type">BIGINT</span>,</span><br><span class="line">    <span class="type">name</span>      <span class="type">TEXT</span>,</span><br><span class="line">    geom_text <span class="type">TEXT</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2. 导入临时表(\copy 在 psql 里执行)</span></span><br><span class="line">\<span class="keyword">copy</span> poi_tmp <span class="keyword">FROM</span> <span class="string">&#x27;/tmp/poi.csv&#x27;</span> CSV <span class="keyword">HEADER</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 3. 转成 geometry 后写入正式表(poi 换成你的实际表;4326 是坐标系 SRID,按实际数据改)</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> poi (id, <span class="type">name</span>, geom)</span><br><span class="line"><span class="keyword">SELECT</span> id, <span class="type">name</span>, ST_GeomFromText(geom_text, <span class="number">4326</span>) <span class="keyword">FROM</span> poi_tmp;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 4. 删掉临时表</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> poi_tmp;</span><br></pre></td></tr></table></figure>
+
+<h3 id="第4节-图形化工具-简略"><a href="#第4节-图形化工具-简略" class="headerlink" title="第4节 图形化工具(简略)"></a>第4节 图形化工具(简略)</h3><blockquote>
+<p>pgAdmin4</p>
+</blockquote>
+<p>右键数据库 → Backup… &#x2F; Restore…;右键表 → Import&#x2F;Export Data…(本质还是调用 pg_dump 和 COPY)</p>
+<blockquote>
+<p>DBeaver</p>
+</blockquote>
+<p>右键表 → 导出数据 &#x2F; 导入数据(支持 CSV、Excel,本质也是生成 COPY 语句)</p>
+<p>GUI 是外壳,底层的 pg_dump &#x2F; pg_restore &#x2F; COPY 才是本体,命令行会用了,GUI 就是点两下的事。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+        <tag>数据库</tag>
+        <tag>postgre</tag>
+        <tag>gis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>网站基础架构实现-小小架构入门</title>
     <url>/2026/08/03/%E7%BD%91%E7%AB%99%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%E5%AE%9E%E7%8E%B0-%E5%B0%8F%E5%B0%8F%E6%9E%B6%E6%9E%84%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
@@ -696,65 +1198,6 @@
       </tags>
   </entry>
   <entry>
-    <title>网站内文件存储-快速入门</title>
-    <url>/2026/08/03/%E7%BD%91%E7%AB%99%E5%86%85%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<span id="more"></span>
-<h2 id="第一章-什么是文件存储"><a href="#第一章-什么是文件存储" class="headerlink" title="第一章 什么是文件存储"></a>第一章 什么是文件存储</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">在网络上存在各种各样的资源</span></span><br><span class="line"><span class="number">1</span><span class="string">.</span> <span class="string">文本资源</span> <span class="string">.txt</span> <span class="string">.html</span> <span class="string">用户信息(用户名、密码、性别、年龄...)</span></span><br><span class="line"><span class="number">2</span><span class="string">.</span> <span class="string">多媒体资源</span></span><br><span class="line">	<span class="number">2.1</span> <span class="string">Excel、Word、PPT、PDF等</span></span><br><span class="line">	<span class="number">2.2</span> <span class="string">音频(mp3</span> <span class="string">...)</span></span><br><span class="line">	<span class="number">2.3</span> <span class="string">视频(mp4</span> <span class="string">...)</span></span><br><span class="line">	<span class="number">2.4</span> <span class="string">图片</span></span><br><span class="line"></span><br><span class="line"><span class="string">以上这些数据按照分类需要保存到不同的数据库中</span></span><br><span class="line">	<span class="number">1</span><span class="string">.</span> <span class="string">数据库</span></span><br><span class="line">		<span class="number">1.1</span> <span class="string">关系型数据库</span></span><br><span class="line">		<span class="number">1.2</span> <span class="string">非关系型数据库</span></span><br><span class="line">		<span class="number">1.3</span> <span class="string">向量数据库</span></span><br><span class="line">			<span class="string">...</span></span><br><span class="line">	<span class="number">2</span><span class="string">.</span> <span class="string">文件服务器（存储大文件）</span></span><br><span class="line">		<span class="string">...</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="第二章-文件存储的实现方式"><a href="#第二章-文件存储的实现方式" class="headerlink" title="第二章 文件存储的实现方式"></a>第二章 文件存储的实现方式</h2><h3 id="第1节-方式一-基于SpringBoot应用存储"><a href="#第1节-方式一-基于SpringBoot应用存储" class="headerlink" title="第1节 方式一 基于SpringBoot应用存储"></a>第1节 方式一 基于SpringBoot应用存储</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">如果项目较小，存储的文件不是很多，并且多以图片或者小的文本文件为主，并且不涉及到敏感图片，这是可以采用方式一，简单方便。</span></span><br><span class="line"></span><br><span class="line"><span class="string">实现方式非常简单,步骤如下</span> <span class="string">↓↓↓↓↓↓↓↓↓↓↓↓↓↓</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="第1步-创建一个基于Springboot的Web项目"><a href="#第1步-创建一个基于Springboot的Web项目" class="headerlink" title="第1步 创建一个基于Springboot的Web项目"></a>第1步 创建一个基于Springboot的Web项目</h4><img src="https://note.youdao.com/yws/api/personal/file/WEB210316c2efffd2ee57f883fbcd9a5d36?method=download&shareKey=0a6dfdf18008883fd5ad46c4e206f72f">
-
-<h4 id="第2步-配置SpringBoot的静态资源管理"><a href="#第2步-配置SpringBoot的静态资源管理" class="headerlink" title="第2步 配置SpringBoot的静态资源管理"></a>第2步 配置SpringBoot的静态资源管理</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">web:</span></span><br><span class="line">    <span class="attr">resources:</span></span><br><span class="line">      <span class="attr">static-locations:</span> <span class="string">classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:d:/file/</span></span><br></pre></td></tr></table></figure>
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB81ff93f1e6931087d37c838b2e588a79?method=download&shareKey=4b86a3fa331d9b59b9952e474a4eb6d3">
-
-<h4 id="第3步-测试"><a href="#第3步-测试" class="headerlink" title="第3步 测试"></a>第3步 测试</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">按照第2步</span> <span class="string">在d盘(可以设置本地硬盘的任意位置)创建一个file文件夹,并且在此文件夹中放一张图片用于测试，如下所以:</span></span><br></pre></td></tr></table></figure>
-
-<img src="https://note.youdao.com/yws/api/personal/file/WEB1bf0da9f04a59cd1834095f508258c1d?method=download&shareKey=c34a0c919e170a2c07de9dfb9db829dc">
-
-<h4 id="第4步-启动项目并测试"><a href="#第4步-启动项目并测试" class="headerlink" title="第4步 启动项目并测试"></a>第4步 启动项目并测试</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 启动项目</span><br><span class="line"><span class="bullet">2.</span> 在浏览器中输入 服务器地址+文件名 例如: </span><br></pre></td></tr></table></figure>
-
-<h4 id="第5步-测试完成后-编写API将文件操作接口暴露给用户使用"><a href="#第5步-测试完成后-编写API将文件操作接口暴露给用户使用" class="headerlink" title="第5步 测试完成后,编写API将文件操作接口暴露给用户使用"></a>第5步 测试完成后,编写API将文件操作接口暴露给用户使用</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1. 设计数据库表</span></span><br><span class="line">-- 创建库</span><br><span class="line">CREATE DATABASE db_file DEFAULT CHARACTER SET utf8;</span><br><span class="line">-- 文件表</span><br><span class="line">CREATE TABLE <span class="title function_">sys_file</span><span class="params">(</span></span><br><span class="line"><span class="params">    file_id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT <span class="string">&#x27;文件ID,主键自增&#x27;</span>,</span></span><br><span class="line"><span class="params">    file_name VARCHAR(<span class="number">255</span>)</span> NOT NULL COMMENT <span class="string">&#x27;文件名称&#x27;</span>,</span><br><span class="line">    file_url <span class="title function_">VARCHAR</span><span class="params">(<span class="number">255</span>)</span> NOT NULL COMMENT <span class="string">&#x27;文件服务器地址&#x27;</span>,</span><br><span class="line">    file_address <span class="title function_">VARCHAR</span><span class="params">(<span class="number">255</span>)</span> NOT NULL COMMENT <span class="string">&#x27;文件本地硬盘的真实地址&#x27;</span>,</span><br><span class="line">    suffix <span class="title function_">VARCHAR</span><span class="params">(<span class="number">100</span>)</span> COMMENT <span class="string">&#x27;文件格式 pdf xlsx zip ppt docx等&#x27;</span>,</span><br><span class="line">    size BIGINT DEFAULT <span class="number">0</span> COMMENT <span class="string">&#x27;文件大小&#x27;</span>,</span><br><span class="line">    create_time DATETIME NOT NULL COMMENT <span class="string">&#x27;创建时间&#x27;</span>,</span><br><span class="line">    update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT <span class="string">&#x27;设置当前时间，并且自动更更新时间&#x27;</span></span><br><span class="line">)DEFAULT CHARSET=<span class="string">&#x27;UTF8&#x27;</span> AUTO_INCREMENT=<span class="number">1000</span> COMMENT=<span class="string">&#x27;文件表&#x27;</span>;</span><br><span class="line"><span class="comment">//2. 其它操作略</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="第2节-方式二-基于minio文件服务器存储"><a href="#第2节-方式二-基于minio文件服务器存储" class="headerlink" title="第2节 方式二 基于minio文件服务器存储"></a>第2节 方式二 基于minio文件服务器存储</h3><h4 id="第1步-minio官网"><a href="#第1步-minio官网" class="headerlink" title="第1步 minio官网"></a>第1步 minio官网</h4><figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">https:</span>//www.minio<span class="meta">.org</span>.cn/</span><br></pre></td></tr></table></figure>
-
-<h4 id="第2步-minio安装"><a href="#第2步-minio安装" class="headerlink" title="第2步 minio安装"></a>第2步 minio安装</h4><figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line">本练习通过<span class="type">Docker</span>容器化平台进行minio的安装: minio支持<span class="type">Podman</span>和<span class="type">Docker</span>两种方式，我这里采用<span class="type">Docker</span>方式</span><br><span class="line">安装地址: https://www.minio.org.cn/docs/minio/container/index.html</span><br><span class="line"></span><br><span class="line">第一步: 创建数据库的保存目录 命令为: mkdir -p ~/minio/<span class="class"><span class="keyword">data</span></span></span><br><span class="line">第二步: 运行docker命令,命令如下:   (注意:需要自己安装<span class="type">Docker</span>平台)</span><br><span class="line">	docker run \</span><br><span class="line">       -p <span class="number">9000</span>:<span class="number">9000</span> \</span><br><span class="line">       -p <span class="number">9001</span>:<span class="number">9001</span> \</span><br><span class="line">       <span class="comment">--name minio \</span></span><br><span class="line">       -d <span class="comment">--restart=always \</span></span><br><span class="line">       -v ~/minio/<span class="class"><span class="keyword">data</span>:/<span class="keyword">data</span> \</span></span><br><span class="line">       -e <span class="string">&quot;MINIO_ROOT_USER=minio&quot;</span> \</span><br><span class="line">       -e <span class="string">&quot;MINIO_ROOT_PASSWORD=minio123&quot;</span> \</span><br><span class="line">       quay.io/minio/minio server /<span class="class"><span class="keyword">data</span> <span class="comment">--console-address &quot;:9001&quot;</span></span></span><br><span class="line">第三步: 访问和测试</span><br><span class="line">	<span class="number">1</span>. 访问地址: http://<span class="number">192.168</span>.<span class="number">206.129</span>:<span class="number">9001</span>/</span><br><span class="line">	<span class="number">2</span>. 用户名和而密码: minio/minio123    在进行第一次启动时设置用户名和密码(用户名长度至少<span class="number">5</span>位，密码至少<span class="number">8</span>位)</span><br><span class="line">	<span class="number">3</span>. 登录上去后进入minio控制台页面</span><br></pre></td></tr></table></figure>
-
-<h4 id="第3步-minio的API操作-Java版"><a href="#第3步-minio的API操作-Java版" class="headerlink" title="第3步 minio的API操作(Java版)"></a>第3步 minio的API操作(Java版)</h4><blockquote>
-<p>Maven依赖</p>
-</blockquote>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.minio<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>minio<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.5.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>功能介绍</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span><span class="string">.</span> <span class="string">文件上传</span></span><br><span class="line"><span class="number">2</span><span class="string">.</span> <span class="string">文件删除</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>集成SpringBoot对外提供API接口案例</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">第一步: 在minio操作页面创建一个用户(给读写权限)，并且在创建accessKey和securityKey</span><br><span class="line">第二步: 创建SpringBoot项目添加minio依赖</span><br><span class="line">第三步: 在SpringBoot配置minio服务器 application.yml</span><br><span class="line">    minio:</span><br><span class="line">      # minio账户的access</span><br><span class="line">      access_key: s9Aev3pEpCqKaaoMuanY</span><br><span class="line">      # minio账户的security</span><br><span class="line">      security_key: mvsXMUYHq44GQkZERtbzzspYu1iULIvGsZynwC80</span><br><span class="line">      # 服务器地址</span><br><span class="line">      endpoint: http:<span class="comment">//192.168.206.129:9000/</span></span><br><span class="line">      # 创建桶，用来装文件(可以在minio页面创建，并且分配权限,默认私有)</span><br><span class="line">      bucketName: test</span><br><span class="line">第四步: 创建minio客户端</span><br><span class="line"></span><br><span class="line">    <span class="keyword">import</span> io.minio.MinioClient;</span><br><span class="line">    <span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line">    <span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line">    <span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line">    <span class="meta">@Configuration</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MinioConfig</span> &#123;</span><br><span class="line">        <span class="meta">@Value(&quot;$&#123;minio.endpoint&#125;&quot;)</span></span><br><span class="line">        <span class="keyword">private</span> String endpoint;</span><br><span class="line">        <span class="meta">@Value(&quot;$&#123;minio.access_key&#125;&quot;)</span></span><br><span class="line">        <span class="keyword">private</span> String accessKey;</span><br><span class="line">        <span class="meta">@Value(&quot;$&#123;minio.security_key&#125;&quot;)</span></span><br><span class="line">        <span class="keyword">private</span> String secretKey;</span><br><span class="line">        <span class="meta">@Bean</span></span><br><span class="line">        <span class="keyword">public</span> MinioClient <span class="title function_">createMinioClient</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> MinioClient.builder().endpoint(endpoint).credentials(accessKey, secretKey).build();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">第五步: 上传和删除代码实现</span><br><span class="line">	<span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> MinioClient minioClient;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;minio.bucketName&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String bucketName;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;minio.endpoint&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String endpoint;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除文件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(value = &quot;/deleteFile&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">deleteFile</span><span class="params">(String fileName)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        minioClient.removeObject(RemoveObjectArgs.builder()</span><br><span class="line">                        .bucket(bucketName)</span><br><span class="line">                        .object(fileName)</span><br><span class="line">                .build());</span><br><span class="line">        <span class="keyword">return</span> Map.of(<span class="string">&quot;code&quot;</span>,<span class="string">&quot;0&quot;</span>,<span class="string">&quot;msg&quot;</span>,<span class="string">&quot;删除成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 上传文件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(value = &quot;/uploadFile&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">uploadFile</span><span class="params">(MultipartFile file)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//创建桶</span></span><br><span class="line">        createBucket(minioClient,bucketName);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//文件上传</span></span><br><span class="line">            minioClient.putObject(PutObjectArgs.builder().</span><br><span class="line">                    bucket(bucketName)</span><br><span class="line">                    .object(file.getOriginalFilename())</span><br><span class="line">                            .stream(file.getInputStream(), file.getSize(), -<span class="number">1</span>)</span><br><span class="line">                            .contentType(file.getContentType())</span><br><span class="line">                    .build());</span><br><span class="line">            <span class="keyword">return</span> Map.of(<span class="string">&quot;code&quot;</span>,<span class="number">0</span>,<span class="string">&quot;msg&quot;</span>,<span class="string">&quot;success&quot;</span>,<span class="string">&quot;data&quot;</span>,endpoint+bucketName+<span class="string">&quot;/&quot;</span>+file.getOriginalFilename());</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Map.of(<span class="string">&quot;code&quot;</span>,<span class="number">0</span>,<span class="string">&quot;msg&quot;</span>,<span class="string">&quot;success&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建桶</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> minioClient minio客户端</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> bucketName  桶名字</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception  异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createBucket</span><span class="params">(MinioClient minioClient, String bucketName)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">found</span> <span class="operator">=</span> minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());</span><br><span class="line">        <span class="keyword">if</span> (!found) &#123;</span><br><span class="line">            minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Bucket &quot;</span> + bucketName + <span class="string">&quot; already exists.&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>已完成…</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>文件服务器</category>
-      </categories>
-      <tags>
-        <tag>文件服务器</tag>
-        <tag>SpringBoot</tag>
-        <tag>file</tag>
-        <tag>SQL</tag>
-        <tag>文件管理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>YaYa-Layui-Admin-Plus最佳实践</title>
     <url>/2026/08/23/yaya/yaya-layui-admin-plus%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">作者</span><span class="punctuation">:</span> <span class="string">夜泊1990</span></span><br><span class="line"><span class="attribute">企鹅</span><span class="punctuation">:</span> <span class="string">1611756908</span></span><br><span class="line"><span class="attribute">Q 群</span><span class="punctuation">:</span> <span class="string">948233848</span></span><br><span class="line"><span class="attribute">邮箱</span><span class="punctuation">:</span> <span class="string">hd1611756908@163.com</span></span><br><span class="line"><span class="attribute">博客</span><span class="punctuation">:</span> <span class="string">https://hs-an-yue.github.io/</span></span><br><span class="line"><span class="attribute">B 站</span><span class="punctuation">:</span> <span class="string">https://space.bilibili.com/514155929/</span></span><br></pre></td></tr></table></figure>
@@ -813,7 +1256,7 @@
 
 <h4 id="2-4-左侧菜单"><a href="#2-4-左侧菜单" class="headerlink" title="2.4 左侧菜单"></a>2.4 左侧菜单</h4><figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">左侧菜单没有走mockApi<span class="number">.</span><span class="keyword">js</span>进行模拟，而是直接采用AJAX的请求方式，请求data目录下的menus<span class="number">.</span>json文件</span><br><span class="line"></span><br><span class="line">具体的实现源码在<span class="keyword">js</span>目录下的yaya-admin-plus<span class="number">.</span><span class="keyword">js</span>文件中，里面有注释，可以自行查看源码</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-5-权限-未完成"><a href="#2-5-权限-未完成" class="headerlink" title="2.5 权限(未完成)"></a>2.5 权限(未完成)</h4><p>这里演示的权限主要是按钮权限，因为菜单和数据权限是由后端生成好后返回给前端，前端不需要做什么明显改动。而按钮权限不仅仅后端要给权限数据，前端也要配合实现逻辑，所以这里针对按钮权限做详细的介绍。权限实现会基于<code>Layui</code>的<code>laytpl</code>实现，这是 <code>Layui</code> 内置的 <code>JavaScript</code> 模板引擎，采用原生控制，简单方便。</p>
+<h4 id="2-5-权限"><a href="#2-5-权限" class="headerlink" title="2.5 权限"></a>2.5 权限</h4><p>这里演示的权限主要是按钮权限，因为菜单和数据权限是由后端生成好后返回给前端，前端不需要做什么明显改动。而按钮权限不仅仅后端要给权限数据，前端也要配合实现逻辑，所以这里针对按钮权限做详细的介绍。权限实现会基于<code>Layui</code>的<code>laytpl</code>实现，这是 <code>Layui</code> 内置的 <code>JavaScript</code> 模板引擎，采用原生控制，简单方便。</p>
 <hr>
 ]]></content>
       <categories>
